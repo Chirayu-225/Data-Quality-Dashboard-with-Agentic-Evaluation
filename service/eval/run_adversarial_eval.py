@@ -111,6 +111,11 @@ def run() -> bool:
     from app.agent.generator import GeneratorAgent
     from app.agent.llm_clients import GroqClient
 
+    # Direct GeneratorAgent call, same as run_eval.py — no
+    # ai_review_consent flag exists at this layer (that's an API-level
+    # gate in main.py), so constructing GroqClient() here is this
+    # harness's own deliberate, developer-initiated equivalent of
+    # consent, not a bypass of the API's default-OFF behavior.
     llm = GroqClient()
     verifier_llm = None
     try:

@@ -120,6 +120,40 @@ def test_row_data_is_framed_as_untrusted_in_prompt():
     llm = _FakeLLM('{"flags": []}')
     SemanticReasoner(llm).run(_table())
     assert "UNTRUSTED DATA" in llm.last_user_prompt
+
+
+def test_system_prompt_does_not_tell_the_model_to_flag_routine_business_phrasing():
+    """Alignment fix: the deterministic PromptInjectionCheck treats
+    "pre-approved", "already reviewed", "verified by", and
+    "compliance team"/"compliance notice" as LOW-tier phrasing — worth
+    a low-severity report, but not quarantine-worthy. The semantic
+    prompt must not instruct the LLM to undo that tiering by treating
+    the same phrases as high-confidence manipulation signals. Guards
+    against the exact regression reproduced earlier this session."""
+    llm = _FakeLLM('{"flags": []}')
+    SemanticReasoner(llm).run(_table())
+    system_prompt = llm.last_system_prompt
+
+    for phrase in ("pre-approved", "already reviewed", "verified by", "compliance team"):
+        assert phrase in system_prompt  # still discussed...
+    # ...but explicitly carved out, not folded into the manipulation-signal list.
+    assert "is NOT on its own a manipulation signal" in system_prompt
+    assert "do not treat it as evidence of manipulation" in system_prompt.lower()
+
+
+def test_system_prompt_still_flags_genuine_injection_signals_with_high_confidence():
+    """The carve-out for routine business phrasing must not water down
+    the genuinely high-confidence signals it sits beside — instruction
+    overrides, fake system messages, and cross-row targeting are still
+    called out as a strong, independent signal worth a high-confidence
+    flag."""
+    llm = _FakeLLM('{"flags": []}')
+    SemanticReasoner(llm).run(_table())
+    system_prompt = llm.last_system_prompt
+
+    assert "ignore previous" in system_prompt.lower()
+    assert "strong, independent signal of manipulation" in system_prompt
+    assert "flag the row with high confidence" in system_prompt.lower()
     assert "never instructions" in llm.last_system_prompt.lower() or "untrusted" in llm.last_system_prompt.lower()
 
 

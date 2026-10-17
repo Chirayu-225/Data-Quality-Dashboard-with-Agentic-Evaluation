@@ -1,0 +1,13 @@
+id,company,industry,country_code,annual_revenue,website
+1,Acme Corp,Manufacturing,US,12500000,https://acme.com
+2,Globex Inc,Technology,US,48000000,https://globex.com
+3,Initech,Technology,US,9200000,https://initech.com
+4,Bletchley Systems,Technology,GB,15400000,https://bletchley.co.uk
+5,Sunrise Bakery,Technology,US,640000,https://sunrisebakery.com
+6,Northwind Traders,Retail,CA,21000000,https://northwind.ca
+7,Contoso Health,Healthcare,US,33000000,https://contoso-health.com
+8,Umbrella Logistics,Logistics,DE,27500000,https://umbrella-log.de
+9,Stark Finance,Finance,US,88000000,https://starkfinance.com
+10,Wayne Holdings,asdfghjkl,US,120000000,https://wayne.com
+11,Hooli,Technology,US,-5000,https://hooli.com
+12,Pied Piper,Technology,US,2100000,

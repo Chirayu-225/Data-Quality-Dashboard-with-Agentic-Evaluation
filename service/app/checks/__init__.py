@@ -16,6 +16,7 @@ from app.checks import (  # noqa: F401
     consistency,
     injection_detection,
     referential_integrity,
+    type_consistency,
     uniqueness,
     validity,
 )

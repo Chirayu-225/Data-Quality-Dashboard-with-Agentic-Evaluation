@@ -32,6 +32,7 @@ from pydantic import BaseModel
 from app.agent.generator import _DEFAULT_PRODUCTION_SAMPLE_SIZE
 from app.agent.llm_clients import _estimate_tokens
 from app.canonical.models import CanonicalTable
+from app.config import max_semantic_reasoning_rows
 
 # Rough, clearly-labeled placeholder — NOT live pricing. Picked as a
 # round, conservative number in the ballpark of small hosted-model
@@ -63,6 +64,7 @@ def estimate_scan_cost(
     *,
     sample_size: int | None = None,
     max_llm_calls: int | None = None,
+    allow_large_semantic_scan: bool = False,
 ) -> ScanCostEstimate:
     total_rows = len(table.rows)
     batch_size = sample_size or _DEFAULT_PRODUCTION_SAMPLE_SIZE
@@ -77,6 +79,26 @@ def estimate_scan_cost(
             estimated_input_tokens=0,
             estimated_cost_usd=0.0,
             note="Empty table — no semantic reasoning calls needed.",
+        )
+
+    # Mirrors main.py's _llm_for_table row-count gate — without this,
+    # the preview would promise coverage the real scan wouldn't
+    # actually deliver for an over-limit table scanned without the
+    # opt-in flag.
+    row_limit = max_semantic_reasoning_rows()
+    if total_rows > row_limit and not allow_large_semantic_scan:
+        return ScanCostEstimate(
+            table_name=table.table_name,
+            total_rows=total_rows,
+            batch_size=batch_size,
+            estimated_llm_calls=0,
+            estimated_coverage_pct=0.0,
+            estimated_input_tokens=0,
+            estimated_cost_usd=0.0,
+            note=f"{total_rows} rows is over the {row_limit}-row default for semantic "
+            f"reasoning (MAX_SEMANTIC_REASONING_ROWS) — a real scan would run deterministic "
+            f"checks only for this table (0 LLM calls) unless allow_large_semantic_scan=true "
+            f"is passed to opt in to full coverage.",
         )
 
     batches_for_full_coverage = math.ceil(total_rows / batch_size)

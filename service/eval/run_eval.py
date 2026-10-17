@@ -230,6 +230,17 @@ def _run_deterministic_baseline(table: CanonicalTable, context: ScanContext | No
 
 
 def _run_full_agentic(table: CanonicalTable, context: ScanContext | None, gt: dict):
+    # This harness calls GeneratorAgent directly, bypassing main.py's
+    # HTTP layer entirely — so there's no literal ai_review_consent
+    # flag to pass (that gate lives in main.py's _configure_llms, not
+    # in GeneratorAgent itself). Constructing GroqClient()/GeminiClient()
+    # here IS this harness's explicit, deliberate equivalent of
+    # consent: running an evaluation against real row data against the
+    # real semantic-reasoning pipeline is the whole point of this
+    # script, run by a developer who already knows that's what it
+    # does — not an accidental bypass of the API's default-OFF gate,
+    # which exists to protect an unattended caller who never made that
+    # choice.
     from app.agent.llm_clients import GeminiClient, GroqClient
 
     start = time.monotonic()
@@ -381,6 +392,12 @@ def _write_reports(all_results: dict, cases: list[DatasetCase]) -> None:
     not just once at the end, so a crash partway through never loses
     results a prior dataset already earned."""
     report_lines: list[str] = ["# DBCaaS Agentic Evaluation Report", ""]
+    report_lines.append(
+        "> **Read this as a regression check, not an accuracy claim.** The synthetic datasets "
+        "here do not contain the edge cases recent fixes target (leading-zero zip codes, "
+        "legitimate `NA`/`None` values, mixed-type columns, PII inside free text), so a perfect "
+        "score means nothing regressed on the planted issues — not that those cases are measured.\n"
+    )
     if not _HAS_KEYS:
         report_lines.append(
             "> **GROQ_API_KEY / GEMINI_API_KEY not set** — only the deterministic-only "

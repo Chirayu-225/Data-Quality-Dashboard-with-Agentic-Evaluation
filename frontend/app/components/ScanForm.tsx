@@ -3,6 +3,8 @@
 import { FormEvent, useEffect, useState } from "react";
 import { FileTrigger } from "./FileTrigger";
 import { EstimatePreview, PreflightState } from "./EstimatePreview";
+import { AiReviewToggle } from "./AiReviewToggle";
+import { useAiReviewConsent } from "../lib/useAiReviewConsent";
 
 interface Props {
   onSubmit: (formData: FormData) => void;
@@ -18,6 +20,7 @@ export function ScanForm({ onSubmit, loading }: Props) {
   const [instructionMode, setInstructionMode] = useState<InstructionMode>("type");
   const [instructionFile, setInstructionFile] = useState<File | null>(null);
   const [preflight, setPreflight] = useState<PreflightState>({ status: "idle" });
+  const [aiReviewConsent, setAiReviewConsent] = useAiReviewConsent();
 
   // Fires the moment a file is picked, not on a separate button — the
   // whole point of a preflight is to show cost/coverage BEFORE the user
@@ -66,6 +69,11 @@ export function ScanForm({ onSubmit, loading }: Props) {
     } else if (instructionMode === "type" && instruction.trim()) {
       formData.append("custom_instruction", instruction.trim());
     }
+
+    // Sent explicitly on every request regardless of the remembered
+    // toggle state above — see useAiReviewConsent's own note on why
+    // sessionStorage is a convenience, never a substitute for this.
+    formData.append("ai_review_consent", String(aiReviewConsent));
 
     onSubmit(formData);
   }
@@ -160,6 +168,8 @@ export function ScanForm({ onSubmit, loading }: Props) {
           </div>
         )}
       </div>
+
+      <AiReviewToggle checked={aiReviewConsent} onChange={setAiReviewConsent} />
 
       <button
         type="submit"

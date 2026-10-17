@@ -96,3 +96,29 @@ def test_field_attribution_identifies_which_field_failed():
     assert result.flagged_row_indices == [0]
     assert set(result.flagged_fields[0]) == {"email", "signup_date"}
     assert "phone" not in result.flagged_fields[0]  # phone was valid, shouldn't be blamed
+
+
+def test_common_real_world_phone_formats_all_pass_including_parenthesized_area_code():
+    """Regression: "(555) 123-4567" was flagged invalid because the
+    pattern demanded a leading "+" or digit — a 3,000-row test file with
+    ~25% of numbers in that format produced 737 false positives."""
+    good = [
+        "555-123-4567", "(555) 123-4567", "+1 555 123 4567",
+        "+1 (555) 123-4567", "555.123.4567", "5551234567", "+44 20 7946 0958",
+    ]
+    rows = [
+        {"email": f"a{i}@x.com", "phone": p, "signup_date": "2024-01-01"}
+        for i, p in enumerate(good)
+    ]
+    result = FormatValidityCheck().run(_table(rows))
+    assert result.flagged_row_indices == []
+
+
+def test_obviously_bad_phones_are_still_flagged():
+    rows = [
+        {"email": "a@x.com", "phone": "abc", "signup_date": "2024-01-01"},
+        {"email": "b@x.com", "phone": "12", "signup_date": "2024-01-01"},
+        {"email": "c@x.com", "phone": "(", "signup_date": "2024-01-01"},
+    ]
+    result = FormatValidityCheck().run(_table(rows))
+    assert result.flagged_row_indices == [0, 1, 2]

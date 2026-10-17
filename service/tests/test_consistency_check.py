@@ -32,6 +32,22 @@ def test_skips_check_below_minimum_sample_size():
     result = OutlierCheck().run(table)
     assert result.flagged_row_indices == []  # ...but too few values to judge
 
+def test_recognizes_currency_formatted_values_as_numeric():
+    """Shares app/canonical/type_conformity.py's parser with type
+    inference and TypeConsistencyCheck -- a bare float(v) would have
+    silently skipped "$100,000" instead of treating it as the outlier
+    it is."""
+    table = CanonicalTable(
+        tenant_id="t",
+        source_id="s",
+        table_name="deals",
+        columns=[ColumnSchema(name="amount", type=ColumnType.FLOAT)],
+        rows=[{"amount": v} for v in ["$100", "$110", "$90", "$105", "$95", "$100,000"]],
+    )
+    result = OutlierCheck().run(table)
+    assert 5 in result.flagged_row_indices
+
+
 def test_does_not_apply_to_non_numeric_table():
     table = CanonicalTable(
         tenant_id="t",

@@ -2,6 +2,8 @@
 
 import { FormEvent, useState } from "react";
 import { FileTrigger } from "./FileTrigger";
+import { AiReviewToggle } from "./AiReviewToggle";
+import { useAiReviewConsent } from "../lib/useAiReviewConsent";
 
 interface Props {
   onSubmit: (formData: FormData) => void;
@@ -30,6 +32,7 @@ function stem(filename: string): string {
 
 export function SchemaScanForm({ onSubmit, loading }: Props) {
   const [slots, setSlots] = useState<TableSlot[]>([newSlot(), newSlot()]);
+  const [aiReviewConsent, setAiReviewConsent] = useAiReviewConsent();
 
   const filledCount = slots.filter((s) => s.file !== null).length;
   const canSubmit = filledCount >= 2 && !loading;
@@ -63,6 +66,12 @@ export function SchemaScanForm({ onSubmit, loading }: Props) {
     if (Object.keys(instructions).length > 0) {
       formData.append("custom_instructions", JSON.stringify(instructions));
     }
+
+    // Same explicit-every-request convention as ScanForm — see
+    // useAiReviewConsent.ts. Applies to every table's single-table
+    // semantic reasoning AND the cross-table semantic pass alike;
+    // there's no separate toggle per table or per pass.
+    formData.append("ai_review_consent", String(aiReviewConsent));
 
     onSubmit(formData);
   }
@@ -149,6 +158,8 @@ export function SchemaScanForm({ onSubmit, loading }: Props) {
           </div>
         ))}
       </div>
+
+      <AiReviewToggle checked={aiReviewConsent} onChange={setAiReviewConsent} />
 
       <button
         type="button"

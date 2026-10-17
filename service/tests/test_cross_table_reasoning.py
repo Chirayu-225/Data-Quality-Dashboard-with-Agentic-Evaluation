@@ -96,6 +96,25 @@ def test_prompt_frames_row_data_as_untrusted():
     assert "UNTRUSTED DATA" in user_prompt
 
 
+def test_system_prompt_does_not_tell_the_model_to_flag_routine_business_phrasing():
+    """Parallel to the same fix in semantic_reasoning.py's prompt — the
+    cross-table prompt must carve out routine business phrasing
+    ("pre-approved", "already reviewed", "verified", "compliance
+    notice") as NOT a manipulation signal, rather than folding it into
+    the high-confidence flagging instruction below."""
+    llm = _FakeLLM('{"flags": []}')
+    reasoner = CrossTableReasoner(llm, sample_size=10)
+    reasoner.run(_contacts(), _accounts(), [(0, 0)])
+    system_prompt, _ = llm.calls[0]
+
+    for phrase in ("pre-approved", "already reviewed", "verified", "compliance notice"):
+        assert phrase in system_prompt
+    assert "is NOT on its" in system_prompt
+    assert "own a manipulation signal" in system_prompt
+    assert "strong, independent signal of manipulation" in system_prompt  # genuine signals intact
+    assert "flag the pair with high confidence" in system_prompt.lower()
+
+
 def test_iteration_covers_every_pair_across_multiple_batches():
     """Batch size smaller than the pair pool forces >1 call — every
     pair should still get covered exactly once, same full-coverage

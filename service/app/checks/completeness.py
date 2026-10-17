@@ -62,4 +62,7 @@ class NullCheck(Check):
             total_rows_evaluated=len(table.rows),
             detail=f"{len(flagged)} rows have a blank field",
             flagged_fields=flagged_fields,
+            row_reasons={
+                i: "blank in " + ", ".join(cols) for i, cols in flagged_fields.items()
+            },
         )

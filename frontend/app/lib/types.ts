@@ -25,6 +25,11 @@ export interface FlaggedRowOut {
    * probability. This is a heuristic derivation, not statistical
    * calibration — null when there's no semantic flag on this row. */
   derived_confidence: number | null;
+  /** False when this row's ONLY findings are blanks in columns nobody
+   * expects to be filled (e.g. an optional notes column). It stays in
+   * the list (completeness still counts it) but is not counted in
+   * ScanResponse.rows_affected. Absent on older results. */
+  counts_as_problem?: boolean;
 }
 
 export interface CompilationOut {
@@ -74,6 +79,13 @@ export interface ScanResponse {
   flagged_rows: FlaggedRowOut[];
   semantic_iterations: number;
   llm_used: boolean;
+  /** Echoes exactly what this scan's REQUEST asked for — distinct from
+   * llm_used, which is whether AI review actually ran. The two can
+   * disagree (consent=true, llm_used=false means something else
+   * blocked it — see `warnings`). Optional because older cached
+   * responses may not carry it; treat a missing value as false, the
+   * same default the backend uses. */
+  ai_review_consent?: boolean;
   compilation: CompilationOut | null;
   warnings: string[];
   /** Which detection/scoring/prompt logic produced this scorecard, and
@@ -95,6 +107,48 @@ export interface ScanResponse {
    * (total_rows - quarantined_row_count) — explicit so it's never left
    * to the client to infer why coverage is less than total_rows. */
   semantic_rows_considered?: number;
+  /** Rows with a real problem: flagged_rows minus rows whose only
+   * finding is a blank in an optional column. Display-only, never feeds
+   * the score. Absent on older results. */
+  rows_affected?: number;
+  optional_blank_only_rows?: number;
+  /** Which rule decided what counts as an expected-filled column:
+   * "required_columns" (configured) or "fill_rate_90". */
+  blank_policy?: string;
+  /** What left the server on this scan (counts only, never values). */
+  data_egress?: DataEgress;
+  /** Which detectors the accuracy number rests on. */
+  accuracy_basis?: AccuracyBasis;
+  /** What the local (no-AI) value review covered. Null if it did not run. */
+  local_review?: LocalReviewSummary | null;
+}
+
+export interface DataEgress {
+  mode?: "rows" | "values";
+  calls_live?: number;
+  calls_replayed?: number;
+  from_replay?: boolean;
+  partly_from_replay?: boolean;
+  columns_shared?: string[];
+  distinct_values_sent?: number;
+  external_ai_used: boolean;
+  providers_used: string[];
+  rows_sent_to_provider: number;
+  note: string;
+}
+
+export interface AccuracyBasis {
+  mode: "local_rules_only" | "local_rules_plus_ai" | "ai_only" | "not_evaluated";
+  detectors: string[];
+  rows_considered: number;
+  comparable_across_modes: boolean;
+}
+
+export interface LocalReviewSummary {
+  columns_reviewed: string[];
+  columns_skipped: Record<string, string>;
+  distinct_values_scored: number;
+  values_sent_externally: number;
 }
 
 /** A referential-integrity finding that genuinely spans two tables —
@@ -184,4 +238,67 @@ export function statusForScore(score: number): {
   if (score >= 70) return { band: "warning", label: "Needs attention", color: "var(--status-warning)" };
   if (score >= 50) return { band: "serious", label: "Serious", color: "var(--status-serious)" };
   return { band: "critical", label: "Critical", color: "var(--status-critical)" };
+}
+
+// ---- Connect a source (/connect) ----
+// The Connect screen is generated from the server's connector catalog
+// (GET /connectors), so a new connector needs no frontend change.
+
+export interface ConnectorField {
+  key: string;
+  label: string;
+  kind: "text" | "number" | "password" | "textarea" | "select";
+  required: boolean;
+  secret: boolean;
+  default: string | number | null;
+  placeholder: string | null;
+  help: string | null;
+  options: { value: string; label: string }[];
+  show_if: Record<string, string>;
+}
+
+export interface ConnectorInfo {
+  key: string;
+  label: string;
+  category: string;
+  description: string;
+  status: "ready" | "planned";
+  fields: ConnectorField[];
+  /** "form": credentials typed in; "oauth": browser sign-in; "mixed": a field picks. */
+  auth: "form" | "oauth" | "mixed";
+  /** For "mixed": [field, value] that selects browser sign-in. */
+  oauth_field: [string, string] | null;
+  oauth_configured: boolean;
+}
+
+export interface ConnectorCatalog {
+  connectors: ConnectorInfo[];
+  unavailable: { module: string; reason: string }[];
+  default_row_limit: number;
+}
+
+export interface SavedConnection {
+  id: string;
+  name: string;
+  type: string;
+  settings: Record<string, unknown>;
+  account: string | null;
+  has_secret: boolean;
+  created_at: number;
+}
+
+export interface ConnectionTable {
+  id: string;
+  name: string;
+  description: string | null;
+  approx_rows: number | null;
+  primary_key: string[];
+  columns: { name: string; type: string }[];
+  foreign_keys: { columns: string[]; references: string; referred_columns: string[] }[];
+}
+
+export interface ConnectionTablesResponse {
+  connection: SavedConnection;
+  row_limit: number;
+  tables: ConnectionTable[];
 }

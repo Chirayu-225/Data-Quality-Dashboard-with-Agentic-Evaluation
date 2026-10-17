@@ -54,18 +54,26 @@ def test_real_mode_does_not_flag_valid_references():
     assert result.flagged_row_indices == []
 
 
-def test_fallback_mode_flags_only_blanks_when_no_related_table():
+def test_fallback_mode_does_not_flag_blanks_already_covered_by_completeness():
+    """Fallback mode used to flag blank FK values itself, which
+    double-counted the exact same defect NullCheck already flags under
+    COMPLETENESS (see the check's own docstring for the reproduced
+    case). It now reports the blank count in `detail` for visibility
+    but flags nothing — including the unverifiable non-blank value,
+    which was never flagged either."""
     leads = _leads_table(
         [
             {"email": "a@example.com", "account_id": 1},
-            {"email": "b@example.com", "account_id": ""},  # blank -> flagged
+            {"email": "b@example.com", "account_id": ""},  # blank -> noted, not flagged
             {"email": "c@example.com", "account_id": 999},  # unverifiable, not flagged
         ]
     )
     # No context at all — simulates a lone CSV upload with no second file
     result = ReferentialIntegrityCheck().run(leads, context=None)
-    assert result.flagged_row_indices == [1]
+    assert result.flagged_row_indices == []
+    assert result.flagged_fields == {}
     assert "fallback mode" in result.detail
+    assert "1 row(s) have a blank reference" in result.detail
 
 
 def test_applies_to_detects_fk_shaped_columns():
@@ -96,7 +104,12 @@ def test_field_attribution_in_real_mode():
     assert result.flagged_fields[1] == ["account_id"]
 
 
-def test_field_attribution_in_fallback_mode():
+def test_field_attribution_in_fallback_mode_is_not_populated_for_blanks():
+    """Companion to test_fallback_mode_does_not_flag_blanks_already_covered_by_completeness:
+    since fallback mode no longer flags blank FK rows at all, there's no
+    row to attribute a field to either — the blank cell's field
+    attribution now happens once, under COMPLETENESS (NullCheck), not
+    here too."""
     leads = _leads_table([{"email": "a@example.com", "account_id": ""}])
     result = ReferentialIntegrityCheck().run(leads, context=None)
-    assert result.flagged_fields[0] == ["account_id"]
+    assert result.flagged_fields == {}

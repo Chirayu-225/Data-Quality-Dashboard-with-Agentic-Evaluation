@@ -1,0 +1,1201 @@
+id,first_name,last_name,company,email,phone,amount,country_code,discount_type,zip,notes
+478,Wei,Costa,Meridian Manufacturing,wei.costa@meridianmanufacturing.com,555-513-2170,6216,IN,Volume,65504,
+204,Yuki,Kapoor,Falcon Metals,yuki.kapoor@falconmetals.com,(555) 312-2126,15049,US,None,17772,follow up next quarter
+660,Michael,Berg,Apex Health,michael.berg@apexhealth.com,(555) 180-2569,11016,US,Volume,60312,
+123,John,Martin,Blue Software,john.martin@bluesoftware.com,(555) 121-7039,9326,US,Loyalty,88745,
+796,Kavya,Lewis,Nova Freight,kavya.lewis@novafreight.com,(555) 076-9342,10730,US,Seasonal,98538,wants a demo
+1031,Lucia,White,Iron Freight,lucia.white@ironfreight.com,,41699,IN,Seasonal,19982,trial extended
+431,Arjun,Anderson,Blue Analytics,arjun.anderson@blueanalytics.com,+1 555 715 1453,16581,IN,None,22937,requested pricing
+628,Ananya,Brown,Keystone Supply,ananya.brown@keystonesupply.com,(555) 451-1973,22364,US,Volume,12875,sent brochure
+1085,Arjun,Scott,Nova Freight,arjun.scott@novafreight.com,,29659,IN,Promo,65863,
+906,Patricia,Garcia,Nova Logistics,patricia.garcia@novalogistics.com,+1 555 676 6435,13134,US,None,88877,requested pricing
+386,Ama,White,Cedar Industries,ama.white@cedarindustries.com,(555) 902-2451,14742,US,Volume,50562,
+1019,Robert,Kapoor,Harbor Systems,robert.kapoor@harborsystems.com,(555) 284-5655,9361,IN,Promo,95597,asked about bulk discount
+546,Daniel,Baker,Cedar Health,daniel.baker@cedarhealth.com,+1 555 106 4821,7469,US,Promo,40141,asked about bulk discount
+727,Carlos,Wang,Atlas Supply,carlos.wang@atlassupply.com,+1 555 174 2796,26623,US,Seasonal,01270,
+280,Daniel,Anderson,Cedar Industries,daniel.anderson@cedarindustries.com,555-176-6792,4332,US,None,37781,
+1173,Linda,Chen,Blue Industries,linda.chen@blueindustries.com,,45779,IN,Volume,34276,
+703,Hiroshi,Reddy,Iron Energy,hiroshi.reddy@ironenergy.com,555-060-6768,6114,CA,Loyalty,07870,sent brochure
+563,Anthony,Brown,Bright Freight,anthony.brown@brightfreight.com,(555) 601-4441,30808,US,Volume,42520,sent brochure
+874,Carlos,Baker,Meridian Software,carlos.baker@meridiansoftware.com,+1 555 552 7617,12862,US,Seasonal,82028,needs security review
+989,Rohan,Jones,Delta Labs,rohan.jones@deltalabs.com,+1 555 248 6506,15209,US,None,32786,needs security review
+323,Anthony,Wang,Atlas Foods,anthony.wang@atlasfoods.com,+1 555 192 5311,12474,US,Seasonal,73338,budget approved
+234,Carlos,Moore,North Metals,carlos.moore@northmetals.com,555-691-5352,25055,GB,Promo,06781,needs security review
+413,Rohan,Costa,Iron Software,rohan.costa@ironsoftware.com,555-320-3662,19237,US,Volume,15449,needs security review
+891,Nancy,Wang,Cedar Systems,nancy.wang@cedarsystems.com,(555) 435-7806,10172,US,None,40315,budget approved
+195,Ama,Wilson,Keystone Systems,,555-402-7103,35533,US,Promo,01870,needs security review
+916,Emily,Iyer,Delta Industries,emily.iyer@deltaindustries.com,(555) 451-0072,7182,US,Seasonal,22623,asked about bulk discount
+1121,Rohan,Baker,North Manufacturing,rohan.baker@northmanufacturing.com,+1 555 573 7925,21042,IN,Promo,53589,requested pricing
+66,Joseph,Wilson,Meridian Energy,joseph.wilson@meridianenergy.com,555-977-6011,30653,US,Loyalty,30217,sent brochure
+770,Carlos,King,Atlas Foods,carlos.king@atlasfoods.com,555-291-4024,abc,CA,Seasonal,71090,interested in renewal
+19,Emily,Menon,North Robotics,emily.menon@northrobotics.com,+1 555 545 2608,14409,US,Volume,22405,interested in renewal
+338,Camille,Martinez,Apex Metals,camille.martinez@apexmetals.com,(555) 457-3091,16264,US,Loyalty,50208,follow up next quarter
+282,Emily,Clark,Atlas Foods,emily.clark@atlasfoods.com,(555) 551-8464,5611,US,None,08424,
+970,Charles,Walker,Apex Freight,charles.walker@apexfreight.com,555-277-1339,37131,DE,Seasonal,79386,interested in renewal
+582,Yuki,Green,Bright Foods,barbara.mensah@keystonemanufacturing.com,+1 555 770 0384,25648,US,Promo,63251,asked about bulk discount
+859,Omar,Gupta,Atlas Foods,omar.gupta@atlasfoods.com,+1 555 755 0688,31396,IN,Volume,34230,interested in renewal
+586,Lars,Taylor,North Robotics,lars.taylor@northrobotics.com,555-094-8501,10682,US,Promo,15837,interested in renewal
+1184,Camille,Young,Cedar Health,camille.young@cedarhealth.com,+1 555 314 6488,43452,IN,Loyalty,19912,interested in renewal
+603,Yuki,Jackson,Granite Systems,yuki.jackson@newdomain.com,(555) 466-6976,8915,US,Volume,72639,
+424,Daniel,Chen,Harbor Health,daniel.chen@harborhealth.com,+1 555 592 3248,4788,US,Promo,61483,expanding to new site
+714,Kavya,Tanaka,Orion Analytics,kavya.tanaka@orionanalytics.com,+1 555 792 3909,16323,US,Promo,71557,
+778,Kavya,Gupta,Keystone Systems,kavya.gupta@keystonesystems.com,555-551-5148,6942,US,Promo,57543,
+512,Sarah,Davis,Keystone Industries,,(555) 261-6886,9601,US,Seasonal,04945,
+529,Kwame,Reddy,Iron Foods,kwame.reddy@ironfoods.com,555-359-2137,9547,US,None,09165,
+765,Ananya,White,Meridian Freight,ananya.white@meridianfreight.com,(555) 739-4341,9271,US,Promo,77664,budget approved
+25,Linda,Wang,North Industries,linda.wang@northindustries.com,+1 555 287 0836,31392,US,Promo,76530,budget approved
+341,Hiroshi,Sharma,Nova Pharma,hiroshi.sharma@novapharma.com,(555) 316-6806,24948,GB,Volume,13058,
+433,Mateo,Costa,Iron Manufacturing,mateo.costa@ironmanufacturing.com,555-783-7401,9388,GB,Volume,08909,
+299,Jessica,Anderson,Delta Labs,jessica.anderson@deltalabs.com,555-099-3885,twelve thousand,US,Seasonal,08544,requested pricing
+549,Karen,White,Apex Manufacturing,karen.white@apexmanufacturing.com,(555) 091-0910,10948,GB,Promo,03792,needs security review
+445,Lars,Walker,Nova Software,lars.walker@novasoftware.com,555-948-5124,21797,DE,None,11364,sent brochure
+56,Arjun,Dubois,North Pharma,arjun.dubois@northpharma.com,(555) 074-8576,9268,US,Seasonal,82501,sent brochure
+113,Robert,Garcia,North Industries,robert.garcia@northindustries.com,(555) 355-1463,20552,US,None,89721,interested in renewal
+1104,Fatima,Rao,Granite Freight,fatima.rao@granitefreight.com,+1 555 190 6468,27709,DE,Loyalty,16207,wants a demo
+513,Susan,Lewis,Meridian Systems,susan.lewis@meridiansystems.com,(555) 596-1862,twelve thousand,US,Seasonal,83798,
+262,Pierre,Lee,Meridian Health,pierre.lee@meridianhealth.com,+1 555 708 3553,4640,US,None,24137,expanding to new site
+1187,Karen,King,Harbor Energy,karen.king@harborenergy.com,(555) 442-6833,44583,DE,None,24115,sent brochure
+57,William,Green,Cedar Pharma,william.green@cedarpharma.com,(555) 979-7058,47211,GB,Volume,05898,sent brochure
+484,Ama,Martin,Cedar Pharma,ama.martin@cedarpharma.com,+1 555 288 5764,21357,CA,Promo,22788,
+297,Omar,Lewis,Bright Robotics,omar.lewis@brightrobotics.com,555-848-6936,13325,US,Volume,72551,
+1003,Matthew,Kapoor,Falcon Systems,matthew.kapoor@falconsystems.com,555-584-0015,8141,IN,Seasonal,82940,asked about bulk discount
+1197,Sandra,Reddy,Harbor Systems,sandra.reddy@harborsystems.com,+1 555 943 9526,34042,DE,Seasonal,53650,requested pricing
+283,Ingrid,King,Meridian Pharma,ingrid.king@meridianpharma.com,(555) 426-0983,12559,US,None,18051,follow up next quarter
+1097,Camille,Johnson,Bright Foods,camille.johnson@brightfoods.com,,40227,IN,Loyalty,23288,needs security review
+1210,Daniel,Mensah,Harbor Metals,daniel.mensah@harbormetals.com,(555) 180-0837,53986,IN,Volume,27064,follow up next quarter
+1094,David,Gupta,Apex Software,david.gupta@apexsoftware.com,,25282,IN,Seasonal,43526,interested in renewal
+47,Divya,Menon,North Industries,divya.menon@northindustries.com,(555) 269-2679,11354,US,Seasonal,74767,
+662,Richard,Davis,Falcon Systems,richard.davis@falconsystems.com,(555) 635-5146,12972,US,None,89168,needs security review
+92,Lars,Young,Falcon Robotics,lars.young@falconrobotics.com,(555) 062-9645,16858,CA,Seasonal,04466,
+596,Mark,Kapoor,Apex Robotics,mark.kapoor@apexrobotics.com,555-938-5199,24666,US,Promo,36658,
+764,Michael,Moore,Falcon Industries,michael.moore@harborsystems.com,555-541-7664,15103,US,Promo,43704,expanding to new site
+892,Mary,Khan,Atlas Robotics,mary.khan@atlasrobotics.com,(555) 260-1319,10062,US,Promo,13387,needs security review
+1180,Emily,Thompson,Cedar Analytics,emily.thompson@cedaranalytics.com,555-285-2097,45716,IN,Promo,21082,follow up next quarter
+1176,Sofia,Jackson,Granite Foods,sofia.jackson@granitefoods.com,555-127-0414,55889,IN,None,09888,requested pricing
+644,Steven,Martin,Bright Freight,,+1 555 850 8045,3476,US,Promo,03193,budget approved
+983,Divya,Scott,Granite Logistics,divya.scott@granitelogistics.com,(555) 151-8658,28708,IN,Seasonal,82224,
+553,John,Thompson,Nova Logistics,john.thompson@novalogistics.com,(555) 217-8415,4027,US,Promo,41824,requested pricing
+1199,Kwame,Patel,Atlas Industries,kwame.patel@atlasindustries.com,555-386-4844,22596,IN,Loyalty,05160,requested pricing
+261,Rahul,Kapoor,Keystone Foods,rahul.kapoor@keystonefoods.com,(555) 246-0689,18488,US,None,67448,
+890,Anthony,Miller,Nova Robotics,anthony.miller@novarobotics.com,(555) 857-9960,12035,US,Promo,07354,
+381,Accounts Payable,Taylor,Falcon Foods,sofia.taylor@falconfoods.com,(555) 730-9157,9247,US,Loyalty,67351,wants a demo
+427,Divya,Lee,Atlas Robotics,divya.lee@atlasrobotics.com,+1 555 585 1471,58092,US,Seasonal,10098,asked about bulk discount
+509,Charles,Mensah,Atlas Foods,,(555) 287-7159,26087,US,Volume,99539,expanding to new site
+525,Divya,Wang,Nova Robotics,divya.wang@novarobotics.com,+1 555 307 2828,5504,CA,Volume,72501,wants a demo
+462,Ama,Fischer,Apex Robotics,ama.fischer@apexrobotics.com,555-890-0703,49617,US,Loyalty,53848,follow up next quarter
+394,Jessica,Fischer,Keystone Industries,jessica.fischer@keystoneindustries.com,555-818-4210,9070,US,Promo,57470,
+403,Thomas,Kapoor,Nova Pharma,thomas.kapoor@novapharma.com,(555) 450-2138,8235,US,None,07841,
+780,Elizabeth,Nair,Nova Analytics,elizabeth.nair@novaanalytics.com,(555) 941-1372,34891,US,Loyalty,95510,needs security review
+361,Patricia,Iyer,North Supply,patricia.iyer@northsupply.com,555-792-2739,6999,CA,Promo,06922,budget approved
+917,Barbara,Clark,Granite Systems,barbara.clark@granitesystems.com,(555) 305-5628,23915,US,Volume,39787,needs security review
+458,Carlos,Khan,,carlos.khan@cedarfoods.com,+1 555 357 4103,7313,US,Volume,59111,
+335,Lars,Mensah,Nova Foods,lars.mensah@novafoods.com,+1 555 807 3584,27367,US,Volume,59190,budget approved
+41,Wei,Moore,Granite Metals,wei.moore@granitemetals.com,555-329-3979,13674,US,None,79312,needs security review
+1111,Wei,Costa,Harbor Metals,wei.costa@harbormetals.com,+1 555 887 3733,43419,IN,Promo,97734,
+715,Thomas,Smith,Harbor Health,thomas.smith@harborhealth.com,(555) 775-2596,36915,US,Loyalty,38283,follow up next quarter
+392,Priya,Miller,Iron Metals,priya.miller@ironmetals.com,555-929-0496,14510,US,Loyalty,78564,needs security review
+150,Arjun,Nguyen,Delta Energy,arjun.nguyen@deltaenergy.com,555-149-6287,5046,US,Seasonal,54168,follow up next quarter
+1222,Carlos,Lewis,Cedar Energy,carlos.lewis@cedarenergy.com,,18624,IN,None,43897,sent brochure
+1023,Jessica,Wang,Falcon Systems,jessica.wang@falconsystems.com,555-904-7264,27876,IN,Volume,01493,trial extended
+20,Elizabeth,Wright,Nova Supply,elizabeth.wright@novasupply.com,(555) 669-4716,5244,US,None,02693,needs security review
+790,Nancy,Smith,North Manufacturing,nancy.smith@northmanufacturing.com,(555) 830-4272,5961,US,Loyalty,12270,budget approved
+218,Pierre,Wilson,Apex Software,pierre.wilson@apexsoftware.com,555-434-7395,8564,US,None,53683,
+1164,Joseph,Garcia,Apex Health,joseph.garcia@apexhealth.com,+1 555 807 2402,36637,IN,Loyalty,47176,
+717,Patricia,Rossi,Iron Foods,patricia.rossi@ironfoods.com,555-163-8905,7506,US,Volume,02482,needs security review
+40,Lars,Silva,Harbor Freight,lars.silva@harborfreight.com,+1 555 780 7245,7165,US,Seasonal,91903,wants a demo
+1045,Mark,Chen,Nova Health,mark.chen@novahealth.com,,30601,IN,Volume,36844,follow up next quarter
+456,Lucia,Berg,Nova Metals,lucia.berg@novametals.com,(555) 720-9129,21213,US,Volume,03830,
+1225,Hiroshi,Young,Harbor Labs,hiroshi.young@harborlabs.com,,50624,IN,Promo,04231,interested in renewal
+177,Margaret,Martin,Atlas Foods,margaret.martin@apexsoftware.com,555-863-4845,2324,US,Volume,88265,needs security review
+75,Susan,Thompson,Apex Systems,susan.thompson@apexsystems.com,+1 555 434 9403,12796,US,Promo,71931,
+1101,John,Wright,Cedar Foods,john.wright@cedarfoods.com,,21448,IN,None,58538,expanding to new site
+663,Arjun,Davis,Granite Robotics,arjun.davis@graniterobotics.com,(555) 225-9036,17465,CA,None,91610,
+1002,Fatima,Moore,Cedar Foods,fatima.moore@cedarfoods.com,,34692,IN,Loyalty,99291,
+866,Steven,Menon,Nova Metals,steven.menon@novametals.com,+1 555 331 6956,24361,US,Loyalty,91478,follow up next quarter
+141,David,Brown,Harbor Systems,david.brown@harborsystems.com,(555) 193-0841,9451,US,None,18295,wants a demo
+842,Vikram,Nguyen,Harbor Systems,vikram.nguyen@harborsystems.com,(555) 348-2806,7199,US,Promo,07867,sent brochure
+1082,Yuki,Jackson,Bright Labs,yuki.jackson@brightlabs.com,(555) 888-9212,25616,IN,Seasonal,62553,
+400,Priya,Lewis,Bright Freight,priya.lewis@brightfreight.com,555-785-3536,14009,US,None,97082,wants a demo
+500,Emily,Anderson,Cedar Health,emily.anderson@cedarhealth.com,+1 555 164 3361,9497,US,Volume,40363,expanding to new site
+196,Kavya,Rao,Harbor Health,kavya.rao@harborhealth.com,+1 555 568 6988,5617,US,Promo,49421,needs security review
+881,Betty,Scott,Iron Robotics,betty.scott@ironrobotics.com,+1 555 392 6881,N/A,US,Promo,26082,trial extended
+481,Betty,Silva,Iron Foods,betty.silva@ironfoods.com,555-088-0978,7323,GB,Seasonal,28059,interested in renewal
+63,Yuki,Tanaka,Bright Health,yuki.tanaka@brighthealth.com,555-408-3389,4896,US,Promo,56824,
+499,Lucia,Green,Granite Robotics,lucia.green@graniterobotics.com,(555) 175-6657,24974,US,None,24760,expanding to new site
+1123,Camille,Jackson,Cedar Supply,camille.jackson@cedarsupply.com,(555) 574-7144,30812,IN,Volume,69184,wants a demo
+920,Elizabeth,Clark,North Pharma,elizabeth.clark@northpharma.com,555-803-4419,18926,US,None,16689,follow up next quarter
+880,David,Wang,North Software,david.wang@northsoftware.com,+1 555 217 4461,2303,US,Promo,66835,
+980,Fatima,King,Falcon Logistics,fatima.king@falconlogistics.com,555-552-5682,7685,CA,Promo,40191,wants a demo
+227,Rahul,Rossi,Cedar Pharma,rahul.rossi@cedarpharma.com,(555) 953-6684,7549,US,Loyalty,28637,follow up next quarter
+22,Rohan,Rossi,Atlas Supply,rohan.rossi@atlassupply.com,+1 555 474 6884,16446,US,Seasonal,94380,expanding to new site
+572,Mateo,Smith,Iron Software,mateo.smith@ironsoftware.com,+1 555 606 1286,4642,US,Seasonal,76504,interested in renewal
+595,Susan,Garcia,Falcon Software,susan.garcia@falconsoftware.com,+1 555 905 0074,3519,IN,None,89452,budget approved
+16,Nancy,Scott,Blue Pharma,nancy.scott@bluepharma.com,+1 555 459 2776,10857,US,Loyalty,90534,follow up next quarter
+539,Daniel,Wright,Harbor Analytics,daniel.wright@harboranalytics.com,+1 555 040 0954,16348,IN,Seasonal,62057,requested pricing
+1114,Steven,Nguyen,Cedar Metals,steven.nguyen@cedarmetals.com,555-119-0553,41066,IN,Seasonal,69555,follow up next quarter
+707,Elizabeth,Williams,Iron Robotics,elizabeth.williams@ironrobotics.com,555-227-9933,6156,US,Seasonal,80725,follow up next quarter
+402,Susan,Walker,Keystone Software,susan.walker@keystonesoftware.com,(555) 594-7692,9535,US,Loyalty,55062,wants a demo
+536,Lars,Dubois,Nova Health,lars.dubois@novahealth.com,555-594-3966,10541,US,Loyalty,07677,expanding to new site
+523,Priya,Moore,Delta Metals,,(555) 972-0561,8907,US,Promo,35578,
+965,Sarah,Anderson,Delta Energy,sarah.anderson@deltaenergy.com,555-776-0245,14468,US,None,05071,follow up next quarter
+729,Michael,Green,Falcon Manufacturing,michael.green@falconmanufacturing.com,(555) 328-4555,6478,US,Volume,66076,needs security review
+742,Steven,Moore,Blue Foods,steven.moore@bluefoods.com,555-251-4001,16193,US,Seasonal,67508,
+313,Nancy,Menon,Keystone Robotics,nancy.menon@keystonerobotics.com,(555) 171-8148,11905,US,Volume,79280,requested pricing
+1005,Omar,Martinez,Bright Supply,omar.martinez@brightsupply.com,+1 555 506 4258,26148,IN,Volume,38735,sent brochure
+977,Nancy,Rossi,North Labs,nancy.rossi@northlabs.com,+1 555 254 4925,16710,DE,Promo,92676,
+698,Charles,Clark,Atlas Foods,charles.clark@atlasfoods.com,+1 555 416 3946,null,US,Volume,25255,
+432,Ingrid,Fischer,Iron Metals,ingrid.fischer@ironmetals.com,(555) 278-1492,17044,US,Promo,81277,sent brochure
+1243,Margaret,Scott,Delta Foods,margaret.scott@deltafoods.com,+1 555 146 3966,18867,IN,Promo,04294,
+82,David,Williams,Blue Pharma,david.williams@bluepharma.com,+1 555 815 3483,14148,US,Promo,61765,trial extended
+1221,David,Patel,Atlas Freight,david.patel@atlasfreight.com,,40002,DE,Seasonal,89762,needs security review
+160,William,King,Meridian Health,william.king@meridianhealth.com,+1 555 346 7492,22437,US,Seasonal,70060,
+635,Yuki,Anderson,Meridian Software,yuki.anderson@meridiansoftware.com,555-722-2898,9427,CA,Promo,78721,
+84,Carlos,Nguyen,Delta Foods,carlos.nguyen@deltafoods.com,+1 555 981 7195,9190,US,Promo,33505,trial extended
+576,Sarah,Martinez,Atlas Analytics,sarah.martinez@atlasanalytics.com,(555) 013-9041,6827,IN,Promo,42172,
+1038,Nancy,Costa,Keystone Systems,nancy.costa@keystonesystems.com,(555) 768-2975,43166,DE,Volume,80261,
+419,Steven,Moore,Harbor Labs,steven.moore@harborlabs.com,(555) 367-9137,10282,DE,Seasonal,03898,follow up next quarter
+452,Nancy,Harris,Iron Metals,nancy.harris@ironmetals.com,555-458-5132,9369,US,Loyalty,07824,
+1008,Camille,Brown,Meridian Supply,camille.brown@meridiansupply.com,+1 555 457 9730,39708,IN,Seasonal,91409,requested pricing
+619,Sandra,Johnson,Delta Manufacturing,sandra.johnson@deltamanufacturing.com,555-124-5526,6416,DE,Seasonal,94219,budget approved
+438,Fatima,Costa,Iron Foods,fatima.costa@ironfoods.com,555-444-2272,19162,US,None,92068,wants a demo
+359,Michael,Scott,Falcon Health,michael.scott@falconhealth.com,555-846-0567,14782,DE,Seasonal,19000,wants a demo
+1103,Robert,Thompson,Keystone Industries,robert.thompson@keystoneindustries.com,,57657,DE,Promo,33038,
+646,Daniel,Reddy,Keystone Health,daniel.reddy@keystonehealth.com,(555) 441-9506,10248,US,Loyalty,06532,trial extended
+51,Kwame,Lewis,Keystone Robotics,kwame.lewis@keystonerobotics.com,555-000-4599,27877,US,None,60345,expanding to new site
+1016,Sofia,Anderson,Harbor Systems,sofia.anderson@harborsystems.com,+1 555 644 8234,9321,US,Seasonal,84898,asked about bulk discount
+650,Joseph,Silva,Atlas Supply,joseph.silva@atlassupply.com,+1 555 175 0614,18242,US,None,09225,wants a demo
+449,Jessica,Wright,Nova Labs,jessica.wright@novalabs.com,(555) 114-6436,6949,US,None,37296,
+879,Mei,Taylor,Blue Analytics,mei.taylor@blueanalytics.com,(555) 737-5478,11210,GB,None,21111,interested in renewal
+149,Sandra,Williams,Nova Robotics,sandra.williams@novarobotics.com,(555) 431-2834,10224,US,Volume,10458,requested pricing
+558,Jessica,Wright,Bright Analytics,,+1 555 920 7089,9958,US,Promo,28420,
+1092,Richard,Anderson,Granite Metals,richard.anderson@granitemetals.com,(555) 239-9324,33953,DE,None,12024,interested in renewal
+317,Ama,Anderson,Cedar Software,ama.anderson@cedarsoftware.com,555-575-1007,70585,DE,Volume,45253,trial extended
+38,Nancy,White,Meridian Industries,nancy.white@meridianindustries.com,+1 555 105 5285,12476,US,Promo,29519,
+1089,Barbara,Lee,Apex Analytics,barbara.lee@apexanalytics.com,555-462-6072,116180,IN,Promo,35151,
+537,Yuki,Reddy,Blue Supply,yuki.reddy@bluesupply.com,+1 555 866 7920,9985,US,Loyalty,25583,
+642,Kwame,Fischer,Nova Health,kwame.fischer@novahealth.com,555-151-4598,7304,US,Loyalty,89832,trial extended
+867,Mary,Fischer,Delta Labs,mary.fischer@deltalabs.com,(555) 320-5186,11931,US,Volume,31720,
+704,Jessica,Miller,North Manufacturing,jessica.miller@northmanufacturing.com,555-259-2310,18352,US,Seasonal,40685,
+821,Rahul,Harris,Iron Metals,rahul.harris@ironmetals.com,+1 555 252 4010,9616,IN,Volume,77121,interested in renewal
+1059,Arjun,Martin,Iron Pharma,arjun.martin@ironpharma.com,,71134,IN,Promo,08466,asked about bulk discount
+748,Robert,Sharma,Nova Pharma,robert.sharma@novapharma.com,+1 555 061 5154,11284,IN,Promo,28245,budget approved
+781,Richard,Scott,Bright Labs,richard.scott@brightlabs.com,+1 555 962 0796,16250,US,Volume,43721,needs security review
+820,Ananya,Davis,Granite Robotics,ananya.davis@graniterobotics.com,(555) 158-0888,6614,US,Seasonal,77593,trial extended
+828,Rahul,Smith,Cedar Robotics,rahul.smith@cedarrobotics.com,+1 555 960 8337,35318,US,Volume,52568,wants a demo
+148,Richard,Green,Meridian Robotics,richard.green@meridianrobotics.com,555-663-9498,5487,US,Volume,36283,budget approved
+1073,Barbara,Kapoor,Apex Systems,barbara.kapoor@apexsystems.com,(555) 358-1144,25509,IN,Promo,35101,trial extended
+1189,Mark,Lewis,Falcon Pharma,mark.lewis@falconpharma.com,,32731,IN,Volume,61883,
+931,Elizabeth,Thompson,North Robotics,elizabeth.thompson@northrobotics.com,(555) 091-4937,10535,US,None,68803,
+1185,John,Moore,Cedar Manufacturing,john.moore@cedarmanufacturing.com,,29152,IN,Promo,35659,expanding to new site
+189,Matthew,Patel,Harbor Labs,matthew.patel@harborlabs.com,(555) 168-3169,9601,US,Promo,68261,sent brochure
+287,Mary,Nguyen,Granite Labs,mary.nguyen@granitelabs.com,+1 555 436 8951,8611,US,Seasonal,66586,
+365,Pierre,Garcia,Nova Software,pierre.garcia@novasoftware.com,(555) 239-4863,2580,US,Promo,62007,trial extended
+1207,Divya,Rao,Cedar Industries,divya.rao@cedarindustries.com,,31752,IN,Seasonal,02522,expanding to new site
+756,Anthony,Lewis,Apex Freight,anthony.lewis@apexfreight.com,+1 555 234 6973,30147,US,None,14224,budget approved
+182,Priya,Dubois,Falcon Manufacturing,priya.dubois@falconmanufacturing.com,+1 555 955 3143,9113,US,None,43224,sent brochure
+401,Robert,Brown,Bright Labs,robert.brown@brightlabs.com,(555) 752-0827,4186,US,None,08519,asked about bulk discount
+953,Michael,King,Delta Industries,michael.king@deltaindustries.com,(555) 844-0441,-,GB,Loyalty,34693,trial extended
+191,Charles,Fischer,Nova Supply,charles.fischer@novasupply.com,(555) 879-4793,10793,US,Volume,04869,follow up next quarter
+845,Anthony,Dubois,Harbor Freight,anthony.dubois@harborfreight.com,555-600-9370,11068,US,Seasonal,33112,
+233,Daniel,Khan,Blue Foods,daniel.khan@bluefoods.com,(555) 529-5725,6651,IN,Loyalty,08494,requested pricing
+710,Arjun,Wright,Nova Analytics,arjun.wright@novaanalytics.com,555-124-6902,11009,IN,Loyalty,93556,trial extended
+417,Rahul,Reddy,Harbor Supply,rahul.reddy@harborsupply.com,(555) 262-3430,8153,US,Seasonal,42631,wants a demo
+690,Ingrid,Kapoor,Harbor Manufacturing,ingrid.kapoor@harbormanufacturing.com,555-680-0149,15170,US,None,20436,trial extended
+292,Richard,Miller,Delta Robotics,pierre.scott@cedarsystems.com,555-827-4747,6836,US,Seasonal,20095,wants a demo
+67,Mark,Gupta,Blue Analytics,mark.gupta@blueanalytics.com,(555) 310-9776,24339,US,Volume,01658,
+194,Lucia,Taylor,Atlas Foods,lucia.taylor@atlasfoods.com,(555) 040-5431,30167,US,Volume,96800,expanding to new site
+199,Priya,Smith,North Systems,priya.smith@northsystems.com,+1 555 851 1606,13247,IN,Promo,43673,interested in renewal
+519,Anthony,Clark,North Robotics,anthony.clark@northrobotics.com,+1 555 849 2516,7407,US,Promo,53024,expanding to new site
+516,Nancy,Young,Blue Pharma,nancy.young@bluepharma.com,555-602-5636,20333,US,None,47072,
+948,Yuki,Smith,Granite Pharma,yuki.smith@granitepharma.com,+1 555 477 5738,12786,US,None,65847,
+268,Elizabeth,Baker,Keystone Manufacturing,elizabeth.baker@keystonemanufacturing.com,+1 555 057 0470,9074,US,Promo,20510,requested pricing
+1075,Sarah,Baker,Blue Energy,sarah.baker@blueenergy.com,,45864,IN,None,87504,needs security review
+256,Fatima,Menon,Falcon Logistics,fatima.menon@falconlogistics.com,(555) 346-1519,10328,US,Volume,76051,needs security review
+474,Patricia,Williams,Granite Systems,patricia.williams@granitesystems.com,+1 555 718 8334,14620,CA,None,82918,follow up next quarter
+1137,Yuki,Jackson,Harbor Health,yuki.jackson@harborhealth.com,+1 555 359 3122,16994,IN,Seasonal,86726,
+1129,Elizabeth,Chen,Cedar Robotics,elizabeth.chen@cedarrobotics.com,,31529,DE,None,74102,
+803,Hiroshi,Young,Nova Freight,hiroshi.young@novafreight.com,(555) 890-7781,5262,US,Loyalty,65617,expanding to new site
+648,Barbara,Anderson,Bright Freight,barbara.anderson@brightfreight.com,555-589-5872,12611,US,Loyalty,83321,needs security review
+1027,Sarah,Nair,North Industries,sarah.nair@northindustries.com,,21074,IN,Promo,90771,requested pricing
+312,Kavya,Young,Falcon Industries,kavya.young@falconindustries.com,+1 555 271 2171,8832,US,Promo,51754,requested pricing
+517,Ananya,Scott,Meridian Robotics,ananya.scott@meridianrobotics.com,555-831-8864,7477,IN,Volume,38395,requested pricing
+8,Nancy,Walker,North Pharma,nancy.walker@northpharma.com,(555) 202-6558,15653,US,None,58301,follow up next quarter
+316,Susan,Walker,Meridian Systems,susan.walker@meridiansystems.com,555-186-9007,12201,US,Loyalty,02176,trial extended
+961,Daniel,Johnson,Bright Metals,daniel.johnson@brightmetals.com,(555) 795-9177,13734,US,Seasonal,25618,
+911,Divya,Fischer,Apex Supply,divya.fischer@apexsupply.com,555-058-9757,7180,US,Seasonal,13262,expanding to new site
+1240,Jennifer,Chen,North Labs,jennifer.chen@northlabs.com,(555) 414-5035,24445,IN,Promo,90322,sent brochure
+1007,Camille,Silva,Meridian Freight,camille.silva@meridianfreight.com,555-754-9853,37124,IN,None,12940,asked about bulk discount
+1203,Lucia,Baker,North Foods,lucia.baker@northfoods.com,+1 555 760 7025,42834,IN,Volume,18684,sent brochure
+461,Kwame,Wright,Keystone Systems,kwame.wright@keystonesystems.com,+1 555 036 4186,18911,IN,Seasonal,20587,sent brochure
+300,Rohan,Jackson,North Software,rohan.jackson@northsoftware.com,+1 555 591 6180,12606,US,None,48148,
+78,Ama,Fischer,Meridian Supply,ama.fischer@meridiansupply.com,(555) 562-0403,12465,GB,None,97183,
+903,William,Nguyen,Falcon Manufacturing,william.nguyen@falconmanufacturing.com,(555) 247-4573,7001,CA,Seasonal,90482,budget approved
+288,Robert,White,Bright Robotics,robert.white@brightrobotics.com,+1 555 389 0275,30111,US,Loyalty,04151,asked about bulk discount
+969,Emily,Martin,Cedar Supply,emily.martin@cedarsupply.com,555-275-9847,32363,US,None,03550,requested pricing
+1169,Kavya,Clark,Apex Manufacturing,kavya.clark@apexmanufacturing.com,+1 555 992 9040,18828,IN,Volume,09422,asked about bulk discount
+833,Anthony,Rao,Delta Robotics,anthony.rao@deltarobotics.com,(555) 389-9800,10639,CA,None,42136,interested in renewal
+580,Ama,Smith,North Systems,ama.smith@northsystems.com,(555) 416-7535,11675,US,Seasonal,27940,expanding to new site
+485,Priya,Fischer,North Metals,priya.fischer@northmetals.com,555-316-1193,31862,US,None,31190,sent brochure
+140,Barbara,Menon,Iron Supply,barbara.menon@ironsupply.com,(555) 427-2685,25087,US,Loyalty,45352,follow up next quarter
+398,Thomas,Reddy,Delta Health,thomas.reddy@deltahealth.com,(555) 272-1034,14300,US,Promo,66365,expanding to new site
+1024,Rahul,Clark,Falcon Industries,rahul.clark@falconindustries.com,,21666,IN,Volume,88995,trial extended
+621,Karen,Khan,North Foods,karen.khan@northfoods.com,+1 555 296 5728,18296,US,Promo,31446,interested in renewal
+972,Lars,Tanaka,Harbor Foods,lars.tanaka@harborfoods.com,555-384-2796,18630,US,None,16031,requested pricing
+1026,Karen,Martinez,Granite Foods,karen.martinez@granitefoods.com,555-092-4304,32102,IN,Loyalty,99864,sent brochure
+163,Wei,Clark,Cedar Analytics,wei.clark@cedaranalytics.com,+1 555 746 6482,20878,US,Loyalty,50263,expanding to new site
+198,Kwame,Green,Delta Robotics,kwame.green@deltarobotics.com,555-084-8344,5445,US,Volume,03353,needs security review
+1144,James,Johnson,Cedar Health,james.johnson@cedarhealth.com,555-621-9528,31301,IN,Loyalty,64483,
+406,Mark,Mensah,Blue Foods,mark.mensah@bluefoods.com,555-524-1369,23590,GB,Seasonal,98093,
+254,Ama,Chen,Iron Robotics,ama.chen@ironrobotics.com,(555) 504-0385,13875,CA,Volume,44738,sent brochure
+1218,Arjun,Taylor,Meridian Industries,arjun.taylor@meridianindustries.com,,41282,IN,Promo,56031,
+1015,Ananya,White,Delta Pharma,ananya.white@deltapharma.com,+1 555 296 9838,27380,DE,Seasonal,40156,sent brochure
+937,Matthew,Wang,Meridian Freight,matthew.wang@meridianfreight.com,555-603-5469,19596,US,Loyalty,53223,
+809,Linda,Nguyen,Cedar Systems,yuki.lewis@harborenergy.com,(555) 735-3894,5226,US,Volume,05029,interested in renewal
+864,Kavya,Wang,Meridian Metals,kavya.wang@meridianmetals.com,(555) 163-4629,8852,US,Volume,67619,wants a demo
+884,Vikram,Miller,Harbor Labs,vikram.miller@harborlabs.com,+1 555 900 5855,16358,US,None,50944,follow up next quarter
+164,Jessica,Fischer,North Supply,jessica.fischer@northsupply.com,555-680-0678,18899,US,None,13654,expanding to new site
+602,David,Berg,Delta Energy,david.berg@deltaenergy.com,555-686-1200,12421,IN,Loyalty,40216,sent brochure
+420,Hiroshi,Davis,Meridian Manufacturing,hiroshi.davis@meridianmanufacturing.com,(555) 598-8612,7130,US,Loyalty,69704,
+524,Joseph,Sharma,Apex Systems,joseph.sharma@apexsystems.com,(555) 342-9849,16723,US,Seasonal,02235,asked about bulk discount
+152,Carlos,Harris,North Labs,carlos.harris@northlabs.com,(555) 661-2508,16914,GB,Promo,80031,
+137,Mei,Wilson,Harbor Health,mei.wilson@harborhealth.com,555-039-2301,16560,US,None,84850,trial extended
+98,Thomas,Dubois,Meridian Robotics,thomas.dubois@meridianrobotics.com,+1 555 881 1600,9202,CA,None,25246,
+1235,Ingrid,Lee,Iron Systems,ingrid.lee@ironsystems.com,555-387-3032,23241,IN,Seasonal,21237,asked about bulk discount
+467,Carlos,Moore,Apex Energy,carlos.moore@apexenergy.com,(555) 718-1211,14933,US,None,84400,
+865,Barbara,Kapoor,Blue Analytics,barbara.kapoor@blueanalytics.com,+1 555 325 1521,14255,IN,Loyalty,21793,requested pricing
+117,Michael,Brown,test test test,michael.brown@deltahealth.com,+1 555 849 0746,8178,US,Promo,62496,trial extended
+498,Linda,Chen,Falcon Supply,linda.chen@falconsupply.com,(555) 094-8971,14482,CA,Volume,29056,requested pricing
+7,John,Silva,Nova Metals,john.silva@novametals.com,(555) 518-8424,24359,US,Loyalty,13795,
+435,Thomas,Taylor,Nova Labs,thomas.taylor@novalabs.com,+1 555 603 7797,20287,GB,Promo,89420,requested pricing
+176,Priya,Nair,Cedar Analytics,priya.nair@cedaranalytics.com,(555) 857-2736,6851,US,None,01980,requested pricing
+836,Nancy,Mensah,Apex Logistics,nancy.mensah@apexlogistics.com,555-710-9569,-,US,Promo,70363,asked about bulk discount
+876,Robert,Mensah,Keystone Foods,robert.mensah@keystonefoods.com,+1 555 101 9244,4636,US,Promo,18245,follow up next quarter
+922,Omar,Anderson,Nova Freight,omar.anderson@novafreight.com,(555) 806-7892,14826,US,Promo,04196,follow up next quarter
+1160,Kavya,Anderson,Cedar Software,kavya.anderson@cedarsoftware.com,,24297,IN,Volume,63894,
+307,Michael,Nair,Cedar Health,michael.nair@cedarhealth.com,(555) 128-9499,27505,US,Promo,98969,follow up next quarter
+172,Sarah,Scott,Harbor Energy,sarah.scott@harborenergy.com,(555) 706-8703,13503,DE,Volume,62906,expanding to new site
+236,Vikram,Rossi,Granite Logistics,vikram.rossi@granitelogistics.com,+1 555 606 9516,5192,US,Loyalty,77818,
+695,Ama,Anderson,North Software,ama.anderson@northsoftware.com,555-742-0586,7394,US,Promo,40155,sent brochure
+1029,Ananya,Lee,Harbor Manufacturing,ananya.lee@harbormanufacturing.com,555-113-1800,51840,IN,None,02913,trial extended
+477,Mateo,Baker,Atlas Manufacturing,mateo.baker@atlasmanufacturing.com,(555) 299-9744,7974,GB,Promo,78361,wants a demo
+1066,Kwame,Miller,Iron Manufacturing,kwame.miller@ironmanufacturing.com,,26799,DE,Promo,74707,needs security review
+738,Betty,Smith,Iron Robotics,betty.smith@ironrobotics.com,(555) 657-9046,4891,US,None,38230,
+538,Richard,Jackson,Nova Industries,richard.jackson@novaindustries.com,+1 555 633 3889,39839,US,None,09976,
+411,Divya,Martin,Falcon Health,divya.martin@falconhealth.com,(555) 188-2992,4365,DE,Volume,88869,
+723,Sofia,Wilson,Atlas Manufacturing,sofia.wilson@atlasmanufacturing.com,(555) 481-6787,15919,GB,Promo,45947,wants a demo
+259,Susan,White,Bright Labs,susan.white@brightlabs.com,(555) 506-7833,19053,US,Seasonal,50801,requested pricing
+210,Anthony,Scott,,anthony.scott@deltametals.com,555-272-2448,25045,CA,Loyalty,42733,budget approved
+1198,John,Rossi,Apex Metals,john.rossi@apexmetals.com,,34844,IN,Loyalty,92854,sent brochure
+43,Anthony,Sharma,North Pharma,anthony.sharma@northpharma.com,+1 555 117 0273,7268,US,Seasonal,43342,trial extended
+352,Joseph,Nair,Harbor Energy,joseph.nair@harborenergy.com,555-496-6800,8335,US,Loyalty,02445,needs security review
+515,Camille,Silva,Apex Supply,camille.silva@apexsupply.com,555-909-0913,10192,US,Volume,15864,needs security review
+875,Kwame,Williams,Harbor Systems,kwame.williams@harborsystems.com,+1 555 022 5614,9989,US,None,15058,
+801,Vikram,Harris,Bright Systems,vikram.harris@brightsystems.com,+1 555 000 2847,9676,US,Promo,97057,requested pricing
+893,William,Anderson,Bright Systems,lars.young@falconrobotics.com,555-442-4020,12372,US,Seasonal,98479,budget approved
+375,Steven,Wang,Granite Pharma,steven.wang@granitepharma.com,(555) 425-6383,23668,GB,Volume,95035,wants a demo
+1232,Vikram,Miller,Apex Supply,vikram.miller@apexsupply.com,(555) 112-3334,19541,IN,Seasonal,06205,
+1182,Margaret,Thompson,Delta Industries,margaret.thompson@deltaindustries.com,(555) 786-6240,32151,IN,Loyalty,61575,
+1011,Mei,Martin,Nova Logistics,mei.martin@novalogistics.com,+1 555 553 0140,73871,IN,Volume,96468,expanding to new site
+1021,Barbara,Miller,Nova Health,barbara.miller@novahealth.com,(555) 691-3029,26818,IN,Promo,11532,budget approved
+239,Kwame,Brown,Keystone Freight,kwame.brown@keystonefreight.com,(555) 804-3808,6438,US,Loyalty,45532,interested in renewal
+763,Patricia,Thompson,Blue Energy,patricia.thompson@blueenergy.com,+1 555 560 6050,7813,US,Seasonal,73246,expanding to new site
+1241,Yuki,Sharma,Delta Foods,yuki.sharma@deltafoods.com,(555) 200-4851,15661,DE,Promo,61776,follow up next quarter
+202,James,Thompson,Meridian Pharma,james.thompson@meridianpharma.com,+1 555 812 2410,10422,GB,Loyalty,79604,
+324,Sandra,Smith,Harbor Energy,sandra.smith@harborenergy.com,(555) 324-1462,8478,US,Volume,37169,budget approved
+789,Lucia,Lee,Keystone Health,lucia.lee@keystonehealth.com,+1 555 965 4525,8610,IN,None,03163,trial extended
+863,Elizabeth,Hill,Nova Pharma,elizabeth.hill@novapharma.com,(555) 307-1580,11843,US,Loyalty,16598,
+562,Lucia,Silva,Falcon Supply,lucia.silva@falconsupply.com,555-374-7502,28866,CA,Loyalty,09944,wants a demo
+806,Ingrid,Berg,North Foods,ingrid.berg@northfoods.com,(555) 801-3731,12932,US,Promo,20833,
+1201,Fatima,Khan,North Software,fatima.khan@northsoftware.com,+1 555 432 2681,56994,IN,Promo,59546,sent brochure
+826,William,Clark,Apex Metals,william.clark@apexmetals.com,(555) 208-6973,null,US,Loyalty,43384,budget approved
+114,Susan,Lewis,Keystone Foods,susan.lewis@keystonefoods.com,555-360-4061,15271,US,Volume,89714,expanding to new site
+685,Thomas,Wang,Nova Supply,thomas.wang@novasupply.com,555-321-5334,15857,DE,Promo,17066,
+617,Hiroshi,Young,Keystone Systems,hiroshi.young@keystonesystems.com,555-389-6580,9113,US,Volume,03199,sent brochure
+1156,Ananya,Taylor,Cedar Pharma,ananya.taylor@cedarpharma.com,+1 555 532 2693,30840,DE,Loyalty,79952,sent brochure
+640,Patricia,Jones,Cedar Metals,patricia.jones@cedarmetals.com,+1 555 671 0560,34728,GB,Promo,51463,wants a demo
+1012,Camille,Garcia,Delta Manufacturing,camille.garcia@deltamanufacturing.com,,74967,DE,Promo,02709,budget approved
+274,Rohan,Green,Keystone Software,rohan.green@keystonesoftware.com,(555) 882-3658,19607,US,Promo,97526,
+9,William,Khan,Nova Health,william.khan@novahealth.com,555-381-9178,4374,US,None,54086,
+70,Hiroshi,Nguyen,North Manufacturing,hiroshi.nguyen@northmanufacturing.com,(555) 795-8340,8801,GB,Volume,85167,sent brochure
+298,Patricia,Rao,Nova Labs,patricia.rao@novalabs.com,+1 555 478 7426,13909,US,Seasonal,78810,trial extended
+393,Ingrid,Young,Blue Industries,ingrid.young@blueindustries.com,555-942-9784,N/A,US,None,55500,needs security review
+101,Emily,Jackson,Cedar Freight,emily.jackson@cedarfreight.com,555-754-8745,11539,US,None,24071,follow up next quarter
+1032,Nancy,Baker,North Manufacturing,nancy.baker@northmanufacturing.com,555-718-2279,25178,DE,Loyalty,21757,needs security review
+1116,Rohan,Miller,Delta Health,rohan.miller@deltahealth.com,555-199-3711,17535,IN,Volume,03578,follow up next quarter
+473,Ananya,Garcia,Meridian Pharma,ananya.garcia@meridianpharma.com,(555) 528-0000,20167,IN,Volume,49912,
+846,Omar,Rao,Delta Industries,divya.johnson@brightmetals.com,555-900-0258,14036,US,Volume,49786,
+1072,James,White,Nova Supply,james.white@novasupply.com,,59519,IN,Promo,98381,follow up next quarter
+333,James,Berg,Cedar Systems,james.berg@cedarsystems.com,+1 555 439 7755,13988,US,Loyalty,05969,sent brochure
+508,Ama,Scott,Delta Health,ama.scott@deltahealth.com,555-616-5641,7926,US,Seasonal,27855,budget approved
+86,Wei,Nguyen,Bright Robotics,wei.nguyen@brightrobotics.com,555-107-0932,8254,US,Promo,21776,asked about bulk discount
+111,Joseph,Williams,Apex Metals,joseph.williams@apexmetals.com,555-902-7232,12291,CA,Promo,98060,needs security review
+122,James,Jackson,Iron Pharma,james.jackson@ironpharma.com,(555) 450-8437,15842,US,Volume,78269,wants a demo
+1077,Ingrid,King,Apex Metals,ingrid.king@apexmetals.com,+1 555 549 5850,18030,IN,Seasonal,92622,interested in renewal
+1151,James,Dubois,Apex Analytics,james.dubois@apexanalytics.com,+1 555 041 1962,21239,IN,Volume,41334,
+17,Sarah,Martin,Iron Freight,sarah.martin@ironfreight.com,555-997-4186,12888,US,Seasonal,73350,asked about bulk discount
+334,Emily,Brown,Meridian Software,emily.brown@meridiansoftware.com,+1 555 493 6188,8313,CA,Promo,27920,
+459,Arjun,White,Nova Robotics,arjun.white@novarobotics.com,(555) 290-0413,7363,US,Seasonal,93775,wants a demo
+490,Yuki,Martin,Apex Freight,yuki.martin@apexfreight.com,(555) 707-8837,9808,GB,Volume,32635,expanding to new site
+1060,Mei,Dubois,Apex Software,mei.dubois@apexsoftware.com,(555) 279-2093,28387,IN,Volume,38953,
+773,Camille,Kapoor,Granite Robotics,,(555) 217-5570,12626,US,Seasonal,63626,
+258,Jennifer,Lewis,Cedar Energy,jennifer.lewis@cedarenergy.com,555-498-4693,12334,US,Promo,28292,interested in renewal
+1088,Michael,Brown,Nova Industries,michael.brown@novaindustries.com,(555) 055-7686,46303,DE,Volume,88129,requested pricing
+232,Divya,Baker,Cedar Manufacturing,divya.baker@cedarmanufacturing.com,+1 555 709 8258,6515,US,Loyalty,96511,follow up next quarter
+132,Priya,Mensah,Apex Freight,priya.mensah@apexfreight.com,555-253-0863,9139,US,None,89407,expanding to new site
+378,Patricia,Berg,Atlas Analytics,patricia.berg@atlasanalytics.com,555-405-3701,N/A,US,Seasonal,34657,
+850,Barbara,King,North Industries,barbara.king@northindustries.com,555-481-2716,7795,US,Seasonal,84492,requested pricing
+389,Steven,Wang,Granite Metals,steven.wang@granitemetals.com,(555) 206-1330,7207,GB,Volume,12795,requested pricing
+18,Fatima,Anderson,Granite Labs,fatima.anderson@granitelabs.com,+1 555 220 4716,18282,US,Seasonal,56667,budget approved
+1239,Emily,Anderson,Harbor Labs,emily.anderson@harborlabs.com,,24356,IN,Volume,22290,
+48,Fatima,Wright,Delta Robotics,fatima.wright@deltarobotics.com,(555) 874-3517,12217,IN,None,03180,budget approved
+1172,Mateo,Tanaka,Harbor Health,mateo.tanaka@harborhealth.com,+1 555 511 5642,19378,IN,Seasonal,58084,wants a demo
+265,Wei,Martin,Apex Freight,wei.martin@apexfreight.com,555-994-2335,11982,US,Volume,83239,
+689,Vikram,Williams,Meridian Industries,vikram.williams@meridianindustries.com,555-168-0767,10806,US,Seasonal,01907,interested in renewal
+606,Richard,Jackson,Keystone Foods,richard.jackson@keystonefoods.com,+1 555 751 0448,36023,IN,Seasonal,72959,expanding to new site
+1,Elizabeth,Anderson,Falcon Metals,elizabeth.anderson@falconmetals.com,+1 555 331 5732,5920,US,Promo,92451,interested in renewal
+681,Mateo,Wang,Iron Freight,mateo.wang@ironfreight.com,+1 555 798 7076,12696,US,None,09201,budget approved
+397,Thomas,Brown,Atlas Freight,thomas.brown@atlasfreight.com,(555) 366-4181,19493,US,None,11372,follow up next quarter
+382,Mary,Clark,Iron Foods,mary.clark@ironfoods.com,+1 555 070 9157,6934,US,Volume,58385,budget approved
+873,Omar,Miller,Apex Manufacturing,omar.miller@apexmanufacturing.com,+1 555 501 9800,9126,US,Promo,83788,
+94,Jessica,Tanaka,Granite Foods,jessica.tanaka@granitefoods.com,(555) 083-8540,6707,US,Volume,62771,requested pricing
+671,Linda,Kapoor,Granite Logistics,margaret.jackson@brightrobotics.com,(555) 718-4813,12523,US,Volume,51358,
+868,Sarah,King,Atlas Industries,sarah.king@atlasindustries.com,(555) 080-6303,??,CA,Volume,71094,interested in renewal
+366,Sofia,Costa,Meridian Software,sofia.costa@meridiansoftware.com,+1 555 896 2245,10497,US,Seasonal,50799,needs security review
+832,Michael,Moore,North Metals,michael.moore@northmetals.com,555-356-2563,4108,US,Volume,81069,sent brochure
+649,Margaret,Jackson,Bright Robotics,margaret.jackson@brightrobotics.com,+1 555 867 0589,12720,IN,Volume,96359,sent brochure
+747,Thomas,Hill,Meridian Supply,thomas.hill@meridiansupply.com,(555) 177-1675,18701,US,Promo,04085,follow up next quarter
+597,Lucia,Wang,Nova Manufacturing,lucia.wang@newdomain.com,+1 555 042 5860,8106,US,Promo,46491,
+367,Ama,Nair,Iron Supply,ama.nair@newdomain.com,+1 555 427 3011,22979,US,Promo,41752,interested in renewal
+1095,Lucia,Brown,Harbor Labs,lucia.brown@harborlabs.com,(555) 661-4257,27887,IN,Promo,32613,
+1133,Mateo,Williams,Falcon Labs,mateo.williams@falconlabs.com,555-467-0984,51506,IN,None,79862,
+974,Wei,Sharma,Granite Labs,wei.sharma@granitelabs.com,(555) 478-0532,99999999,US,None,22640,follow up next quarter
+1093,Lucia,Walker,Apex Freight,lucia.walker@apexfreight.com,,110487,IN,None,62840,trial extended
+1139,Rahul,Mensah,Nova Metals,rahul.mensah@novametals.com,,17222,IN,Volume,72831,trial extended
+1108,Mateo,Chen,Blue Supply,mateo.chen@bluesupply.com,,37855,IN,Promo,38947,needs security review
+548,Lucia,Nguyen,Keystone Robotics,lucia.nguyen@keystonerobotics.com,(555) 024-1270,7652,CA,Loyalty,43375,
+1171,Fatima,Wang,Bright Supply,fatima.wang@brightsupply.com,(555) 792-5450,40205,IN,Volume,22737,interested in renewal
+614,Richard,Silva,Granite Logistics,richard.silva@granitelogistics.com,(555) 771-0030,19725,US,Seasonal,91439,
+230,Kavya,Jackson,North Labs,kavya.jackson@northlabs.com,555-141-3599,10840,US,Seasonal,03657,
+827,Charles,Iyer,Meridian Freight,charles.iyer@meridianfreight.com,+1 555 525 2593,18568,US,None,18987,wants a demo
+856,Joseph,Baker,Nova Foods,joseph.baker@novafoods.com,+1 555 286 0866,4447,US,Loyalty,05822,
+1249,Fatima,Tanaka,Apex Manufacturing,fatima.tanaka@apexmanufacturing.com,+1 555 063 2176,53300,IN,Volume,39916,trial extended
+1044,Jennifer,Lee,Granite Logistics,jennifer.lee@granitelogistics.com,555-775-8496,90250,IN,Promo,63186,budget approved
+1208,Betty,Rao,Bright Supply,betty.rao@brightsupply.com,(555) 382-7452,44429,IN,None,39945,wants a demo
+1067,Nancy,Johnson,Meridian Metals,nancy.johnson@meridianmetals.com,(555) 684-2526,33115,US,Volume,01189,
+60,Richard,Davis,Nova Foods,richard.davis@novafoods.com,555-870-4926,15175,IN,Seasonal,92196,
+272,Margaret,Scott,Nova Health,margaret.scott@novahealth.com,(555) 970-1961,13879,IN,Promo,03601,follow up next quarter
+496,Karen,Sharma,Keystone Logistics,karen.sharma@keystonelogistics.com,+1 555 684 4860,null,US,Promo,07392,
+504,Ananya,Garcia,Atlas Freight,ananya.garcia@atlasfreight.com,555-662-9060,41589,US,Promo,19127,
+1062,Robert,Kapoor,Iron Metals,robert.kapoor@ironmetals.com,,37169,IN,Loyalty,04088,budget approved
+620,Sarah,Smith,Cedar Pharma,sarah.smith@cedarpharma.com,555-542-2913,10325,US,Loyalty,17999,wants a demo
+153,Barbara,Berg,Keystone Health,barbara.berg@keystonehealth.com,555-202-3770,-,CA,Loyalty,49350,
+404,Wei,Martin,Bright Health,wei.martin@brighthealth.com,(555) 729-9116,13514,US,Promo,07685,budget approved
+657,Fatima,Mensah,Apex Systems,fatima.mensah@apexsystems.com,555-761-6493,26896,DE,Seasonal,53849,budget approved
+777,Robert,Clark,Meridian Industries,robert.clark@meridianindustries.com,+1 555 240 4180,10904,US,Volume,84610,trial extended
+982,Priya,Lewis,Cedar Health,priya.lewis@cedarhealth.com,+1 555 844 2269,49644,US,None,30864,trial extended
+686,Omar,Kapoor,North Manufacturing,omar.kapoor@northmanufacturing.com,+1 555 229 8003,11060,US,Seasonal,24776,needs security review
+1105,Omar,Lewis,Granite Foods,omar.lewis@granitefoods.com,,39739,IN,Promo,25942,
+1227,Sofia,Baker,Meridian Energy,sofia.baker@meridianenergy.com,,14146,IN,Volume,02746,budget approved
+421,Patricia,Kapoor,Harbor Analytics,patricia.kapoor@harboranalytics.com,555-842-4627,9984,US,Loyalty,28855,needs security review
+629,William,Smith,Cedar Industries,william.smith@cedarindustries.com,(555) 322-5157,14005,US,Loyalty,60964,wants a demo
+1069,Anthony,Wilson,Iron Metals,anthony.wilson@ironmetals.com,,23374,IN,Seasonal,63255,budget approved
+625,Elizabeth,Nair,Bright Analytics,elizabeth.nair@brightanalytics.com,555-228-9089,9985,US,Seasonal,81307,
+923,Michael,Johnson,Meridian Software,michael.johnson@meridiansoftware.com,(555) 621-5041,9589,US,Loyalty,91272,wants a demo
+492,Charles,Smith,Bright Analytics,charles.smith@brightanalytics.com,+1 555 684 8107,14004,US,Seasonal,06243,sent brochure
+1083,Anthony,Tanaka,Iron Software,anthony.tanaka@ironsoftware.com,+1 555 668 3850,25911,IN,Promo,38560,sent brochure
+632,Barbara,Miller,Delta Metals,barbara.miller@deltametals.com,555-596-9336,17335,US,Promo,85282,trial extended
+757,Vikram,Fischer,Meridian Manufacturing,vikram.fischer@meridianmanufacturing.com,(555) 197-8298,19923,US,None,79138,
+346,Joseph,Chen,Iron Robotics,joseph.chen@ironrobotics.com,+1 555 547 6825,17858,GB,Seasonal,08042,sent brochure
+898,Elizabeth,Berg,Granite Robotics,elizabeth.berg@graniterobotics.com,(555) 450-2484,15513,DE,None,52019,trial extended
+930,William,Lee,Granite Analytics,william.lee@graniteanalytics.com,555-293-6884,7168,US,Volume,66512,
+943,Thomas,Mensah,Falcon Health,thomas.mensah@falconhealth.com,+1 555 426 3188,13120,US,None,28123,
+273,Kavya,Young,Granite Foods,kavya.young@granitefoods.com,555-079-8435,9485,US,Loyalty,35514,asked about bulk discount
+541,Camille,Nguyen,Meridian Systems,camille.nguyen@meridiansystems.com,(555) 626-9393,9369,US,Volume,85972,trial extended
+87,Mateo,Tanaka,Nova Freight,mateo.tanaka@novafreight.com,(555) 566-0381,35849,US,Loyalty,33603,budget approved
+370,Elizabeth,Hill,Meridian Supply,elizabeth.hill@meridiansupply.com,(555) 389-1351,13256,IN,Seasonal,29137,trial extended
+540,Sarah,Miller,Iron Freight,sarah.miller@ironfreight.com,+1 555 692 2247,16269,US,Volume,49338,
+77,Rahul,Reddy,Atlas Robotics,rahul.reddy@atlasrobotics.com,555-708-3427,11321,US,Loyalty,08730,sent brochure
+719,Patricia,Brown,Falcon Industries,patricia.brown@falconindustries.com,(555) 354-2343,11123,US,Loyalty,67768,interested in renewal
+502,Susan,Silva,Falcon Supply,susan.silva@falconsupply.com,(555) 466-8662,4021,GB,Volume,92427,sent brochure
+1013,Hiroshi,Iyer,North Labs,hiroshi.iyer@northlabs.com,555-678-0230,48396,DE,Volume,73489,
+170,Thomas,Walker,Falcon Metals,thomas.walker@falconmetals.com,+1 555 561 4767,7778,DE,Promo,25536,sent brochure
+68,Ananya,Walker,Bright Freight,ananya.walker@brightfreight.com,(555) 838-9233,10536,US,Seasonal,08053,budget approved
+311,Robert,Hill,Atlas Analytics,robert.hill@atlasanalytics.com,+1 555 799 6121,9768,US,Promo,46411,wants a demo
+444,Omar,Jones,Apex Energy,omar.jones@apexenergy.com,(555) 913-5479,22991,US,Volume,21127,
+907,Camille,Martin,Nova Software,camille.martin@novasoftware.com,+1 555 455 5483,6656,US,Seasonal,79300,requested pricing
+1112,Priya,Kapoor,Atlas Robotics,priya.kapoor@atlasrobotics.com,+1 555 753 5173,18176,DE,Promo,22843,
+314,Divya,Taylor,Granite Metals,divya.taylor@granitemetals.com,+1 555 554 4032,7645,US,Seasonal,85836,asked about bulk discount
+1186,Lucia,Dubois,Nova Software,lucia.dubois@novasoftware.com,555-218-2481,24123,IN,None,89393,
+862,Priya,Reddy,Iron Logistics,priya.reddy@ironlogistics.com,+1 555 367 4365,4211,US,Loyalty,27648,sent brochure
+1030,Sandra,Rao,Harbor Energy,sandra.rao@harborenergy.com,,19890,IN,Loyalty,31381,trial extended
+1212,Hiroshi,Gupta,Falcon Pharma,hiroshi.gupta@falconpharma.com,,31265,IN,Promo,48819,wants a demo
+896,Steven,Chen,Nova Foods,steven.chen@novafoods.com,(555) 659-3611,13732,US,Loyalty,84028,
+944,Ananya,Harris,North Health,ananya.harris@northhealth.com,(555) 796-2123,10201,US,None,78774,follow up next quarter
+895,Charles,Mensah,Iron Metals,charles.mensah@ironmetals.com,(555) 874-8362,7175,US,None,83835,
+1155,Thomas,Silva,North Health,thomas.silva@northhealth.com,555-992-6799,33248,IN,Promo,51091,interested in renewal
+987,Thomas,King,Keystone Health,thomas.king@keystonehealth.com,555-624-0988,3124,DE,Loyalty,72902,interested in renewal
+237,Hiroshi,Martinez,Bright Foods,hiroshi.martinez@brightfoods.com,555-585-9526,5429,US,None,06451,requested pricing
+815,Elizabeth,Young,Delta Industries,elizabeth.young@deltaindustries.com,(555) 551-2049,11705,US,Volume,95831,expanding to new site
+1100,Rahul,Menon,Cedar Energy,rahul.menon@cedarenergy.com,555-358-9550,29429,IN,Volume,23333,interested in renewal
+279,Hiroshi,Scott,Iron Energy,hiroshi.scott@ironenergy.com,555-460-5728,3775,US,Volume,43728,needs security review
+33,Jennifer,Anderson,Cedar Foods,jennifer.anderson@cedarfoods.com,555-306-5673,11944,IN,Promo,69488,
+1205,Daniel,King,Apex Freight,daniel.king@apexfreight.com,555-544-1955,43988,IN,Seasonal,79671,
+278,Elizabeth,Moore,Iron Robotics,elizabeth.moore@ironrobotics.com,+1 555 079 4342,39988,US,Volume,03723,asked about bulk discount
+294,Hiroshi,Chen,Iron Logistics,hiroshi.chen@ironlogistics.com,555-608-4985,8986,US,Promo,01524,trial extended
+1052,Robert,Berg,Meridian Health,robert.berg@meridianhealth.com,+1 555 302 7433,64369,IN,Promo,74133,interested in renewal
+793,Ananya,Rossi,Meridian Systems,ananya.rossi@meridiansystems.com,555-924-6137,13160,US,Loyalty,06886,
+188,Jennifer,Nair,Falcon Robotics,jennifer.nair@falconrobotics.com,555-149-3384,25124,US,Volume,39792,interested in renewal
+792,Pierre,Davis,Keystone Robotics,pierre.davis@keystonerobotics.com,+1 555 618 1352,28944,US,Loyalty,39693,needs security review
+990,Patricia,Berg,Meridian Energy,patricia.berg@meridianenergy.com,(555) 276-0955,10506,US,Promo,31258,trial extended
+1043,Linda,Sharma,Keystone Freight,linda.sharma@keystonefreight.com,+1 555 389 6688,83731,IN,Seasonal,61998,requested pricing
+1036,Mateo,Rossi,Meridian Software,mateo.rossi@meridiansoftware.com,+1 555 783 8289,45102,US,None,01811,budget approved
+761,Omar,Wang,Apex Robotics,omar.wang@apexrobotics.com,+1 555 396 0740,16790,US,Promo,24308,
+127,Fatima,Taylor,North Systems,fatima.taylor@northsystems.com,555-583-1186,7296,DE,Seasonal,86281,trial extended
+935,Thomas,Dubois,Atlas Analytics,thomas.dubois@atlasanalytics.com,(555) 379-6684,24752,CA,Promo,74345,
+735,Joseph,Nguyen,North Supply,joseph.nguyen@northsupply.com,555-677-8473,5427,US,Volume,37556,asked about bulk discount
+878,Susan,Miller,Apex Software,susan.miller@apexsoftware.com,+1 555 924 9273,24701,CA,Loyalty,72323,wants a demo
+528,Priya,Tanaka,Granite Logistics,priya.tanaka@granitelogistics.com,+1 555 215 8278,6859,US,Seasonal,16386,needs security review
+453,Kwame,Rossi,Nova Manufacturing,kwame.rossi@novamanufacturing.com,+1 555 366 9024,7905,US,None,07178,needs security review
+1191,Nancy,Nair,Keystone Systems,nancy.nair@keystonesystems.com,(555) 839-9752,30658,IN,Seasonal,92392,wants a demo
+414,Lucia,Lewis,Apex Robotics,lucia.lewis@apexrobotics.com,+1 555 429 2142,12843,US,Volume,38688,
+853,Mei,Anderson,Cedar Supply,mei.anderson@cedarsupply.com,+1 555 724 9099,24099,US,Volume,73613,
+35,Charles,Johnson,Nova Labs,charles.johnson@novalabs.com,(555) 175-7659,8903,US,None,74760,expanding to new site
+34,Susan,Williams,Meridian Freight,susan.williams@meridianfreight.com,+1 555 500 9677,14428,GB,Seasonal,73693,needs security review
+206,Jennifer,Lewis,North Metals,jennifer.lewis@northmetals.com,555-731-9411,17627,US,Promo,23198,follow up next quarter
+320,Barbara,Sharma,Bright Foods,barbara.sharma@brightfoods.com,+1 555 950 6621,11747,CA,Loyalty,14197,
+527,Jennifer,Young,Granite Analytics,jennifer.young@graniteanalytics.com,(555) 835-8587,24115,US,Volume,03421,trial extended
+383,Lucia,Jones,Harbor Foods,lucia.jones@harborfoods.com,555-304-0409,3410,CA,None,11258,needs security review
+908,Anthony,Johnson,Atlas Robotics,anthony.johnson@atlasrobotics.com,(555) 328-2300,19284,GB,None,05928,
+673,Elizabeth,Sharma,Cedar Pharma,elizabeth.sharma@cedarpharma.com,(555) 085-9282,8611,US,None,35718,asked about bulk discount
+1226,Matthew,Dubois,Keystone Freight,matthew.dubois@keystonefreight.com,+1 555 427 5171,27339,IN,None,82456,wants a demo
+991,Margaret,Rossi,Bright Robotics,margaret.rossi@brightrobotics.com,555-634-3691,9506,GB,Promo,06679,requested pricing
+318,David,Gupta,Nova Industries,david.gupta@novaindustries.com,(555) 945-9090,7971,US,None,70924,expanding to new site
+315,Sofia,Scott,Nova Labs,sofia.scott@novalabs.com,(555) 390-3979,50021,US,Seasonal,58748,
+552,Mateo,Clark,Harbor Industries,mateo.clark@harborindustries.com,+1 555 417 0369,14880,US,Volume,71931,
+201,Richard,Davis,Cedar Health,richard.davis@cedarhealth.com,+1 555 680 8336,9777,GB,None,85459,budget approved
+88,Carlos,Dubois,Apex Freight,carlos.dubois@apexfreight.com,(555) 817-2023,11059,US,Promo,86377,interested in renewal
+1131,Ananya,Khan,Delta Pharma,ananya.khan@deltapharma.com,,41353,CA,Seasonal,77948,wants a demo
+772,Lars,Jones,Atlas Robotics,lars.jones@atlasrobotics.com,(555) 952-6567,16563,US,Loyalty,18432,
+1148,Divya,Reddy,Falcon Labs,divya.reddy@falconlabs.com,555-569-6192,21071,US,Promo,67936,
+166,Elizabeth,Sharma,North Software,elizabeth.sharma@northsoftware.com,(555) 295-7024,8157,US,None,67195,
+694,Pierre,Fischer,North Metals,pierre.fischer@northmetals.com,(555) 726-4012,abc,US,None,23915,trial extended
+308,Kwame,Costa,Atlas Foods,kwame.costa@atlasfoods.com,555-571-2903,29678,US,None,58455,
+734,Camille,Williams,Harbor Manufacturing,camille.williams@harbormanufacturing.com,555-178-4347,6935,IN,Volume,06940,expanding to new site
+858,Omar,Patel,Blue Pharma,omar.patel@bluepharma.com,555-238-4184,17933,IN,Volume,01708,
+951,Elizabeth,Nguyen,Keystone Systems,elizabeth.nguyen@keystonesystems.com,555-706-0495,2207,US,Seasonal,51685,
+263,Anthony,Chen,Nova Pharma,anthony.chen@novapharma.com,555-162-4837,12573,US,None,73364,
+899,David,Smith,Falcon Metals,david.smith@falconmetals.com,555-308-7007,12942,US,Loyalty,21070,asked about bulk discount
+573,Matthew,Mensah,Blue Robotics,matthew.mensah@bluerobotics.com,(555) 668-4239,4572,DE,Seasonal,10672,follow up next quarter
+574,Sarah,Lee,Granite Metals,sarah.lee@granitemetals.com,+1 555 317 4341,8444,US,Loyalty,50164,
+749,Arjun,Walker,Keystone Health,arjun.walker@keystonehealth.com,555-203-3067,4991,CA,Loyalty,83125,
+73,Pierre,Kapoor,Granite Pharma,pierre.kapoor@granitepharma.com,+1 555 864 4736,12718,CA,Volume,48450,
+482,Mei,Nguyen,Blue Industries,mei.nguyen@blueindustries.com,555-161-3413,13449,US,Promo,56088,follow up next quarter
+1084,Michael,Dubois,Nova Supply,michael.dubois@novasupply.com,(555) 607-9391,46094,IN,Promo,68544,needs security review
+583,David,Wright,Nova Software,david.wright@novasoftware.com,+1 555 271 1298,15982,DE,None,60003,
+925,Kavya,Martin,Bright Labs,kavya.martin@brightlabs.com,555-468-6847,5558,US,Volume,29220,
+54,Sarah,Iyer,Cedar Health,sarah.iyer@cedarhealth.com,(555) 797-1763,99999999,US,Promo,43361,requested pricing
+49,Charles,Wright,Bright Foods,charles.wright@brightfoods.com,(555) 810-4612,3939,US,Loyalty,51344,requested pricing
+1228,Ingrid,Green,Granite Pharma,ingrid.green@granitepharma.com,555-544-0377,29867,US,Volume,41290,
+767,Lucia,Wright,Harbor Energy,lucia.wright@harborenergy.com,+1 555 735 7466,11276,US,None,05854,follow up next quarter
+613,Mateo,Rossi,Falcon Labs,mateo.rossi@falconlabs.com,555-166-3571,6575,IN,None,28891,sent brochure
+675,Elizabeth,Williams,Keystone Health,elizabeth.williams@keystonehealth.com,+1 555 242 9306,10225,IN,Volume,30431,
+1231,Ingrid,Jackson,Meridian Pharma,ingrid.jackson@meridianpharma.com,,18609,IN,Volume,60690,
+1086,Ama,White,Falcon Systems,ama.white@falconsystems.com,,22826,DE,None,75275,wants a demo
+522,Anthony,Reddy,Harbor Industries,anthony.reddy@harborindustries.com,+1 555 433 2875,17899,IN,Seasonal,02038,
+44,Rohan,Silva,Blue Energy,rohan.silva@blueenergy.com,+1 555 578 2257,18711,US,Loyalty,90400,sent brochure
+305,Lars,Fischer,Iron Supply,lars.fischer@ironsupply.com,555-213-3680,10674,US,None,05284,budget approved
+988,Priya,King,Nova Metals,priya.king@novametals.com,555-412-8845,20362,US,Loyalty,98484,sent brochure
+725,Lars,Kapoor,Meridian Industries,lars.kapoor@meridianindustries.com,555-004-8967,7645,US,Volume,61918,needs security review
+441,Lucia,Nair,Granite Logistics,lucia.nair@granitelogistics.com,555-726-9585,6370,US,Volume,55331,expanding to new site
+213,Susan,Martin,Nova Pharma,susan.martin@novapharma.com,555-284-1290,3537,US,Volume,46757,budget approved
+483,Omar,Scott,Blue Supply,omar.scott@bluesupply.com,(555) 994-6690,10719,US,None,81716,requested pricing
+430,Emily,Smith,Blue Industries,emily.smith@blueindustries.com,(555) 313-4558,5107,CA,None,51791,needs security review
+636,Elizabeth,Wright,Iron Robotics,elizabeth.wright@ironrobotics.com,(555) 160-8976,36793,US,Volume,10371,follow up next quarter
+229,Ananya,Iyer,Falcon Metals,ananya.iyer@falconmetals.com,(555) 788-0609,12932,US,Loyalty,06973,follow up next quarter
+228,Emily,Costa,Bright Health,emily.costa@brighthealth.com,555-847-8074,23658,IN,None,06338,
+242,Arjun,Rao,Cedar Robotics,arjun.rao@cedarrobotics.com,+1 555 720 2182,14894,US,Loyalty,41650,interested in renewal
+207,Fatima,Thompson,Iron Pharma,fatima.thompson@ironpharma.com,(555) 797-9297,11204,CA,None,13421,requested pricing
+362,Hiroshi,Berg,Meridian Software,hiroshi.berg@meridiansoftware.com,(555) 492-1370,4603,US,Loyalty,77499,wants a demo
+760,Vikram,Wright,Delta Pharma,vikram.wright@deltapharma.com,(555) 890-8869,55995,US,Volume,77134,sent brochure
+1220,David,Jones,North Pharma,david.jones@northpharma.com,555-563-1013,14247,IN,Seasonal,35335,budget approved
+913,Carlos,Iyer,Harbor Foods,carlos.iyer@harborfoods.com,555-908-0629,4387,US,Promo,89010,
+1056,Thomas,Lee,Blue Software,thomas.lee@bluesoftware.com,+1 555 696 5189,76013,IN,Promo,99691,
+385,Sandra,Sharma,Iron Manufacturing,sandra.sharma@ironmanufacturing.com,(555) 308-3896,6325,CA,Seasonal,91287,
+437,Mateo,Miller,Keystone Foods,mateo.miller@keystonefoods.com,+1 555 551 7902,19242,DE,Loyalty,20827,asked about bulk discount
+1010,Ama,Miller,Cedar Foods,ama.miller@cedarfoods.com,555-084-6568,35686,IN,Loyalty,19311,
+964,Patricia,Anderson,Meridian Software,patricia.anderson@meridiansoftware.com,(555) 605-1886,17807,DE,Promo,20089,expanding to new site
+822,Hiroshi,Johnson,Nova Labs,hiroshi.johnson@novalabs.com,+1 555 891 5062,13682,US,Loyalty,99803,
+701,Rahul,Hill,Meridian Metals,rahul.hill@meridianmetals.com,555-613-7711,35423,US,Loyalty,79869,requested pricing
+658,Steven,Nguyen,Granite Freight,steven.nguyen@granitefreight.com,555-041-3215,36533,US,Seasonal,95427,follow up next quarter
+654,Jessica,White,Atlas Metals,jessica.white@atlasmetals.com,(555) 781-3900,5629,US,Promo,22684,follow up next quarter
+978,Omar,Baker,Keystone Software,omar.baker@keystonesoftware.com,(555) 676-7578,4286,US,None,33224,needs security review
+544,Steven,Miller,Nova Industries,steven.miller@newdomain.com,555-034-5854,42028,CA,Volume,03679,requested pricing
+379,Sandra,Jones,Atlas Analytics,sandra.jones@atlasanalytics.com,+1 555 469 2916,N/A,US,Volume,33713,interested in renewal
+425,Ingrid,Patel,Iron Foods,ingrid.patel@ironfoods.com,+1 555 595 9706,6018,US,None,21135,requested pricing
+819,Lucia,Martinez,Harbor Energy,lucia.martinez@harborenergy.com,(555) 880-8091,29496,US,None,62678,
+1048,Priya,Chen,Iron Manufacturing,priya.chen@ironmanufacturing.com,,27315,DE,None,78271,interested in renewal
+55,Arjun,Menon,Keystone Logistics,arjun.menon@keystonelogistics.com,555-751-4281,6951,US,Volume,58660,sent brochure
+426,Ananya,Nair,Delta Metals,ananya.nair@deltametals.com,(555) 254-8423,6099,US,Seasonal,13536,needs security review
+915,Betty,Moore,Keystone Freight,betty.moore@keystonefreight.com,555-127-0421,12703,US,Loyalty,69627,asked about bulk discount
+774,Pierre,Sharma,Iron Robotics,pierre.sharma@ironrobotics.com,+1 555 818 6508,6593,US,None,64721,trial extended
+699,Mateo,Wright,Harbor Health,mateo.wright@harborhealth.com,555-265-0279,16810,US,Volume,08925,follow up next quarter
+332,Rohan,Iyer,Falcon Systems,rohan.iyer@falconsystems.com,+1 555 178 4678,16343,DE,Promo,03747,wants a demo
+368,Linda,Harris,Cedar Supply,linda.harris@cedarsupply.com,(555) 590-8220,7058,US,Loyalty,36278,budget approved
+304,Yuki,Garcia,Delta Metals,yuki.garcia@deltametals.com,+1 555 626 1167,9694,US,Promo,02912,requested pricing
+62,Joseph,Green,Atlas Manufacturing,joseph.green@atlasmanufacturing.com,+1 555 081 7265,9432,US,Volume,07154,
+493,Mateo,Lewis,Nova Industries,mateo.lewis@novaindustries.com,(555) 623-1127,14239,US,Loyalty,13705,trial extended
+804,Yuki,Harris,North Pharma,yuki.harris@northpharma.com,+1 555 140 4696,9407,US,Promo,97762,wants a demo
+32,Lucia,Iyer,Keystone Systems,lucia.iyer@keystonesystems.com,555-722-4770,8327,US,Volume,31734,wants a demo
+813,Susan,Reddy,Cedar Manufacturing,susan.reddy@cedarmanufacturing.com,(555) 204-5813,8164,US,None,01750,
+99,James,Fischer,Meridian Robotics,james.fischer@meridianrobotics.com,(555) 921-9967,12902,GB,Loyalty,65037,asked about bulk discount
+1076,John,Costa,Granite Foods,john.costa@granitefoods.com,+1 555 237 6355,26198,IN,Promo,95637,
+718,Hiroshi,King,Keystone Software,hiroshi.king@keystonesoftware.com,(555) 524-3338,8487,US,Promo,07258,
+731,Kwame,Jones,Harbor Freight,kwame.jones@harborfreight.com,555-001-5832,41127,US,None,89963,requested pricing
+376,Lucia,Lewis,Apex Systems,lucia.lewis@apexsystems.com,(555) 302-1334,28394,US,Volume,75513,
+751,Carlos,Silva,Harbor Systems,carlos.silva@harborsystems.com,+1 555 525 6512,13603,US,Promo,03177,budget approved
+31,Linda,Nair,Nova Pharma,linda.nair@novapharma.com,555-168-2083,4574,US,None,65258,follow up next quarter
+769,Divya,Wright,Meridian Manufacturing,divya.wright@meridianmanufacturing.com,(555) 603-4140,8953,US,Seasonal,87887,expanding to new site
+109,Pierre,Scott,Cedar Systems,pierre.scott@cedarsystems.com,555-879-8069,17640,IN,Loyalty,33187,asked about bulk discount
+677,David,Berg,Falcon Logistics,david.berg@falconlogistics.com,(555) 469-8689,48887,US,Seasonal,25133,
+192,John,Lee,Falcon Pharma,john.lee@falconpharma.com,(555) 662-3718,14583,US,None,30993,requested pricing
+750,Matthew,Fischer,Iron Metals,matthew.fischer@ironmetals.com,(555) 199-2031,7390,US,Promo,48733,asked about bulk discount
+147,Mei,Green,asdfgh,mei.green@novaindustries.com,(555) 426-5607,10542,US,Loyalty,06690,asked about bulk discount
+1110,Pierre,Reddy,Harbor Supply,pierre.reddy@harborsupply.com,,18666,IN,Volume,87243,sent brochure
+391,Daniel,Smith,Falcon Supply,daniel.smith@falconsupply.com,555-007-4579,8385,US,Seasonal,18228,interested in renewal
+221,Linda,Clark,Meridian Pharma,linda.clark@meridianpharma.com,(555) 572-2645,19759,US,Volume,93850,interested in renewal
+1152,Kavya,Berg,Atlas Metals,kavya.berg@atlasmetals.com,+1 555 839 6014,40730,DE,Promo,94014,follow up next quarter
+487,Lars,Taylor,Delta Metals,lars.taylor@deltametals.com,+1 555 717 8043,10656,US,Promo,74903,
+1080,Kavya,Martinez,Blue Pharma,kavya.martinez@bluepharma.com,555-634-0660,49015,IN,Seasonal,20204,
+26,Pierre,Dubois,Apex Software,pierre.dubois@apexsoftware.com,+1 555 707 7290,14484,US,Volume,06307,requested pricing
+532,Patricia,Berg,Meridian Pharma,patricia.berg@meridianpharma.com,(555) 106-3100,38519,DE,None,53894,
+758,Yuki,Davis,Keystone Robotics,yuki.davis@keystonerobotics.com,+1 555 216 8587,15365,US,Loyalty,18831,wants a demo
+960,David,Martinez,Nova Manufacturing,david.martinez@novamanufacturing.com,+1 555 193 4890,4996,IN,Promo,56866,needs security review
+585,Sandra,Menon,Apex Logistics,sandra.menon@apexlogistics.com,555-544-1038,14752,US,None,01922,needs security review
+843,Arjun,White,Cedar Freight,arjun.white@cedarfreight.com,+1 555 964 7465,18692,GB,Promo,02597,
+457,Pierre,Moore,Apex Freight,pierre.moore@apexfreight.com,+1 555 217 1557,7160,US,Loyalty,83775,trial extended
+358,Yuki,Davis,North Metals,yuki.davis@northmetals.com,+1 555 932 0056,25206,US,None,82626,requested pricing
+755,Thomas,Scott,qwerty llc,thomas.scott@granitelabs.com,(555) 687-7153,9942,US,Volume,08239,needs security review
+451,Hiroshi,Kapoor,Nova Manufacturing,hiroshi.kapoor@novamanufacturing.com,+1 555 688 0243,6483,US,Volume,06742,interested in renewal
+534,Susan,Green,Bright Robotics,susan.green@brightrobotics.com,+1 555 833 7381,8496,US,Seasonal,36631,interested in renewal
+126,Sofia,Walker,Blue Industries,sofia.walker@blueindustries.com,555-287-1778,3525,US,Seasonal,92847,
+181,Mary,Baker,Cedar Systems,mary.baker@cedarsystems.com,(555) 526-2393,8841,US,Seasonal,83479,
+542,Camille,Costa,Meridian Robotics,camille.costa@meridianrobotics.com,555-194-2811,33274,CA,Promo,37669,
+1214,Ananya,Martinez,Granite Freight,ananya.martinez@granitefreight.com,+1 555 808 5958,38213,IN,Seasonal,57940,asked about bulk discount
+1049,Mark,Hill,Apex Software,mark.hill@apexsoftware.com,,28386,IN,Loyalty,48691,interested in renewal
+1046,Anthony,Moore,Falcon Labs,anthony.moore@falconlabs.com,555-451-5897,26758,IN,Seasonal,53728,follow up next quarter
+510,Karen,Gupta,Delta Manufacturing,karen.gupta@deltamanufacturing.com,+1 555 079 9368,23362,CA,Loyalty,99287,
+328,Jennifer,Dubois,Harbor Foods,jennifer.dubois@harborfoods.com,+1 555 844 2334,9796,DE,Seasonal,21136,interested in renewal
+1054,Richard,Walker,Bright Labs,richard.walker@brightlabs.com,555-187-9940,57222,DE,Loyalty,08978,needs security review
+889,Arjun,Menon,Iron Pharma,arjun.menon@ironpharma.com,(555) 193-6915,4881,US,Volume,49068,needs security review
+743,Charles,Chen,Keystone Supply,charles.chen@keystonesupply.com,+1 555 930 1438,30226,US,None,82155,needs security review
+469,Patricia,Smith,Nova Foods,patricia.smith@novafoods.com,+1 555 477 9721,13986,IN,Loyalty,61919,
+343,Fatima,Jackson,Blue Supply,fatima.jackson@bluesupply.com,555-387-6045,21270,US,Loyalty,57244,needs security review
+281,Mark,Anderson,Harbor Systems,mark.anderson@harborsystems.com,555-518-6069,5666,US,None,62249,expanding to new site
+794,Yuki,Williams,Meridian Freight,yuki.williams@meridianfreight.com,555-183-5229,12234,US,Volume,91605,budget approved
+799,Thomas,Brown,Falcon Labs,thomas.brown@falconlabs.com,(555) 357-6585,10561,US,Volume,93452,asked about bulk discount
+577,Ananya,White,Nova Metals,ananya.white@novametals.com,555-072-8594,null,GB,Seasonal,12362,
+926,Omar,Khan,North Manufacturing,omar.khan@northmanufacturing.com,(555) 895-7299,4327,US,Promo,71818,
+475,Kavya,Chen,Delta Industries,kavya.chen@deltaindustries.com,555-345-0099,6463,GB,Loyalty,12799,budget approved
+1058,Priya,Rossi,North Manufacturing,priya.rossi@northmanufacturing.com,(555) 365-1517,54476,IN,None,26666,requested pricing
+125,Vikram,Wilson,Delta Manufacturing,vikram.wilson@ironsystems.com,555-863-0409,4300,US,Seasonal,84632,interested in renewal
+142,Ananya,Miller,Falcon Health,ananya.miller@falconhealth.com,555-402-6852,10792,CA,None,16252,trial extended
+238,Karen,Thompson,Harbor Industries,karen.thompson@harborindustries.com,555-331-3464,1951,US,Loyalty,08280,wants a demo
+1204,Ananya,Sharma,Orion Analytics,ananya.sharma@orionanalytics.com,(555) 127-0454,21850,IN,Promo,34073,
+1006,Ama,Wang,Apex Freight,ama.wang@apexfreight.com,,38034,US,None,30852,interested in renewal
+253,Sofia,Mensah,Granite Robotics,sofia.mensah@graniterobotics.com,+1 555 006 0304,14254,IN,Promo,02553,expanding to new site
+1142,Karen,Fischer,Apex Systems,karen.fischer@apexsystems.com,+1 555 171 9598,18716,IN,Seasonal,13881,needs security review
+641,Jennifer,Silva,Bright Supply,jennifer.silva@brightsupply.com,(555) 216-1960,22822,GB,Loyalty,37341,trial extended
+178,William,Jones,Blue Industries,william.jones@blueindustries.com,(555) 212-1240,8995,IN,Loyalty,20503,requested pricing
+817,Joseph,Gupta,Falcon Manufacturing,joseph.gupta@newdomain.com,+1 555 693 9108,16142,IN,Seasonal,44646,follow up next quarter
+887,Rahul,Patel,Bright Analytics,rahul.patel@brightanalytics.com,(555) 750-2538,20914,US,Seasonal,90112,expanding to new site
+521,Kavya,Garcia,Falcon Industries,kavya.garcia@falconindustries.com,(555) 734-6695,9831,US,None,05860,asked about bulk discount
+4,Sandra,Wilson,Granite Metals,sandra.wilson@granitemetals.com,(555) 852-6866,14936,US,Volume,67339,
+252,Sofia,Jackson,Bright Supply,sofia.jackson@brightsupply.com,+1 555 331 4252,4834,GB,None,06171,
+1159,Jessica,Anderson,Keystone Robotics,jessica.anderson@keystonerobotics.com,(555) 405-4268,41770,IN,Promo,34915,interested in renewal
+711,John,Garcia,Keystone Systems,john.garcia@keystonesystems.com,+1 555 767 4043,15769,CA,None,11808,requested pricing
+106,Richard,Moore,Iron Software,richard.moore@ironsoftware.com,+1 555 130 2545,20450,DE,Volume,90063,expanding to new site
+90,Ama,Davis,Granite Systems,ama.davis@granitesystems.com,(555) 280-2565,29486,US,None,74765,
+1124,Ingrid,Jones,Bright Analytics,ingrid.jones@brightanalytics.com,(555) 306-8618,24160,IN,Loyalty,56200,expanding to new site
+1153,Ama,Khan,Delta Freight,ama.khan@deltafreight.com,,28405,IN,Loyalty,67221,follow up next quarter
+1165,Priya,Anderson,Delta Energy,priya.anderson@deltaenergy.com,555-466-8959,47637,IN,Volume,51204,follow up next quarter
+1098,James,Khan,Blue Pharma,james.khan@bluepharma.com,+1 555 246 4563,29676,IN,Seasonal,06215,
+656,Rahul,Kapoor,Nova Manufacturing,rahul.kapoor@novamanufacturing.com,+1 555 707 3555,22427,GB,Volume,36322,trial extended
+74,Margaret,Reddy,Cedar Robotics,margaret.reddy@cedarrobotics.com,555-215-2902,17945,US,Promo,11836,trial extended
+209,Steven,Garcia,Atlas Foods,steven.garcia@atlasfoods.com,555-147-9784,9538,US,Promo,05238,follow up next quarter
+1042,Elizabeth,White,Keystone Freight,elizabeth.white@keystonefreight.com,,27910,IN,Volume,11661,follow up next quarter
+72,Jennifer,Hill,Apex Logistics,jennifer.hill@apexlogistics.com,555-037-4639,49138,US,Volume,90301,requested pricing
+1236,Camille,Wright,Harbor Supply,camille.wright@harborsupply.com,555-746-6255,25393,IN,Seasonal,09255,interested in renewal
+174,Ingrid,King,Delta Health,ingrid.king@deltahealth.com,(555) 688-9936,4226,US,Promo,70579,
+112,David,Green,Delta Robotics,david.green@deltarobotics.com,555-701-7774,12740,US,Seasonal,39916,expanding to new site
+1147,Mateo,King,Meridian Software,mateo.king@meridiansoftware.com,555-656-1899,58936,IN,None,39692,follow up next quarter
+327,Ananya,Wright,Apex Manufacturing,ananya.wright@apexmanufacturing.com,555-350-7688,12589,US,None,46219,budget approved
+740,James,Menon,Blue Software,james.menon@bluesoftware.com,+1 555 669 8940,12338,US,Seasonal,40816,needs security review
+97,Emily,Hill,Blue Industries,emily.hill@blueindustries.com,+1 555 001 4594,39877,IN,None,58332,
+1242,Steven,Rao,Delta Freight,steven.rao@deltafreight.com,555-491-5840,68149,IN,Volume,74407,
+1068,Barbara,White,Nova Health,barbara.white@novahealth.com,+1 555 973 4693,40083,DE,Loyalty,09273,budget approved
+571,Margaret,White,Delta Energy,margaret.white@deltaenergy.com,555-807-5155,28096,US,Seasonal,50039,asked about bulk discount
+599,John,Silva,Bright Robotics,john.silva@brightrobotics.com,+1 555 233 3243,5991,US,Seasonal,91793,
+1161,Mary,Miller,Meridian Freight,mary.miller@meridianfreight.com,(555) 283-5050,33614,DE,Promo,89477,
+1090,Betty,Costa,Bright Freight,betty.costa@brightfreight.com,+1 555 618 1344,52713,DE,Loyalty,21086,needs security review
+2,Daniel,Martin,Bright Freight,daniel.martin@brightfreight.com,+1 555 613 1805,8425,US,Volume,93404,budget approved
+736,Mary,Reddy,Bright Supply,mary.reddy@brightsupply.com,+1 555 321 5469,24859,US,None,97709,budget approved
+29,Elizabeth,Khan,Falcon Labs,elizabeth.khan@falconlabs.com,555-618-2822,22975,US,Volume,25436,asked about bulk discount
+460,Hiroshi,Reddy,Falcon Foods,hiroshi.reddy@falconfoods.com,+1 555 606 8058,13408,IN,Seasonal,96747,
+23,Mary,Patel,Delta Foods,mary.patel@deltafoods.com,(555) 580-2466,10169,US,Seasonal,40645,
+894,Richard,Menon,Harbor Manufacturing,richard.menon@harbormanufacturing.com,+1 555 416 2339,6451,US,None,85939,follow up next quarter
+410,James,Brown,Harbor Energy,james.brown@harborenergy.com,(555) 684-4922,N/A,US,Volume,20953,budget approved
+162,Daniel,Iyer,Atlas Freight,daniel.iyer@atlasfreight.com,+1 555 897 4201,10671,US,Volume,31914,trial extended
+543,John,Martin,Blue Pharma,john.martin@bluepharma.com,555-422-1399,9012,US,Seasonal,95064,expanding to new site
+1091,Daniel,Rossi,Falcon Software,daniel.rossi@falconsoftware.com,+1 555 007 1040,33826,US,Loyalty,91156,follow up next quarter
+800,Linda,Moore,Harbor Systems,linda.moore@harborsystems.com,(555) 507-6915,20395,US,None,08858,interested in renewal
+179,Mary,Miller,Granite Labs,mary.miller@granitelabs.com,555-979-9734,20251,CA,Loyalty,86346,follow up next quarter
+1238,Ananya,Davis,Atlas Analytics,ananya.davis@atlasanalytics.com,(555) 325-2380,27310,IN,Volume,66411,
+995,Linda,Thompson,Meridian Freight,linda.thompson@meridianfreight.com,(555) 335-0148,8754,IN,Loyalty,04119,
+737,Rahul,Thompson,Falcon Systems,rahul.thompson@falconsystems.com,+1 555 325 6286,-,US,Promo,34629,asked about bulk discount
+200,Emily,Johnson,Blue Analytics,emily.johnson@blueanalytics.com,+1 555 430 4706,27329,US,Loyalty,30376,trial extended
+187,Sandra,Brown,Delta Metals,sandra.brown@deltalabs.com,+1 555 878 7351,6878,US,Volume,82018,interested in renewal
+904,Kavya,Miller,Nova Health,kavya.miller@novahealth.com,555-697-8564,8290,US,Loyalty,03961,wants a demo
+310,James,Sharma,Granite Foods,james.sharma@granitefoods.com,+1 555 968 3473,14920,US,Volume,04993,expanding to new site
+668,Mary,Patel,Blue Software,mary.patel@bluesoftware.com,555-788-7508,12483,CA,None,27261,expanding to new site
+783,David,Iyer,Bright Health,margaret.scott@novahealth.com,+1 555 666 7586,5472,CA,Seasonal,05693,
+1246,Hiroshi,Baker,Orion Analytics,hiroshi.baker@orionanalytics.com,+1 555 519 5057,27065,IN,Seasonal,74675,asked about bulk discount
+121,Ama,Rossi,Bright Supply,ama.rossi@brightsupply.com,+1 555 970 4059,14049,US,Loyalty,35729,
+1245,Joseph,Fischer,Atlas Freight,joseph.fischer@atlasfreight.com,+1 555 414 9012,38650,DE,Volume,81155,
+942,Michael,Wilson,Nova Metals,michael.wilson@novametals.com,+1 555 882 0537,twelve thousand,US,Promo,69430,
+409,Susan,Walker,Nova Foods,susan.walker@novafoods.com,+1 555 882 1184,7892,US,Promo,84997,
+547,William,Wright,Atlas Freight,william.wright@atlasfreight.com,555-915-3870,13997,US,None,94708,budget approved
+219,Emily,Wang,Iron Energy,emily.wang@ironenergy.com,555-990-2545,7145,US,Promo,08188,trial extended
+157,Michael,Martinez,Harbor Energy,michael.martinez@harborenergy.com,(555) 657-4714,13573,US,Loyalty,58496,interested in renewal
+618,John,Costa,Apex Analytics,john.costa@apexanalytics.com,555-161-1691,30583,US,Promo,85841,expanding to new site
+267,Mary,Costa,Harbor Energy,mary.costa@harborenergy.com,555-389-4704,17106,US,Loyalty,16200,
+824,Elizabeth,Costa,Meridian Energy,elizabeth.costa@meridianenergy.com,+1 555 552 5414,22596,IN,None,63294,requested pricing
+1061,Priya,Smith,Falcon Systems,priya.smith@falconsystems.com,(555) 480-3431,44448,IN,Seasonal,37206,sent brochure
+992,Michael,Menon,Blue Analytics,michael.menon@newdomain.com,555-832-2456,88470,US,Volume,51432,expanding to new site
+1162,Steven,Kapoor,Blue Industries,steven.kapoor@blueindustries.com,+1 555 941 3939,53957,DE,None,05633,
+364,Wei,White,Iron Manufacturing,wei.white@ironmanufacturing.com,555-816-8724,3550,US,Promo,75424,trial extended
+551,Barbara,Mensah,Keystone Manufacturing,barbara.mensah@keystonemanufacturing.com,(555) 312-3732,4059,US,Volume,26056,asked about bulk discount
+440,Lucia,Jones,Falcon Manufacturing,lucia.jones@falconmanufacturing.com,555-992-9623,19219,US,Promo,06853,
+108,Margaret,Scott,Iron Foods,margaret.scott@ironfoods.com,555-381-7319,7860,IN,Loyalty,41660,wants a demo
+768,Divya,Green,Cedar Industries,divya.green@cedarindustries.com,+1 555 696 6653,4103,US,Loyalty,35385,
+480,Richard,Chen,Nova Health,richard.chen@novahealth.com,555-949-8956,18917,US,Promo,11668,needs security review
+545,Arjun,Martin,Atlas Supply,arjun.martin@atlassupply.com,+1 555 398 8895,15460,US,None,69933,trial extended
+1115,Jennifer,Berg,Cedar Supply,jennifer.berg@cedarsupply.com,,18838,DE,Promo,63301,trial extended
+1213,Wei,Reddy,Blue Energy,wei.reddy@blueenergy.com,555-947-8678,42297,DE,None,91392,
+514,Jessica,Martinez,Nova Foods,jessica.martinez@novafoods.com,+1 555 532 1165,10464,US,None,02355,
+610,Robert,Taylor,North Pharma,robert.taylor@northpharma.com,555-388-4775,4290,US,Volume,36377,
+997,Emily,Wilson,Delta Manufacturing,emily.wilson@deltamanufacturing.com,+1 555 242 0189,11451,GB,Seasonal,01434,requested pricing
+390,Mary,Smith,Nova Analytics,mary.smith@novaanalytics.com,(555) 420-7663,21459,DE,None,09839,sent brochure
+1028,Divya,Lee,Harbor Labs,divya.lee@harborlabs.com,,35049,IN,Volume,04416,sent brochure
+762,Sandra,Nguyen,Falcon Metals,sandra.nguyen@falconmetals.com,+1 555 174 0288,14004,US,Volume,96277,sent brochure
+21,Divya,Lee,Atlas Supply,divya.lee@atlassupply.com,555-891-8151,8605,GB,Promo,22827,expanding to new site
+985,Richard,Clark,Keystone Health,richard.clark@keystonehealth.com,555-379-6477,10616,US,Loyalty,42604,
+932,Divya,Fischer,Blue Industries,divya.fischer@blueindustries.com,(555) 782-1218,69645,US,Seasonal,99387,budget approved
+934,Richard,Miller,Nova Foods,richard.miller@novafoods.com,555-595-4761,22339,US,Promo,38670,
+50,Wei,Martin,Meridian Metals,wei.martin@meridianmetals.com,+1 555 115 9356,8363,US,None,29825,trial extended
+791,William,Martin,Cedar Industries,william.martin@cedarindustries.com,555-886-2902,23048,US,Seasonal,94881,expanding to new site
+1206,Rahul,Green,Harbor Health,rahul.green@harborhealth.com,,32854,IN,Volume,84839,needs security review
+100,Patricia,Wright,Harbor Health,patricia.wright@harborhealth.com,+1 555 622 8114,4735,CA,Loyalty,48565,interested in renewal
+838,Priya,Lee,Bright Supply,priya.lee@brightsupply.com,(555) 178-7256,31443,US,Seasonal,28909,budget approved
+1065,Camille,Mensah,Apex Supply,camille.mensah@apexsupply.com,,33113,IN,Promo,08068,asked about bulk discount
+260,Emily,Rossi,North Supply,emily.rossi@northsupply.com,555-664-2238,13770,CA,Loyalty,68026,sent brochure
+80,Matthew,Clark,Bright Health,matthew.clark@brighthealth.com,+1 555 510 4156,2806,CA,Loyalty,09562,budget approved
+652,Emily,King,North Software,emily.king@northsoftware.com,+1 555 370 8616,29860,US,None,38449,
+986,Kwame,Tanaka,Keystone Systems,kwame.tanaka@keystonesystems.com,+1 555 363 4318,4350,US,Volume,75674,expanding to new site
+42,Lucia,Lee,North Systems,lucia.lee@northsystems.com,555-701-1972,8438,US,Loyalty,83628,wants a demo
+119,Sarah,Jackson,Meridian Energy,sarah.jackson@meridianenergy.com,+1 555 410 5817,8013,CA,Seasonal,16898,budget approved
+709,Vikram,Chen,Harbor Systems,vikram.chen@harborsystems.com,+1 555 956 3157,17291,US,Loyalty,46730,requested pricing
+180,Divya,Johnson,Bright Metals,divya.johnson@brightmetals.com,(555) 419-8655,8842,US,Loyalty,47399,expanding to new site
+1247,Sarah,Rossi,Granite Analytics,sarah.rossi@graniteanalytics.com,(555) 288-9360,18885,IN,Seasonal,91277,requested pricing
+322,Robert,Baker,Apex Energy,robert.baker@apexenergy.com,(555) 604-5452,13303,US,Promo,02520,follow up next quarter
+998,Camille,Martin,Cedar Manufacturing,camille.martin@cedarmanufacturing.com,(555) 403-3456,10837,US,Promo,85748,
+65,Ananya,Davis,Granite Energy,ananya.davis@graniteenergy.com,(555) 602-9858,17201,CA,Seasonal,36574,budget approved
+825,Kwame,Walker,Granite Foods,kwame.walker@granitefoods.com,555-135-0954,10169,US,None,77096,sent brochure
+973,Omar,Patel,Delta Health,omar.patel@deltahealth.com,555-563-2450,14853,IN,Volume,64363,needs security review
+501,Joseph,Nair,North Health,joseph.nair@northhealth.com,(555) 364-5862,13209,US,Seasonal,60537,budget approved
+1215,Richard,Nair,Cedar Robotics,richard.nair@cedarrobotics.com,(555) 350-7553,38659,US,None,47319,budget approved
+839,Carlos,Dubois,Keystone Freight,carlos.dubois@keystonefreight.com,555-832-4922,7054,GB,Volume,60915,wants a demo
+355,Joseph,Baker,North Metals,joseph.baker@northmetals.com,555-361-8737,17782,US,Loyalty,55348,
+1145,Emily,Walker,Apex Logistics,emily.walker@apexlogistics.com,+1 555 548 7283,16663,IN,Loyalty,97377,budget approved
+1020,Anthony,Mensah,Meridian Energy,anthony.mensah@meridianenergy.com,,31785,IN,Promo,57429,
+1237,Ananya,Hill,Keystone Software,ananya.hill@keystonesoftware.com,,29511,IN,Volume,36435,requested pricing
+956,Richard,Iyer,Nova Metals,richard.iyer@novametals.com,555-681-5198,14684,CA,Loyalty,27402,
+835,Lucia,Martinez,Meridian Software,lucia.martinez@meridiansoftware.com,555-915-5887,12729,US,None,43442,interested in renewal
+535,William,Miller,Keystone Analytics,william.miller@keystoneanalytics.com,+1 555 179 0521,7493,US,Loyalty,33206,trial extended
+594,Sofia,Young,Granite Robotics,sofia.young@graniterobotics.com,+1 555 526 5130,15749,GB,Loyalty,04426,asked about bulk discount
+1135,Ananya,Costa,Falcon Metals,ananya.costa@falconmetals.com,,50515,IN,None,87978,budget approved
+503,Barbara,Miller,Falcon Systems,barbara.miller@falconsystems.com,555-300-7334,19966,US,Promo,11158,trial extended
+693,Carlos,King,Iron Freight,carlos.king@ironfreight.com,555-851-8913,5788,US,Promo,47025,wants a demo
+567,Divya,Williams,Iron Pharma,divya.williams@ironpharma.com,555-476-0843,12418,CA,Loyalty,93252,trial extended
+910,Hiroshi,Martinez,Iron Systems,hiroshi.martinez@ironsystems.com,+1 555 409 9120,5966,US,Promo,65770,requested pricing
+1074,Ingrid,King,Bright Metals,ingrid.king@brightmetals.com,(555) 565-6139,31690,IN,Volume,04625,budget approved
+643,Ananya,White,Keystone Robotics,ananya.white@keystonerobotics.com,(555) 523-8846,11560,US,Seasonal,32132,asked about bulk discount
+609,John,Wilson,Iron Systems,john.wilson@ironsystems.com,555-618-9394,7610,US,Seasonal,10054,asked about bulk discount
+886,Daniel,Rao,Granite Robotics,daniel.rao@graniterobotics.com,+1 555 127 1647,null,US,Promo,79438,expanding to new site
+118,Patricia,Rao,Cedar Systems,patricia.rao@cedarsystems.com,+1 555 366 7976,null,US,Seasonal,02473,
+638,Lars,Davis,Nova Robotics,lars.davis@novarobotics.com,+1 555 477 8999,27126,GB,Volume,82514,asked about bulk discount
+1033,Robert,Berg,Falcon Manufacturing,robert.berg@falconmanufacturing.com,555-769-6522,39215,IN,Volume,01314,follow up next quarter
+1138,Wei,Fischer,Iron Freight,wei.fischer@ironfreight.com,555-273-4198,17555,DE,Promo,63147,follow up next quarter
+883,Nancy,Jones,Meridian Metals,nancy.jones@meridianmetals.com,555-607-2109,11044,US,Promo,02145,follow up next quarter
+396,Jennifer,Tanaka,Iron Logistics,jennifer.tanaka@deltaindustries.com,(555) 816-2382,17834,CA,None,29403,trial extended
+779,Emily,Wang,Cedar Systems,emily.wang@cedarsystems.com,+1 555 371 8199,7839,US,Volume,04197,budget approved
+744,David,White,Granite Freight,david.white@granitefreight.com,555-771-2152,15850,US,None,78281,requested pricing
+155,Divya,Thompson,Harbor Industries,divya.thompson@harborindustries.com,555-729-6361,12846,US,Volume,08939,
+336,Emily,Kapoor,Blue Industries,emily.kapoor@blueindustries.com,(555) 690-7723,6104,US,Volume,74198,budget approved
+277,Arjun,Tanaka,Harbor Supply,arjun.tanaka@harborsupply.com,+1 555 316 6679,19951,IN,Volume,14021,follow up next quarter
+407,Lars,Rossi,Delta Health,lars.rossi@deltahealth.com,(555) 025-1788,7482,US,Volume,77185,interested in renewal
+684,Karen,Gupta,Harbor Supply,karen.gupta@harborsupply.com,555-198-5199,99999999,US,Loyalty,24775,
+912,Mei,Taylor,Delta Manufacturing,mei.taylor@deltamanufacturing.com,+1 555 678 7320,13632,GB,Promo,15362,asked about bulk discount
+1166,Sofia,King,Keystone Systems,sofia.king@keystonesystems.com,(555) 514-1037,13114,DE,Promo,68441,wants a demo
+918,Patricia,Berg,Bright Health,patricia.berg@brighthealth.com,+1 555 555 1200,38961,US,Loyalty,50408,wants a demo
+949,John,Lewis,Bright Metals,john.lewis@brightmetals.com,(555) 585-3542,28050,US,Promo,46589,
+1096,Sandra,Mensah,Bright Robotics,sandra.mensah@brightrobotics.com,555-120-1810,11897,DE,Seasonal,96694,sent brochure
+374,William,Anderson,Atlas Robotics,william.anderson@atlasrobotics.com,555-484-0586,5538,US,Seasonal,60789,needs security review
+1136,Mary,Khan,Atlas Foods,mary.khan@atlasfoods.com,(555) 737-4692,28674,IN,None,20308,sent brochure
+624,Sofia,Thompson,Cedar Foods,sofia.thompson@cedarfoods.com,+1 555 441 2062,17994,US,Volume,70480,
+1120,Camille,Thompson,North Robotics,camille.thompson@northrobotics.com,(555) 450-1386,24243,IN,Seasonal,45670,budget approved
+785,Sandra,Costa,Iron Manufacturing,sandra.costa@ironmanufacturing.com,+1 555 430 6234,36285,US,Loyalty,59612,requested pricing
+818,Anthony,Davis,Apex Manufacturing,anthony.davis@apexmanufacturing.com,555-681-5922,8945,US,Loyalty,60040,wants a demo
+212,Yuki,Nguyen,Keystone Freight,yuki.nguyen@keystonefreight.com,+1 555 995 4281,8115,US,Volume,73545,follow up next quarter
+1194,Matthew,Anderson,Keystone Supply,matthew.anderson@keystonesupply.com,,25759,IN,Promo,47153,budget approved
+246,Matthew,Davis,Apex Software,matthew.davis@apexsoftware.com,+1 555 519 1875,22373,CA,Promo,37748,requested pricing
+373,Wei,Chen,Falcon Manufacturing,wei.chen@falconmanufacturing.com,(555) 023-1162,99999999,US,Promo,65378,expanding to new site
+353,Richard,Green,Keystone Analytics,richard.green@keystoneanalytics.com,(555) 738-4256,22573,US,Volume,71703,
+952,Ananya,Berg,Apex Manufacturing,ananya.berg@apexmanufacturing.com,(555) 353-4643,19534,US,Loyalty,06225,interested in renewal
+351,Ingrid,Tanaka,Apex Freight,ingrid.tanaka@apexfreight.com,(555) 405-6935,-,US,Promo,33613,sent brochure
+637,Michael,Gupta,Apex Energy,michael.gupta@apexenergy.com,555-848-9669,36811,GB,Promo,27504,follow up next quarter
+226,Richard,Moore,North Systems,richard.moore@northsystems.com,(555) 673-5981,5020,CA,Seasonal,40082,trial extended
+120,Camille,Baker,Nova Logistics,camille.baker@novalogistics.com,(555) 484-1154,10190,CA,Seasonal,52339,budget approved
+633,Matthew,Thompson,Keystone Analytics,matthew.thompson@keystoneanalytics.com,+1 555 092 9379,10021,US,Promo,74665,
+860,Divya,Nair,Meridian Energy,divya.nair@meridianenergy.com,+1 555 355 6824,17866,CA,Loyalty,42856,trial extended
+331,Thomas,Tanaka,Granite Robotics,thomas.tanaka@graniterobotics.com,+1 555 038 7344,5804,IN,Volume,52468,asked about bulk discount
+151,Rahul,Nair,Bright Health,rahul.nair@brighthealth.com,555-955-1435,8514,US,None,43109,requested pricing
+1102,Richard,Thompson,Harbor Energy,richard.thompson@harborenergy.com,,26652,IN,Seasonal,02941,sent brochure
+940,Ingrid,Lee,,ingrid.lee@apexsoftware.com,+1 555 157 8830,12829,US,Volume,29831,trial extended
+968,Vikram,Wilson,Bright Metals,vikram.wilson@brightmetals.com,+1 555 683 4701,15963,US,Loyalty,11335,wants a demo
+344,Joseph,Iyer,Harbor Freight,joseph.iyer@harborfreight.com,+1 555 612 8185,54429,GB,None,06786,follow up next quarter
+869,Sarah,Chen,Apex Freight,sarah.chen@apexfreight.com,555-921-9981,6045,US,Loyalty,54926,sent brochure
+716,Hiroshi,Martin,North Systems,hiroshi.martin@northsystems.com,555-533-7580,8630,US,None,31221,expanding to new site
+439,Susan,Sharma,Apex Metals,,+1 555 079 0276,16762,GB,Loyalty,03249,
+967,Sandra,Martinez,North Labs,sandra.martinez@northlabs.com,555-417-4872,22385,GB,Promo,16140,sent brochure
+752,Linda,Green,Harbor Energy,linda.green@harborenergy.com,+1 555 793 4290,4553,US,Promo,06714,sent brochure
+377,Kwame,Lee,Iron Robotics,kwame.lee@ironrobotics.com,(555) 889-0692,8830,US,Seasonal,79887,needs security review
+798,Barbara,King,Apex Robotics,barbara.king@apexrobotics.com,+1 555 991 2579,9419,IN,None,96679,requested pricing
+531,Robert,Martin,Atlas Foods,robert.martin@atlasfoods.com,555-729-8270,4940,US,None,08439,expanding to new site
+615,John,Iyer,Blue Software,john.iyer@bluesoftware.com,+1 555 681 4613,6237,GB,Promo,54618,wants a demo
+959,Daniel,Nguyen,Apex Software,daniel.nguyen@apexsoftware.com,555-816-8891,45511,US,None,39217,asked about bulk discount
+384,Ingrid,Moore,Iron Supply,ingrid.moore@ironsupply.com,(555) 083-6023,6970,US,Seasonal,60711,trial extended
+214,Matthew,Nair,Atlas Robotics,matthew.nair@atlasrobotics.com,555-236-0006,31726,US,Promo,58605,budget approved
+30,Sofia,Brown,Delta Pharma,sofia.brown@deltapharma.com,(555) 424-7276,12181,US,Loyalty,62856,
+223,Priya,King,Bright Freight,priya.king@brightfreight.com,555-267-4588,4503,GB,None,86021,asked about bulk discount
+902,Anthony,Patel,Granite Foods,pierre.harris@granitepharma.com,555-772-9489,13406,US,None,05429,asked about bulk discount
+848,John,Wang,Atlas Analytics,john.wang@atlasanalytics.com,555-334-3167,15216,US,Seasonal,03942,trial extended
+1047,Vikram,Iyer,Delta Metals,vikram.iyer@deltametals.com,+1 555 532 9043,27764,IN,Loyalty,28703,interested in renewal
+342,Michael,Harris,Atlas Analytics,michael.harris@atlasanalytics.com,555-227-2507,14429,US,Promo,50164,expanding to new site
+330,Rahul,Kapoor,Atlas Supply,rahul.kapoor@atlassupply.com,(555) 941-5058,6300,US,Volume,59884,budget approved
+1195,Emily,Nair,Delta Freight,emily.nair@deltafreight.com,(555) 826-3554,15578,IN,Volume,30860,
+1174,Vikram,Patel,North Labs,vikram.patel@northlabs.com,+1 555 837 7285,31277,DE,Seasonal,47617,
+293,Wei,Rossi,Atlas Robotics,wei.rossi@atlasrobotics.com,(555) 057-2326,12733,US,Promo,85041,requested pricing
+1127,Linda,Lewis,Falcon Supply,linda.lewis@falconsupply.com,555-504-6851,49946,DE,Loyalty,90785,budget approved
+215,Carlos,Jackson,North Industries,carlos.jackson@keystonemanufacturing.com,+1 555 000 0177,4730,US,Seasonal,80802,asked about bulk discount
+350,Kavya,Miller,Harbor Manufacturing,kavya.miller@harbormanufacturing.com,(555) 780-2432,10115,CA,Promo,25463,budget approved
+1009,Susan,Martin,Harbor Foods,susan.martin@harborfoods.com,+1 555 641 7041,25052,IN,None,51994,
+739,Jessica,Baker,Cedar Analytics,jessica.baker@cedaranalytics.com,+1 555 329 4672,10297,US,Seasonal,40732,
+587,Kwame,Harris,,kwame.harris@ironmanufacturing.com,(555) 745-2678,20762,US,None,73851,
+921,Mark,Baker,Keystone Software,mark.baker@keystonesoftware.com,(555) 602-5800,3511,US,Promo,81054,requested pricing
+766,Wire Transfer Dept,Nguyen,Harbor Supply,sarah.nguyen@harborsupply.com,(555) 299-8019,19698,US,Seasonal,79966,requested pricing
+447,Michael,White,Falcon Foods,michael.white@falconfoods.com,+1 555 823 4477,41291,US,Volume,67397,
+107,Karen,Patel,Apex Supply,karen.patel@apexsupply.com,+1 555 289 6965,24799,IN,Seasonal,12417,interested in renewal
+52,Mei,Martinez,Granite Labs,mei.martinez@granitelabs.com,+1 555 619 5059,9479,DE,Seasonal,97363,
+687,Yuki,Costa,Keystone Software,yuki.costa@keystonesoftware.com,(555) 442-4875,17324,US,Volume,81212,requested pricing
+1181,Ananya,Menon,Bright Labs,ananya.menon@brightlabs.com,+1 555 156 9832,19716,IN,Loyalty,50772,budget approved
+688,Linda,Miller,Apex Energy,linda.miller@apexenergy.com,(555) 328-5510,8375,US,Loyalty,09292,
+651,Margaret,Wang,Nova Foods,margaret.wang@novafoods.com,+1 555 344 3091,31133,US,Seasonal,45171,needs security review
+659,Lucia,Khan,Delta Metals,lucia.khan@deltametals.com,(555) 182-8643,15320,US,None,89188,interested in renewal
+630,William,Scott,Granite Metals,william.scott@granitemetals.com,(555) 444-9927,4180,US,None,25415,
+1125,Thomas,Miller,Nova Foods,thomas.miller@novafoods.com,+1 555 195 1966,70509,IN,Promo,07402,
+91,John,Green,Apex Energy,john.green@apexenergy.com,555-387-8683,14350,US,Volume,84576,
+387,Patricia,Scott,Blue Software,patricia.scott@bluesoftware.com,555-467-1715,12374,US,Volume,06201,requested pricing
+1146,Mark,Dubois,North Manufacturing,mark.dubois@northmanufacturing.com,555-147-2066,26474,IN,Seasonal,30796,expanding to new site
+870,Mark,Rossi,Apex Software,mark.rossi@apexsoftware.com,555-842-4473,9329,IN,Promo,01774,expanding to new site
+557,Charles,Fischer,Apex Supply,charles.fischer@apexsupply.com,555-505-5175,3837,US,Seasonal,72016,
+724,Kavya,Thompson,Bright Health,kavya.thompson@newdomain.com,+1 555 639 5997,13448,US,None,87994,requested pricing
+1230,Sarah,Lewis,Harbor Energy,sarah.lewis@harborenergy.com,,12793,IN,Promo,89368,follow up next quarter
+691,Divya,Taylor,Nova Industries,divya.taylor@novaindustries.com,+1 555 929 7503,7809,US,Promo,94087,
+416,Rahul,Jones,Bright Supply,rahul.jones@brightsupply.com,(555) 978-0190,12880,US,Loyalty,65494,wants a demo
+83,Camille,Garcia,Atlas Foods,camille.garcia@cedarindustries.com,555-885-7622,6513,US,Loyalty,79532,expanding to new site
+919,Emily,Young,Harbor Energy,emily.young@harborenergy.com,555-259-5286,8698,US,Loyalty,08465,asked about bulk discount
+186,Jennifer,Costa,North Metals,jennifer.costa@northmetals.com,(555) 220-8143,17123,GB,Volume,76036,trial extended
+497,Wei,King,Nova Labs,wei.king@novalabs.com,555-581-3450,13147,US,Volume,09850,asked about bulk discount
+653,Mateo,Fischer,North Supply,mateo.fischer@northsupply.com,+1 555 436 9520,19729,DE,None,88052,
+257,Margaret,Menon,Cedar Freight,margaret.menon@cedarfreight.com,(555) 973-1769,17371,US,Promo,30410,trial extended
+994,Mateo,Khan,Iron Energy,mateo.khan@ironenergy.com,+1 555 362 2457,10882,IN,Promo,26440,sent brochure
+290,Rahul,White,Keystone Health,rahul.white@keystonehealth.com,555-921-9026,25320,US,Promo,87670,
+979,Mei,Reddy,Harbor Freight,mei.reddy@harborfreight.com,+1 555 553 5404,3316,US,Seasonal,89625,
+245,Hiroshi,Jones,Keystone Industries,hiroshi.jones@keystoneindustries.com,+1 555 614 0850,34871,IN,Volume,65655,follow up next quarter
+682,Linda,Chen,Harbor Labs,linda.chen@harborlabs.com,+1 555 440 7543,10006,US,Volume,02210,expanding to new site
+722,Mateo,Taylor,Iron Robotics,mateo.taylor@ironrobotics.com,+1 555 157 0848,28901,CA,Promo,55435,
+102,David,Lewis,Orion Analytics,david.lewis@orionanalytics.com,555-647-3768,21471,US,Promo,63387,
+255,Wei,Garcia,North Systems,wei.garcia@northsystems.com,+1 555 856 7776,31252,US,Promo,03105,interested in renewal
+905,Arjun,Reddy,Nova Analytics,arjun.reddy@novaanalytics.com,(555) 555-6830,25175,IN,None,06524,
+5,Pierre,Harris,Granite Pharma,pierre.harris@granitepharma.com,+1 555 133 5287,3763,CA,None,04097,trial extended
+1233,Omar,Green,Meridian Industries,omar.green@meridianindustries.com,,19234,DE,Volume,71203,
+59,Wei,Chen,Apex Metals,wei.chen@apexmetals.com,+1 555 610 5354,20611,US,Loyalty,88967,asked about bulk discount
+924,Susan,Clark,Falcon Metals,susan.clark@falconmetals.com,+1 555 393 0547,10129,US,Seasonal,86097,interested in renewal
+954,Mary,Garcia,North Labs,mary.garcia@northlabs.com,555-845-6977,7525,US,Volume,71402,budget approved
+1134,James,Chen,Harbor Labs,james.chen@harborlabs.com,(555) 995-8697,31177,IN,Promo,96180,sent brochure
+753,Robert,Green,Cedar Freight,robert.green@cedarfreight.com,555-633-3190,16258,IN,Promo,04421,wants a demo
+844,Omar,Sharma,Cedar Industries,omar.sharma@cedarindustries.com,555-210-0358,7165,US,Seasonal,89176,
+442,James,Dubois,Nova Supply,james.dubois@newdomain.com,(555) 057-5446,16953,US,Loyalty,81865,
+1158,Steven,Fischer,Apex Systems,steven.fischer@apexsystems.com,555-839-2551,31336,IN,Volume,02712,asked about bulk discount
+1211,Jessica,Kapoor,Cedar Industries,jessica.kapoor@cedarindustries.com,,105491,IN,Seasonal,56037,wants a demo
+745,Camille,Nair,Meridian Manufacturing,camille.nair@novalogistics.com,(555) 451-5623,9491,US,None,72519,
+190,Lucia,Jackson,Iron Foods,lucia.jackson@ironfoods.com,555-569-6870,15745,IN,None,71658,interested in renewal
+1190,Pierre,Harris,Keystone Supply,pierre.harris@keystonesupply.com,+1 555 391 5646,63612,IN,Volume,21841,requested pricing
+285,Jennifer,Anderson,Granite Freight,,555-589-3427,42244,US,None,93409,
+550,Robert,Young,Bright Supply,robert.young@brightsupply.com,+1 555 279 5202,62682,US,Seasonal,91093,trial extended
+900,Camille,Rao,Atlas Freight,camille.rao@atlasfreight.com,(555) 147-5117,20372,US,Volume,08130,asked about bulk discount
+357,Lucia,Harris,Apex Logistics,lucia.harris@apexlogistics.com,(555) 853-7451,6720,US,None,79938,interested in renewal
+713,Daniel,Chen,Keystone Software,daniel.chen@keystonesoftware.com,+1 555 490 2149,19397,US,Promo,89814,wants a demo
+471,Joseph,Chen,Atlas Freight,joseph.chen@atlasfreight.com,+1 555 854 4521,23815,US,Volume,88329,wants a demo
+511,Jennifer,Gupta,Granite Logistics,wei.rossi@atlasrobotics.com,+1 555 449 4268,3903,DE,None,09804,requested pricing
+329,Richard,Clark,Falcon Foods,richard.clark@falconfoods.com,(555) 180-6659,18147,US,Promo,42815,needs security review
+422,Carlos,Baker,North Robotics,carlos.baker@northrobotics.com,+1 555 848 3812,38854,US,Seasonal,70637,budget approved
+957,Omar,Anderson,North Pharma,omar.anderson@northpharma.com,+1 555 607 4157,4020,GB,Promo,71250,
+623,Robert,Lewis,Iron Logistics,robert.lewis@ironlogistics.com,+1 555 722 0409,16729,US,Promo,09598,follow up next quarter
+909,Charles,Johnson,Falcon Health,charles.johnson@falconhealth.com,(555) 377-0928,23506,IN,None,20764,
+963,Vikram,Fischer,Granite Robotics,vikram.fischer@graniterobotics.com,555-731-2644,3526,GB,Loyalty,45393,expanding to new site
+1229,Carlos,Anderson,Meridian Robotics,carlos.anderson@meridianrobotics.com,555-411-7116,28929,IN,Seasonal,07931,follow up next quarter
+1117,Sofia,Wang,Delta Labs,sofia.wang@deltalabs.com,,32323,IN,Promo,28753,
+945,Emily,King,Granite Pharma,emily.king@granitepharma.com,+1 555 160 3225,5162,US,Promo,74857,
+1041,Michael,King,Blue Robotics,michael.king@bluerobotics.com,(555) 733-8577,41408,IN,Loyalty,81107,follow up next quarter
+733,Michael,Garcia,Nova Health,michael.garcia@novahealth.com,+1 555 069 2967,19768,CA,Volume,80779,interested in renewal
+296,Karen,Tanaka,Nova Supply,karen.tanaka@novasupply.com,555-590-5573,33854,US,Seasonal,28244,needs security review
+1053,Sofia,Young,Cedar Health,sofia.young@cedarhealth.com,(555) 904-2944,61036,IN,Volume,37449,interested in renewal
+45,Mateo,Jones,,mateo.jones@brightfreight.com,555-102-9780,30901,US,Seasonal,04197,budget approved
+834,Vikram,Lee,Bright Systems,vikram.lee@brightsystems.com,555-089-0166,19691,US,None,30949,needs security review
+1014,Rahul,Martin,Iron Systems,rahul.martin@ironsystems.com,(555) 111-0380,42114,US,None,08770,needs security review
+805,Omar,Costa,Nova Analytics,omar.costa@novaanalytics.com,555-785-5859,7646,US,Loyalty,68457,requested pricing
+10,Nancy,Berg,North Pharma,nancy.berg@northpharma.com,555-889-1676,25727,IN,Volume,61956,
+1118,Charles,Walker,Granite Systems,charles.walker@granitesystems.com,,34175,IN,Volume,83365,wants a demo
+71,Elizabeth,Kapoor,Harbor Foods,elizabeth.kapoor@harborfoods.com,(555) 745-0450,32705,US,None,01477,budget approved
+203,Yuki,Hill,Granite Energy,yuki.hill@graniteenergy.com,+1 555 814 5856,14107,IN,Loyalty,77676,
+133,Ama,Berg,Meridian Freight,ama.berg@northmetals.com,555-096-7413,14162,US,Volume,64843,sent brochure
+958,Omar,Nair,Falcon Robotics,omar.nair@falconrobotics.com,555-299-5030,3906,CA,Promo,08075,needs security review
+69,Vikram,Anderson,Meridian Metals,vikram.anderson@meridianmetals.com,(555) 586-8556,twelve thousand,US,Volume,41960,needs security review
+1154,Pierre,Iyer,Bright Metals,pierre.iyer@brightmetals.com,555-029-3385,31542,DE,None,94550,requested pricing
+1109,Richard,Lee,North Systems,richard.lee@northsystems.com,(555) 245-1827,27720,IN,Seasonal,26677,wants a demo
+303,Sandra,Silva,Apex Software,sandra.silva@apexsoftware.com,+1 555 045 1157,38097,US,Seasonal,78830,asked about bulk discount
+741,Matthew,Wang,North Software,matthew.wang@northsoftware.com,+1 555 463 8632,10428,IN,Promo,39467,
+1078,Linda,Rao,Cedar Freight,linda.rao@cedarfreight.com,(555) 775-6256,42451,DE,Promo,45463,asked about bulk discount
+36,Michael,Baker,Delta Metals,michael.baker@deltametals.com,+1 555 511 2686,2927,GB,Loyalty,05000,
+530,Patricia,King,Iron Freight,patricia.king@ironfreight.com,+1 555 450 6999,13945,US,Seasonal,69887,budget approved
+598,Ananya,Walker,Bright Foods,ananya.walker@brightfoods.com,555-876-7500,19333,US,Volume,33115,trial extended
+626,Susan,Khan,Falcon Industries,susan.khan@falconindustries.com,555-707-3074,10485,US,Loyalty,81572,trial extended
+591,Omar,Nguyen,Meridian Pharma,omar.nguyen@meridianpharma.com,+1 555 144 5516,24881,US,Seasonal,09700,
+888,Nancy,Anderson,Harbor Foods,nancy.anderson@harborfoods.com,+1 555 106 6986,8669,IN,Promo,25047,wants a demo
+732,Nancy,Reddy,Blue Analytics,nancy.reddy@blueanalytics.com,(555) 205-9289,5988,US,Volume,57722,needs security review
+105,Joseph,Green,Nova Software,joseph.green@novasoftware.com,(555) 011-4828,9534,US,Loyalty,98749,follow up next quarter
+975,Michael,Young,Meridian Robotics,michael.young@meridianrobotics.com,+1 555 813 5928,5583,US,Volume,37058,asked about bulk discount
+58,Kwame,Clark,Delta Robotics,kwame.clark@deltarobotics.com,555-433-7934,5422,GB,Promo,11561,budget approved
+1196,Rohan,Berg,Apex Freight,rohan.berg@apexfreight.com,555-194-8235,24505,IN,Loyalty,53925,wants a demo
+1217,Richard,Miller,Harbor Labs,richard.miller@harborlabs.com,,27492,IN,None,85833,follow up next quarter
+608,Karen,Dubois,Iron Energy,karen.dubois@ironenergy.com,(555) 633-4984,11423,CA,None,08494,budget approved
+28,Elizabeth,Garcia,Meridian Robotics,elizabeth.garcia@meridianrobotics.com,555-067-8746,10154,IN,Loyalty,61545,sent brochure
+1170,Matthew,Lewis,Blue Industries,matthew.lewis@blueindustries.com,,20919,IN,Promo,12692,
+518,Arjun,Martinez,Harbor Manufacturing,arjun.martinez@harbormanufacturing.com,(555) 903-2205,51532,US,None,31357,
+607,Ama,Lee,Keystone Industries,ama.lee@keystoneindustries.com,+1 555 568 6562,20071,US,Loyalty,52251,follow up next quarter
+1071,Emily,Hill,Delta Robotics,emily.hill@deltarobotics.com,555-982-1989,11756,DE,None,06893,needs security review
+664,Fatima,Wilson,Atlas Freight,fatima.wilson@atlasfreight.com,(555) 962-6735,25329,US,Promo,07551,
+981,Fatima,Walker,Granite Labs,fatima.walker@granitelabs.com,555-545-3911,17434,US,Promo,27940,wants a demo
+135,Yuki,Mensah,North Software,yuki.mensah@northsoftware.com,555-086-0196,7996,US,Seasonal,74649,
+116,Michael,Nguyen,Blue Analytics,michael.nguyen@blueanalytics.com,+1 555 823 2225,5430,CA,Seasonal,18847,
+852,Divya,Nair,Granite Metals,divya.nair@granitemetals.com,+1 555 835 3517,6485,US,Loyalty,95369,
+882,Betty,Miller,Meridian Robotics,betty.miller@meridianrobotics.com,(555) 952-2465,44130,DE,Seasonal,39442,
+589,Wei,Patel,Apex Systems,wei.patel@apexsystems.com,+1 555 514 1620,19028,US,Volume,39570,needs security review
+786,Priya,Rao,Atlas Supply,priya.rao@atlassupply.com,(555) 314-7980,9959,US,Volume,58751,
+579,DO NOT USE,Sharma,Meridian Health,william.sharma@meridianhealth.com,+1 555 664 4288,25995,CA,Loyalty,43312,
+999,Divya,Chen,Apex Metals,divya.chen@apexmetals.com,(555) 186-2560,39264,US,Seasonal,27628,requested pricing
+276,Jennifer,White,Keystone Systems,jennifer.white@keystonesystems.com,555-469-0090,9266,IN,Promo,08413,
+955,Linda,Tanaka,Meridian Metals,linda.tanaka@meridianmetals.com,(555) 859-6452,9221,US,Volume,27307,
+14,Charles,Silva,Nova Logistics,charles.silva@novalogistics.com,(555) 280-1472,13358,GB,Volume,93938,
+130,Camille,Patel,Bright Supply,camille.patel@brightsupply.com,555-472-3909,42059,US,Loyalty,14582,asked about bulk discount
+776,Lars,Thompson,Keystone Manufacturing,lars.thompson@keystonemanufacturing.com,555-315-5075,5929,DE,Seasonal,02915,requested pricing
+446,Michael,Khan,Granite Systems,michael.khan@granitesystems.com,+1 555 713 2679,10096,DE,Seasonal,89924,wants a demo
+224,Sarah,Gupta,Nova Manufacturing,sarah.gupta@novamanufacturing.com,(555) 988-7084,11730,US,None,19292,expanding to new site
+428,Vikram,White,Iron Systems,vikram.white@ironsystems.com,555-872-3741,23957,US,Volume,72354,budget approved
+171,Jessica,00000,Nova Supply,jessica.menon@novasupply.com,555-705-6379,3048,US,Seasonal,97609,
+380,Pierre,Sharma,Delta Health,pierre.sharma@deltahealth.com,(555) 853-9802,14136,US,None,91460,
+993,Mary,Clark,Delta Robotics,mary.clark@deltarobotics.com,(555) 344-9188,10765,US,None,43921,
+369,Ama,Johnson,Iron Systems,ama.johnson@ironsystems.com,(555) 449-1964,10074,US,Seasonal,90489,budget approved
+600,Jennifer,Gupta,North Systems,jennifer.gupta@northsystems.com,+1 555 708 2144,13724,US,Promo,79760,
+678,Joseph,Nguyen,Keystone Software,joseph.nguyen@keystonesoftware.com,(555) 404-5191,N/A,US,Promo,87027,
+1140,Ama,Rossi,North Health,ama.rossi@northhealth.com,,37658,IN,Promo,47226,wants a demo
+306,Betty,Fischer,Bright Labs,betty.fischer@brightlabs.com,555-349-4678,8176,US,Loyalty,23537,asked about bulk discount
+486,Michael,Baker,Granite Labs,michael.baker@granitelabs.com,+1 555 943 3395,16851,US,Volume,26924,
+1070,Camille,Walker,Cedar Pharma,camille.walker@cedarpharma.com,,23532,IN,Volume,75427,
+491,Hiroshi,Mensah,Meridian Software,hiroshi.mensah@meridiansoftware.com,555-911-3805,12268,US,Promo,77505,sent brochure
+590,Rohan,Jackson,North Manufacturing,rohan.jackson@northmanufacturing.com,(555) 036-3207,7578,GB,Promo,48027,
+1250,Richard,White,Atlas Supply,richard.white@atlassupply.com,,53695,DE,Seasonal,90101,budget approved
+592,Wei,Baker,Nova Foods,wei.baker@novafoods.com,555-697-9967,11135,US,Seasonal,41432,
+1039,Richard,Nguyen,Harbor Metals,richard.nguyen@harbormetals.com,,35665,IN,Promo,07403,wants a demo
+570,Ingrid,Moore,Keystone Manufacturing,ingrid.moore@keystonemanufacturing.com,(555) 044-0275,10072,US,Promo,45771,interested in renewal
+797,David,Lee,Keystone Foods,david.lee@keystonefoods.com,555-686-2619,9095,US,Seasonal,43373,sent brochure
+759,Michael,Wang,Keystone Analytics,michael.wang@keystoneanalytics.com,(555) 252-4951,9851,US,Volume,12599,expanding to new site
+705,Rohan,Green,Delta Energy,rohan.green@deltaenergy.com,+1 555 691 9969,25288,US,None,08755,requested pricing
+1130,Priya,Wilson,Granite Metals,priya.wilson@granitemetals.com,(555) 321-0031,31745,IN,None,07917,requested pricing
+131,Divya,Davis,North Systems,divya.davis@northsystems.com,(555) 931-2839,12196,US,Promo,88089,
+325,Betty,Scott,Delta Health,betty.scott@deltahealth.com,+1 555 521 3753,15423,DE,Volume,80939,asked about bulk discount
+639,Richard,Wang,North Industries,richard.wang@northindustries.com,(555) 204-4350,3099,US,Seasonal,84328,follow up next quarter
+933,Richard,Jones,Delta Freight,richard.jones@deltafreight.com,(555) 819-2273,16306,US,None,98273,sent brochure
+901,Linda,Jackson,Iron Energy,linda.jackson@ironenergy.com,(555) 177-8913,16236,GB,Promo,92141,expanding to new site
+1143,Rahul,Fischer,North Manufacturing,rahul.fischer@northmanufacturing.com,,36423,IN,Volume,08568,budget approved
+291,Linda,Tanaka,Delta Energy,linda.tanaka@deltaenergy.com,(555) 691-6377,9323,US,Seasonal,05032,
+996,Mei,Garcia,Cedar Health,mei.garcia@cedarhealth.com,555-878-8230,21058,US,Loyalty,48075,wants a demo
+1017,Matthew,Fischer,Nova Analytics,matthew.fischer@novaanalytics.com,555-822-0803,58277,IN,None,70623,budget approved
+680,Robert,Young,Bright Analytics,robert.young@brightanalytics.com,(555) 266-5703,15058,CA,Promo,34494,budget approved
+885,Camille,Iyer,Blue Foods,camille.iyer@bluefoods.com,(555) 086-0930,20333,DE,Loyalty,84492,
+962,Charles,King,Iron Freight,charles.king@ironfreight.com,+1 555 191 2367,12663,US,Loyalty,13693,sent brochure
+575,Fatima,Scott,Harbor Metals,fatima.scott@harbormetals.com,555-241-0371,8541,US,None,91966,needs security review
+443,Rohan,Reddy,Meridian Pharma,rohan.reddy@meridianpharma.com,555-912-5063,23800,US,Seasonal,65349,sent brochure
+1001,Priya,Kapoor,Keystone Supply,priya.kapoor@keystonesupply.com,,73739,IN,Promo,07851,sent brochure
+855,Mary,Walker,Blue Pharma,mary.walker@bluepharma.com,555-325-2196,abc,CA,Seasonal,46790,trial extended
+220,Kavya,Walker,Iron Systems,kavya.walker@ironsystems.com,(555) 971-3515,8183,IN,Volume,35343,expanding to new site
+847,Arjun,Clark,Nova Robotics,arjun.clark@novarobotics.com,555-351-9159,10904,US,Seasonal,01805,sent brochure
+645,Camille,Wang,Harbor Systems,camille.wang@harborsystems.com,+1 555 995 4490,26277,US,Volume,92992,interested in renewal
+470,Barbara,Martinez,Apex Metals,barbara.martinez@apexmetals.com,555-045-4533,15307,US,None,36274,
+388,Jessica,Nair,Keystone Industries,jessica.nair@keystoneindustries.com,555-098-3243,9942,US,Volume,04663,sent brochure
+605,Michael,Reddy,Keystone Foods,michael.reddy@keystonefoods.com,(555) 349-5203,8074,US,Seasonal,64429,expanding to new site
+249,Ama,Jackson,Meridian Supply,ama.jackson@meridiansupply.com,+1 555 778 5389,18279,CA,Promo,25521,sent brochure
+476,Priya,Miller,Blue Energy,priya.miller@blueenergy.com,+1 555 682 4874,4738,CA,Loyalty,80523,sent brochure
+363,Lucia,King,Falcon Labs,lucia.king@falconlabs.com,(555) 791-8723,8161,US,Volume,88283,
+128,Lucia,Nguyen,Harbor Freight,lucia.nguyen@harborfreight.com,+1 555 623 8627,24869,US,Seasonal,12719,trial extended
+434,Kavya,Kapoor,Iron Systems,kavya.kapoor@ironsystems.com,+1 555 888 1292,26134,US,Loyalty,25064,interested in renewal
+217,Robert,Rossi,Nova Software,robert.rossi@novasoftware.com,+1 555 046 8964,25908,GB,Promo,36957,requested pricing
+837,Mary,Patel,Harbor Labs,mary.patel@harborlabs.com,+1 555 087 4626,15444,US,Volume,98351,asked about bulk discount
+872,Margaret,Rao,North Foods,margaret.rao@northfoods.com,+1 555 287 3444,14727,US,Loyalty,10865,
+1064,Mateo,Young,Harbor Labs,mateo.young@harborlabs.com,(555) 126-3420,24169,IN,Volume,04215,follow up next quarter
+520,Elizabeth,Sharma,Falcon Systems,elizabeth.sharma@falconsystems.com,555-967-4071,21171,US,None,25331,trial extended
+243,John,Nguyen,Cedar Foods,john.nguyen@cedarfoods.com,555-025-3176,15528,US,Seasonal,29972,
+565,Elizabeth,Khan,xxxxx,elizabeth.khan@brightsupply.com,+1 555 356 4355,13359,US,Volume,02152,follow up next quarter
+941,James,Jackson,Blue Pharma,james.jackson@bluepharma.com,555-759-9945,5573,GB,Promo,05629,wants a demo
+1209,Mary,Costa,Nova Manufacturing,mary.costa@novamanufacturing.com,,42897,IN,Seasonal,09137,interested in renewal
+775,Wei,Green,Delta Manufacturing,wei.green@deltamanufacturing.com,555-446-1731,6795,US,Volume,18547,expanding to new site
+27,Anthony,Scott,Falcon Health,anthony.scott@falconhealth.com,+1 555 673 7591,30167,US,None,64709,
+347,Anthony,Sharma,Atlas Metals,anthony.sharma@atlasmetals.com,+1 555 767 4003,10793,US,Seasonal,22055,
+1022,Yuki,Williams,Keystone Freight,yuki.williams@keystonefreight.com,(555) 893-5734,19406,IN,Loyalty,49172,sent brochure
+495,Omar,Young,Nova Health,omar.young@novahealth.com,+1 555 280 9153,11851,US,Seasonal,05663,sent brochure
+1099,Thomas,Anderson,Atlas Robotics,thomas.anderson@atlasrobotics.com,555-254-8302,23156,IN,Seasonal,16928,sent brochure
+284,James,Garcia,Nova Manufacturing,james.garcia@novamanufacturing.com,+1 555 228 4123,11569,US,Loyalty,88136,
+412,Sofia,Young,Keystone Manufacturing,sofia.young@keystonemanufacturing.com,(555) 139-2506,10865,US,Seasonal,77223,budget approved
+138,Nancy,Costa,Harbor Health,nancy.costa@harborhealth.com,+1 555 399 3896,5872,US,Seasonal,50169,wants a demo
+489,Patricia,Smith,Meridian Industries,patricia.smith@meridianindustries.com,555-800-7302,47392,GB,None,72603,needs security review
+1119,Margaret,Jones,Delta Industries,margaret.jones@deltaindustries.com,555-384-5282,36372,DE,Volume,48199,expanding to new site
+721,Karen,Williams,North Pharma,karen.williams@northpharma.com,(555) 016-6346,4423,GB,Promo,03141,
+240,Richard,Miller,Nova Software,richard.miller@novasoftware.com,(555) 369-1597,14728,IN,Loyalty,08376,interested in renewal
+897,Camille,Walker,North Labs,camille.walker@northlabs.com,(555) 797-4242,9416,GB,Promo,34560,sent brochure
+173,Karen,Silva,Delta Industries,karen.silva@deltaindustries.com,(555) 169-2912,9969,US,None,85893,
+700,Arjun,Miller,Iron Supply,arjun.miller@ironsupply.com,555-701-2576,9078,US,Promo,75495,
+1178,Richard,Jones,Apex Manufacturing,richard.jones@apexmanufacturing.com,(555) 828-5670,24197,IN,Promo,07416,requested pricing
+1223,Ama,Wright,Meridian Software,ama.wright@meridiansoftware.com,555-521-6922,31318,IN,Promo,46807,interested in renewal
+661,Patricia,Nair,Keystone Industries,patricia.nair@keystoneindustries.com,+1 555 194 2486,10504,US,Loyalty,43949,follow up next quarter
+96,Kwame,Brown,North Pharma,kwame.brown@northpharma.com,555-178-7508,18884,US,None,71066,expanding to new site
+627,Sofia,White,Falcon Manufacturing,sofia.white@falconmanufacturing.com,(555) 111-4913,12335,US,None,12929,expanding to new site
+169,Charles,Tanaka,Nova Labs,charles.tanaka@novalabs.com,+1 555 355 2559,12322,US,Loyalty,18916,
+360,Hiroshi,Khan,Delta Freight,hiroshi.khan@deltafreight.com,(555) 012-9848,14572,US,Loyalty,23167,follow up next quarter
+1224,Jennifer,Jones,North Health,jennifer.jones@northhealth.com,,31690,IN,Seasonal,91994,asked about bulk discount
+136,Thomas,Wang,Blue Energy,thomas.wang@blueenergy.com,555-623-9183,2178,IN,Loyalty,03052,
+79,Sandra,Iyer,North Labs,sandra.iyer@northlabs.com,+1 555 318 7599,3981,US,Seasonal,14943,interested in renewal
+611,Sarah,Martin,Harbor Supply,sarah.martin@harborsupply.com,555-972-5211,7943,US,Promo,52399,asked about bulk discount
+6,Yuki,Baker,Falcon Industries,yuki.baker@falconindustries.com,(555) 230-8331,16680,DE,None,07104,trial extended
+1128,David,Rao,Nova Manufacturing,david.rao@novamanufacturing.com,,69398,IN,Promo,72377,requested pricing
+559,Kavya,Baker,Bright Systems,kavya.baker@brightsystems.com,+1 555 912 8401,9464,US,Loyalty,24592,
+1025,Linda,Martin,Falcon Foods,linda.martin@falconfoods.com,+1 555 822 5138,91664,IN,Seasonal,55019,
+81,Mateo,Scott,Cedar Analytics,mateo.scott@cedaranalytics.com,+1 555 396 0926,14322,CA,Seasonal,02555,sent brochure
+319,Karen,Taylor,Apex Health,karen.taylor@falconsystems.com,555-911-2354,15870,US,Loyalty,99940,follow up next quarter
+222,David,Green,Harbor Foods,david.green@harborfoods.com,(555) 290-3075,15869,US,None,09885,
+1192,Mei,Wilson,North Health,mei.wilson@northhealth.com,+1 555 510 8202,36905,DE,Promo,26856,expanding to new site
+193,Pierre,Smith,Nova Health,pierre.smith@novahealth.com,+1 555 027 6026,16745,DE,Loyalty,75044,
+205,Divya,Brown,,divya.brown@brightsystems.com,555-547-6802,3747,DE,Seasonal,52648,wants a demo
+1057,Wei,Gupta,Keystone Supply,wei.gupta@keystonesupply.com,+1 555 017 1503,30501,IN,Promo,78353,
+1081,Yuki,Silva,North Pharma,yuki.silva@northpharma.com,+1 555 923 4631,23604,IN,None,55759,budget approved
+429,Mateo,Miller,Bright Labs,mateo.miller@brightlabs.com,555-786-6700,9033,US,Promo,07976,
+1168,Steven,Dubois,Granite Labs,steven.dubois@granitelabs.com,(555) 203-0315,42125,IN,Volume,13956,needs security review
+802,Ama,Walker,Cedar Freight,ama.walker@cedarfreight.com,555-398-0063,6595,GB,Volume,49764,follow up next quarter
+339,Arjun,Wright,Harbor Systems,arjun.wright@harborsystems.com,555-660-8517,8269,US,None,27560,
+1037,Carlos,Kapoor,Keystone Robotics,carlos.kapoor@keystonerobotics.com,(555) 697-3727,59235,IN,Loyalty,99207,needs security review
+46,Rohan,Brown,North Health,rohan.brown@northhealth.com,555-246-0619,9267,CA,Promo,12803,trial extended
+712,James,Nair,Granite Freight,james.nair@granitefreight.com,(555) 817-2533,40516,US,Volume,02511,requested pricing
+466,Linda,Jones,Apex Metals,linda.jones@apexmetals.com,+1 555 474 5900,7589,US,Loyalty,65864,needs security review
+929,Lars,Menon,Meridian Robotics,lars.menon@meridianrobotics.com,(555) 904-2785,-,US,Volume,06999,
+1132,Camille,Kapoor,Delta Pharma,camille.kapoor@deltapharma.com,,29713,IN,Seasonal,89410,sent brochure
+301,Nancy,Miller,Iron Metals,nancy.miller@ironmetals.com,555-356-5391,8909,US,None,32068,
+104,Nancy,Menon,Harbor Foods,nancy.menon@harborfoods.com,+1 555 586 7294,4757,US,Loyalty,12993,
+250,Richard,Jackson,Falcon Pharma,richard.jackson@falconpharma.com,+1 555 194 2294,10841,US,Seasonal,06376,requested pricing
+588,Steven,Khan,Nova Metals,steven.khan@novametals.com,(555) 395-0189,5589,US,Promo,65822,expanding to new site
+3,Kavya,Green,Atlas Analytics,kavya.green@atlasanalytics.com,555-074-4604,10887,US,Volume,88643,expanding to new site
+488,Rahul,Rao,Cedar Metals,rahul.rao@cedarmetals.com,+1 555 887 0438,9874,US,Volume,20488,interested in renewal
+247,Steven,Berg,Bright Health,steven.berg@brighthealth.com,555-805-6611,8069,CA,Volume,55646,
+450,Priya,Rao,Keystone Software,priya.rao@keystonesoftware.com,555-582-8346,3924,IN,Volume,60388,follow up next quarter
+810,Divya,Jackson,Delta Manufacturing,divya.jackson@deltamanufacturing.com,+1 555 004 0986,12717,US,Promo,05411,
+569,Karen,Thompson,Apex Analytics,karen.thompson@apexanalytics.com,555-670-8388,11334,US,Promo,07530,budget approved
+560,Arjun,Chen,Keystone Supply,arjun.chen@keystonesupply.com,555-331-1500,14190,US,None,60980,sent brochure
+448,Hiroshi,Fischer,North Metals,hiroshi.fischer@northmetals.com,(555) 728-4163,-,US,Promo,09730,
+326,Mei,Thompson,Apex Robotics,mei.thompson@apexrobotics.com,(555) 643-2475,-,GB,Volume,52083,needs security review
+53,Fatima,Silva,Delta Manufacturing,fatima.silva@deltamanufacturing.com,555-551-3628,6893,US,Loyalty,11438,wants a demo
+849,Yuki,Martin,North Labs,yuki.martin@northlabs.com,(555) 298-3018,8800,US,Volume,95738,expanding to new site
+1113,Robert,Berg,Iron Metals,robert.berg@ironmetals.com,,45748,IN,Loyalty,04278,requested pricing
+1035,Pierre,Gupta,Granite Pharma,pierre.gupta@granitepharma.com,,33751,IN,Promo,01270,sent brochure
+672,Margaret,Lewis,Bright Health,margaret.lewis@brighthealth.com,555-982-1318,8219,IN,Seasonal,13026,
+248,Lucia,Costa,Nova Pharma,lucia.costa@novapharma.com,+1 555 133 5934,26395,CA,Promo,92189,follow up next quarter
+1087,Robert,Rossi,Keystone Health,robert.rossi@keystonehealth.com,555-780-8675,24530,IN,None,32598,
+269,Fatima,Lewis,Granite Logistics,fatima.lewis@granitelogistics.com,(555) 630-9791,5614,US,Volume,16948,trial extended
+1051,Ingrid,Baker,Meridian Pharma,ingrid.baker@meridianpharma.com,555-253-1753,55333,IN,Volume,67005,
+231,Mary,Mensah,Bright Systems,mary.mensah@brightsystems.com,(555) 174-4100,4746,CA,Volume,55940,requested pricing
+581,Steven,Garcia,Blue Industries,steven.garcia@blueindustries.com,555-952-6504,5049,US,Volume,50095,needs security review
+1063,Camille,Davis,Harbor Health,camille.davis@harborhealth.com,,20359,IN,Seasonal,05451,
+971,Sandra,Wilson,Blue Industries,sandra.wilson@blueindustries.com,(555) 535-1354,10966,CA,Loyalty,36869,
+665,Lucia,Kapoor,Delta Energy,lucia.kapoor@deltaenergy.com,555-590-6111,24801,US,None,58706,asked about bulk discount
+110,Emily,Chen,Bright Foods,emily.chen@brightfoods.com,+1 555 507 2769,8757,DE,Seasonal,58123,expanding to new site
+15,Barbara,Nguyen,Cedar Foods,barbara.nguyen@cedarfoods.com,+1 555 115 3823,8443,US,Loyalty,37752,expanding to new site
+938,Divya,Jones,Cedar Industries,divya.jones@cedarindustries.com,+1 555 580 2508,19180,US,None,96321,expanding to new site
+1122,Matthew,Rossi,Granite Logistics,matthew.rossi@granitelogistics.com,+1 555 788 8564,48246,IN,Volume,78073,
+146,Charles,Berg,Apex Analytics,charles.berg@apexanalytics.com,+1 555 101 9476,9654,US,None,11259,expanding to new site
+271,Susan,Brown,Nova Pharma,susan.brown@novapharma.com,+1 555 264 8443,9354,GB,Promo,73328,requested pricing
+165,Daniel,Smith,Keystone Supply,daniel.smith@keystonesupply.com,+1 555 289 5492,25845,US,None,19087,sent brochure
+156,Priya,Tanaka,Blue Energy,priya.tanaka@newdomain.com,+1 555 931 6620,9112,GB,Volume,26474,expanding to new site
+372,Vikram,Martin,Meridian Systems,vikram.martin@meridiansystems.com,555-660-0188,4992,US,Seasonal,55900,follow up next quarter
+706,Elizabeth,Dubois,Keystone Foods,elizabeth.dubois@keystonefoods.com,555-969-1708,20793,US,Volume,03170,needs security review
+1079,Matthew,Taylor,Nova Supply,matthew.taylor@novasupply.com,,40935,IN,Loyalty,39647,
+1157,Fatima,Wang,Harbor Supply,fatima.wang@harborsupply.com,555-664-6466,39230,IN,Promo,95145,
+730,Karen,Williams,Nova Foods,karen.williams@novafoods.com,555-416-6689,12086,US,Promo,04425,follow up next quarter
+564,Emily,Davis,Delta Energy,emily.davis@deltaenergy.com,+1 555 273 4550,23064,US,None,87813,
+914,Joseph,Harris,Nova Manufacturing,joseph.harris@novamanufacturing.com,+1 555 937 5835,11559,US,Volume,58692,follow up next quarter
+814,Sofia,Jones,Bright Analytics,sofia.jones@brightanalytics.com,(555) 750-1073,9721,US,Promo,07689,wants a demo
+811,Divya,Gupta,Bright Systems,divya.gupta@brightsystems.com,(555) 830-4885,21925,GB,Volume,69450,
+1107,Mateo,Davis,Blue Analytics,mateo.davis@blueanalytics.com,(555) 948-0197,17509,IN,Promo,71307,needs security review
+93,Karen,Jones,Iron Manufacturing,karen.jones@ironmanufacturing.com,555-560-9867,16249,US,None,50423,interested in renewal
+345,Joseph,Miller,Apex Manufacturing,joseph.miller@apexmanufacturing.com,(555) 886-8344,3806,US,Volume,27796,
+1149,Joseph,Taylor,Falcon Industries,joseph.taylor@falconindustries.com,(555) 835-9355,25596,IN,None,51944,wants a demo
+505,Richard,Rao,Falcon Systems,richard.rao@falconsystems.com,(555) 444-5845,19381,IN,Seasonal,35762,follow up next quarter
+823,Daniel,Nguyen,Bright Freight,daniel.nguyen@brightfreight.com,555-278-6939,20426,US,None,21661,expanding to new site
+1177,Karen,Moore,Cedar Manufacturing,karen.moore@cedarmanufacturing.com,555-706-8808,26015,DE,Seasonal,28259,wants a demo
+566,Jessica,Menon,Iron Metals,jessica.menon@ironmetals.com,+1 555 978 9087,18746,US,Volume,90932,budget approved
+340,Camille,Dubois,Falcon Industries,camille.dubois@newdomain.com,555-082-4392,7561,CA,Volume,43912,asked about bulk discount
+1248,Richard,Dubois,North Manufacturing,richard.dubois@northmanufacturing.com,555-248-5218,40865,DE,Promo,17180,
+211,Lucia,Green,North Systems,lucia.green@northsystems.com,555-537-2171,17397,US,Volume,07273,
+61,Sofia,Miller,Granite Logistics,sofia.miller@granitelogistics.com,+1 555 557 0472,6710,GB,None,43251,follow up next quarter
+720,Barbara,Kapoor,Meridian Robotics,barbara.kapoor@meridianrobotics.com,555-238-0543,3667,CA,None,72820,
+1055,Daniel,Davis,North Pharma,daniel.davis@northpharma.com,,38831,IN,Promo,61745,requested pricing
+667,Hiroshi,Chen,Cedar Metals,hiroshi.chen@cedarmetals.com,555-472-6107,9416,US,None,22899,
+129,Richard,Sharma,Apex Analytics,richard.sharma@apexanalytics.com,555-453-9390,8058,US,None,43476,requested pricing
+371,James,Davis,Apex Manufacturing,james.davis@apexmanufacturing.com,+1 555 085 0638,15430,CA,None,78763,asked about bulk discount
+555,Robert,Kapoor,North Health,robert.kapoor@northhealth.com,555-789-7635,12172,US,Loyalty,05996,expanding to new site
+286,Camille,Thompson,Granite Robotics,camille.thompson@graniterobotics.com,+1 555 846 1419,10395,US,Promo,57284,
+423,Lars,Wright,Blue Robotics,lars.wright@bluerobotics.com,+1 555 252 7466,19802,US,Seasonal,72406,
+561,Carlos,Jones,Blue Supply,carlos.jones@bluesupply.com,555-263-1010,15321,IN,Promo,76627,
+216,Patricia,Harris,North Industries,patricia.harris@northindustries.com,+1 555 723 8251,8281,DE,Loyalty,02415,wants a demo
+468,Michael,Rossi,Harbor Manufacturing,michael.rossi@harbormanufacturing.com,+1 555 894 8922,24253,IN,None,71666,expanding to new site
+436,Fatima,Wilson,Apex Logistics,fatima.wilson@apexlogistics.com,+1 555 599 4505,25291,US,Seasonal,23670,needs security review
+816,Carlos,Moore,Falcon Labs,carlos.moore@falconlabs.com,+1 555 960 7827,20815,US,Promo,31111,
+465,Ananya,Nguyen,Keystone Health,ananya.nguyen@keystonehealth.com,555-445-7859,8551,US,Loyalty,95635,interested in renewal
+927,Sofia,Reddy,Delta Health,sofia.reddy@deltahealth.com,555-466-5942,14121,US,None,62716,expanding to new site
+455,Betty,Gupta,Falcon Manufacturing,betty.gupta@falconmanufacturing.com,+1 555 049 0381,14303,US,Loyalty,02898,trial extended
+554,Mei,Martin,Falcon Software,mei.martin@falconsoftware.com,555-796-6763,27587,US,Promo,02402,follow up next quarter
+526,Hiroshi,Costa,Cedar Energy,hiroshi.costa@cedarenergy.com,+1 555 893 6944,9269,US,Promo,01308,
+264,Ama,Scott,Meridian Systems,ama.scott@meridiansystems.com,555-624-1325,13308,US,Seasonal,28335,interested in renewal
+1183,Susan,Nguyen,Meridian Industries,susan.nguyen@meridianindustries.com,555-732-5840,32957,DE,Loyalty,35107,requested pricing
+631,Ama,Williams,North Foods,ama.williams@northfoods.com,(555) 549-1004,24157,CA,None,31666,needs security review
+1106,Richard,Smith,Nova Pharma,richard.smith@novapharma.com,555-856-5156,48491,IN,Loyalty,27107,
+415,Barbara,Anderson,Harbor Supply,barbara.anderson@harborsupply.com,555-261-3797,58864,US,Seasonal,88665,sent brochure
+947,Carlos,Berg,Nova Freight,carlos.berg@novafreight.com,+1 555 752 3382,11036,US,Volume,64224,requested pricing
+472,Barbara,Kapoor,North Manufacturing,barbara.kapoor@northmanufacturing.com,+1 555 463 0904,7973,US,Volume,76757,interested in renewal
+309,Joseph,Moore,Apex Logistics,joseph.moore@apexlogistics.com,(555) 970-6856,3683,US,Seasonal,20738,
+1175,Michael,White,Apex Analytics,michael.white@apexanalytics.com,555-199-5992,26218,IN,Loyalty,36234,budget approved
+241,Charles,Rao,Falcon Industries,charles.rao@falconindustries.com,+1 555 751 3095,9338,US,Volume,30239,
+479,Margaret,Jones,North Pharma,margaret.jones@northpharma.com,(555) 774-2649,7610,CA,None,79777,trial extended
+24,Michael,Smith,Harbor Energy,michael.smith@harborenergy.com,+1 555 268 9495,3192,US,Promo,68354,trial extended
+175,Yuki,Lewis,Harbor Energy,yuki.lewis@harborenergy.com,+1 555 520 8330,6331,US,None,24169,wants a demo
+1141,Mary,Lee,Meridian Supply,mary.lee@meridiansupply.com,+1 555 972 7706,23889,IN,Loyalty,90790,
+666,Robert,Jones,Granite Pharma,robert.jones@granitepharma.com,(555) 817-4277,4227,IN,Promo,86076,needs security review
+167,Mark,Martin,Granite Logistics,mark.martin@granitelogistics.com,+1 555 662 0030,6084,DE,Loyalty,08893,
+1234,Susan,Lee,Blue Supply,susan.lee@bluesupply.com,,15574,IN,Volume,17550,interested in renewal
+1244,Ananya,White,Iron Foods,ananya.white@ironfoods.com,+1 555 845 5493,110780,IN,Seasonal,94153,
+1200,Omar,Wright,North Metals,omar.wright@northmetals.com,+1 555 517 4031,20493,IN,Promo,76205,sent brochure
+139,Mary,Khan,North Health,mary.khan@northhealth.com,555-051-9256,15111,DE,Volume,17033,budget approved
+841,Rohan,Williams,North Industries,rohan.williams@northindustries.com,+1 555 254 1883,32877,US,Seasonal,78231,requested pricing
+966,John,Lewis,Nova Robotics,john.lewis@novarobotics.com,+1 555 112 8452,14828,US,Loyalty,21360,follow up next quarter
+601,Rahul,Patel,Harbor Manufacturing,rahul.patel@harbormanufacturing.com,(555) 287-8892,7995,US,None,91906,interested in renewal
+939,Mark,Clark,North Software,mark.clark@northsoftware.com,555-168-4294,12127,US,Volume,47200,follow up next quarter
+1050,Nancy,Brown,Falcon Systems,nancy.brown@falconsystems.com,+1 555 380 7861,30329,IN,Promo,43490,expanding to new site
+11,Matthew,Nguyen,Harbor Supply,matthew.nguyen@harborsupply.com,(555) 130-5466,10839,IN,Promo,67319,follow up next quarter
+670,Anthony,Fischer,Granite Energy,anthony.fischer@graniteenergy.com,+1 555 428 5251,10183,US,Promo,90958,requested pricing
+144,Emily,Hill,Iron Metals,emily.hill@ironmetals.com,+1 555 560 6849,9159,US,Seasonal,20812,
+593,Rohan,Lee,Keystone Software,rohan.lee@keystonesoftware.com,(555) 539-6213,25428,US,Seasonal,36949,
+168,Carlos,Walker,Cedar Metals,carlos.walker@cedarmetals.com,(555) 328-3584,9212,US,Volume,02930,
+13,Mary,Kapoor,Apex Analytics,mary.kapoor@apexanalytics.com,+1 555 938 8138,11270,GB,None,89130,budget approved
+145,Jessica,Kapoor,Blue Supply,jessica.kapoor@bluesupply.com,+1 555 627 5228,32156,US,Volume,88613,needs security review
+584,James,Jones,Granite Robotics,james.jones@graniterobotics.com,555-394-1560,4875,US,None,95774,asked about bulk discount
+578,Rohan,Harris,Cedar Foods,rohan.harris@cedarfoods.com,+1 555 704 9757,19494,US,Promo,02877,sent brochure
+266,Kavya,Jackson,Harbor Energy,kavya.jackson@harborenergy.com,+1 555 490 6996,18534,IN,Promo,06078,needs security review
+854,Karen,Jones,Granite Systems,karen.jones@granitesystems.com,555-644-5133,13631,US,Volume,79805,expanding to new site
+321,Charles,Berg,Apex Logistics,charles.berg@apexlogistics.com,+1 555 041 0448,8430,US,Volume,63441,
+1150,Fatima,Miller,Nova Pharma,fatima.miller@novapharma.com,555-367-7452,36018,DE,None,01062,
+726,Michael,Anderson,Delta Freight,michael.anderson@deltafreight.com,(555) 124-0342,4271,US,Promo,25672,needs security review
+984,Daniel,Young,Meridian Health,charles.chen@keystonesupply.com,555-299-1896,4226,US,Promo,03147,asked about bulk discount
+1219,Camille,Nair,North Labs,camille.nair@northlabs.com,,30293,DE,Promo,66023,
+647,Fatima,Khan,Harbor Energy,fatima.khan@harborenergy.com,(555) 968-9821,6751,US,Seasonal,88517,
+1018,James,Young,Delta Pharma,james.young@deltapharma.com,555-372-7334,30494,IN,Promo,52344,sent brochure
+408,Robert,Menon,Falcon Labs,robert.menon@falconlabs.com,+1 555 927 2518,10720,US,Volume,01904,follow up next quarter
+655,Susan,Gupta,Iron Robotics,susan.gupta@ironrobotics.com,(555) 082-2050,19210,US,Promo,41122,
+616,Steven,Hill,Iron Metals,steven.hill@ironmetals.com,555-152-5811,13108,US,Promo,92037,
+1034,Pierre,Thompson,Blue Software,pierre.thompson@bluesoftware.com,(555) 170-7343,21290,IN,None,73302,
+702,Priya,Taylor,North Metals,priya.taylor@northmetals.com,+1 555 214 9638,18184,US,Volume,87489,
+1004,Pierre,Lewis,Cedar Freight,pierre.lewis@cedarfreight.com,+1 555 325 9941,85877,DE,Seasonal,09503,expanding to new site
+830,Ananya,Williams,Harbor Metals,ananya.williams@harbormetals.com,(555) 389-6375,34939,US,None,23349,needs security review
+533,Mateo,Tanaka,North Pharma,mateo.tanaka@northpharma.com,+1 555 927 8923,7798,GB,Seasonal,08444,trial extended
+871,Elizabeth,Fischer,Iron Manufacturing,elizabeth.fischer@ironmanufacturing.com,555-253-6550,20436,US,None,77780,asked about bulk discount
+1179,Margaret,Wright,Nova Industries,margaret.wright@novaindustries.com,(555) 484-7684,82927,IN,Volume,05505,follow up next quarter
+1193,Divya,Baker,Granite Foods,divya.baker@granitefoods.com,,30765,IN,Loyalty,42502,asked about bulk discount
+683,Arjun,White,Falcon Foods,arjun.white@falconfoods.com,555-993-1287,6605,US,Loyalty,05504,budget approved
+154,Vikram,Brown,Apex Manufacturing,vikram.brown@apexmanufacturing.com,555-491-8061,6940,US,None,94451,
+728,Mei,Miller,Granite Metals,mei.miller@granitemetals.com,+1 555 856 7145,35555,CA,Volume,10709,expanding to new site
+143,David,Williams,Nova Industries,david.williams@novaindustries.com,(555) 631-6993,6728,US,None,18651,
+1040,Vikram,Chen,Keystone Logistics,vikram.chen@keystonelogistics.com,,29261,IN,Seasonal,84037,budget approved
+39,Ama,Wang,Harbor Industries,ama.wang@harborindustries.com,(555) 348-5032,25463,CA,Promo,89104,trial extended
+418,Ananya,Walker,Iron Pharma,ananya.walker@ironpharma.com,+1 555 355 2057,11345,US,Loyalty,56535,
+506,Anthony,Jackson,Nova Labs,anthony.jackson@novalabs.com,555-481-1812,14657,US,Seasonal,65048,
+568,Mei,Wright,Falcon Metals,mei.wright@falconmetals.com,+1 555 887 3940,19567,US,Loyalty,62499,interested in renewal
+787,Fatima,Garcia,Keystone Health,fatima.garcia@keystonehealth.com,+1 555 801 3188,3821,GB,None,52950,interested in renewal
+1202,Thomas,Walker,Keystone Industries,thomas.walker@keystoneindustries.com,+1 555 484 1294,21772,IN,Promo,60102,
+235,Ananya,Davis,Keystone Health,ananya.davis@keystonehealth.com,(555) 613-1916,16490,CA,Promo,66293,
+1216,Sandra,Walker,Bright Supply,sandra.walker@brightsupply.com,+1 555 143 0979,57665,IN,None,28584,
+950,Thomas,Rossi,Granite Robotics,thomas.rossi@graniterobotics.com,+1 555 418 6747,20075,US,Seasonal,94225,sent brochure
+674,Priya,Garcia,Apex Freight,priya.garcia@apexfreight.com,(555) 727-3719,12289,US,Loyalty,15575,expanding to new site
+692,Linda,Gupta,Apex Supply,linda.gupta@apexsupply.com,+1 555 717 9912,9698,US,Promo,32002,trial extended
+225,Matthew,Taylor,Keystone Systems,matthew.taylor@keystonesystems.com,+1 555 500 7460,8139,US,Loyalty,75193,expanding to new site
+64,Pierre,Chen,Meridian Software,pierre.chen@meridiansoftware.com,(555) 493-2931,7672,US,Seasonal,74323,requested pricing
+399,Steven,Garcia,Cedar Systems,steven.garcia@cedarsystems.com,555-901-2821,7298,US,Loyalty,30094,interested in renewal
+1167,William,Nair,Blue Pharma,william.nair@bluepharma.com,555-872-3618,51194,IN,Promo,40149,
+679,Ananya,Patel,Delta Industries,ananya.patel@deltaindustries.com,(555) 326-2770,33526,DE,Promo,13914,wants a demo
+1126,Richard,Scott,Keystone Robotics,richard.scott@keystonerobotics.com,+1 555 469 8511,47601,IN,Volume,24822,sent brochure
+337,Vikram,Scott,Apex Systems,vikram.scott@apexsystems.com,+1 555 305 0440,8135,CA,Loyalty,43732,budget approved
+812,William,Chen,Cedar Software,william.chen@cedarsoftware.com,555-096-1395,9160,US,Promo,65865,expanding to new site
+840,Nancy,Reddy,Harbor Manufacturing,nancy.reddy@harbormanufacturing.com,(555) 016-4507,19996,GB,Seasonal,15362,requested pricing
+877,Anthony,Martin,Granite Energy,anthony.martin@graniteenergy.com,+1 555 117 4421,10561,US,Seasonal,66282,expanding to new site
+103,Mei,Berg,North Software,mei.berg@northsoftware.com,555-208-5395,10772,US,Promo,07549,sent brochure
+184,Thomas,Lewis,North Health,thomas.lewis@northhealth.com,(555) 598-2960,11946,US,Loyalty,90812,expanding to new site
+161,Camille,Brown,North Supply,camille.brown@northsupply.com,+1 555 112 7284,19653,US,Loyalty,78438,budget approved
+349,Joseph,Clark,Falcon Software,joseph.clark@falconsoftware.com,555-305-9354,16617,US,Volume,84124,
+270,Robert,Costa,Apex Energy,robert.costa@apexenergy.com,+1 555 994 7762,8872,US,Loyalty,49657,
+807,Charles,Tanaka,Delta Foods,charles.tanaka@deltafoods.com,+1 555 002 7012,43156,IN,Promo,62442,budget approved
+622,Lucia,Rossi,Harbor Systems,lucia.rossi@harborsystems.com,555-843-3214,3815,US,Volume,84032,needs security review
+1163,Jessica,Miller,North Metals,jessica.miller@northmetals.com,555-681-5028,28435,DE,Volume,49479,sent brochure
+295,Mark,Nair,Blue Pharma,mark.nair@bluepharma.com,555-996-5950,14306,CA,Loyalty,54220,asked about bulk discount
+861,Omar,Green,Nova Logistics,omar.green@novalogistics.com,(555) 147-1128,25533,US,Promo,56090,needs security review
+604,Robert,Khan,Nova Freight,robert.khan@novafreight.com,(555) 667-3262,6122,US,Promo,55847,follow up next quarter
+771,Ama,Green,Harbor Health,ama.green@harborhealth.com,+1 555 191 3648,13244,US,Volume,08832,budget approved
+494,Matthew,Hill,Apex Supply,matthew.hill@apexsupply.com,555-209-1368,8062,US,Seasonal,72214,
+976,Fatima,Wang,Keystone Software,fatima.wang@keystonesoftware.com,(555) 833-7576,14824,US,Loyalty,08340,requested pricing
+463,Ama,Walker,Blue Foods,ama.walker@bluefoods.com,(555) 196-3986,12188,US,Promo,51921,wants a demo
+1188,Mark,Martin,Delta Health,mark.martin@deltahealth.com,+1 555 616 9300,32047,IN,Loyalty,23988,
+746,Anthony,Young,Meridian Energy,anthony.young@meridianenergy.com,(555) 891-2522,18324,US,None,48237,expanding to new site

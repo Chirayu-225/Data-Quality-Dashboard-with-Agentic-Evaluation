@@ -8,6 +8,7 @@ from app.agent.llm_clients import (
     LLMClient,
     LLMRequestTooLargeError,
     LLMUnavailableError,
+    _deterministic_seed,
     _estimate_tokens,
     _TokenBucket,
 )
@@ -74,6 +75,11 @@ def test_groq_client_complete_calls_sdk_correctly(monkeypatch):
         call_kwargs = mock_client.chat.completions.create.call_args.kwargs
         assert call_kwargs["messages"][0] == {"role": "system", "content": "system prompt"}
         assert call_kwargs["messages"][1] == {"role": "user", "content": "user prompt"}
+        assert call_kwargs["temperature"] == 0
+        # Item 6 (live determinism) — a content-derived seed goes on
+        # every call, not left unset. See _deterministic_seed's own
+        # docstring for why this is a mitigation, not a guarantee.
+        assert call_kwargs["seed"] == _deterministic_seed("system prompt", "user prompt")
 
 
 def test_gemini_client_raises_clear_error_without_api_key(monkeypatch):
@@ -98,6 +104,9 @@ def test_gemini_client_complete_calls_sdk_correctly(monkeypatch):
         mock_client.models.generate_content.assert_called_once()
         call_kwargs = mock_client.models.generate_content.call_args.kwargs
         assert call_kwargs["contents"] == "user prompt"
+        config = call_kwargs["config"]
+        assert config.temperature == 0
+        assert config.seed == _deterministic_seed("system prompt", "user prompt")
 
 
 def test_complete_with_retry_succeeds_after_transient_failures(monkeypatch):
@@ -194,6 +203,44 @@ def test_complete_with_retry_still_retries_429_and_503_normally(monkeypatch):
 
     assert result == "ok"
     assert llm.calls == 2  # retried normally, unlike the 413 case above
+
+
+# --- Live determinism mitigation (item 6) --------------------------------
+
+
+def test_deterministic_seed_is_stable_for_the_same_exact_prompt():
+    """The whole point: re-running the SAME prompt text must request
+    the SAME seed from the provider every time — no call counter, no
+    wall-clock component, nothing but the text itself."""
+    seed_a = _deterministic_seed("system prompt", "user prompt")
+    seed_b = _deterministic_seed("system prompt", "user prompt")
+    assert seed_a == seed_b
+
+
+def test_deterministic_seed_differs_for_different_prompts():
+    seed_a = _deterministic_seed("system prompt", "user prompt A")
+    seed_b = _deterministic_seed("system prompt", "user prompt B")
+    assert seed_a != seed_b
+
+
+def test_deterministic_seed_is_sensitive_to_the_system_prompt_too():
+    """Not just the user prompt — a system-prompt change (e.g. a future
+    prompt-hardening edit) must also change the seed, since the
+    provider's determinism guarantee (such as it is) is scoped to the
+    whole request, not just one half of it."""
+    seed_a = _deterministic_seed("system A", "same user prompt")
+    seed_b = _deterministic_seed("system B", "same user prompt")
+    assert seed_a != seed_b
+
+
+def test_deterministic_seed_is_a_non_negative_integer_in_a_safe_range():
+    """Both providers document `seed` as an ordinary integer field —
+    this just confirms the helper never hands back something a
+    provider's own validation (negative, or outside a 32-bit-ish
+    range) might reject outright."""
+    seed = _deterministic_seed("x" * 500, "y" * 500)
+    assert isinstance(seed, int)
+    assert 0 <= seed <= 0x7FFFFFFF
 
 
 def test_estimate_tokens_is_roughly_chars_over_four():
@@ -315,3 +362,103 @@ def test_complete_with_retry_paces_calls_through_the_token_bucket(monkeypatch):
 
     assert llm.calls == 2  # both eventually went through
     assert clock.sleep_calls  # but the second one had to wait, not fire instantly
+
+
+def _groq_call_kwargs(monkeypatch, model=None, effort_env=None):
+    monkeypatch.setenv("GROQ_API_KEY", "test-key")
+    if effort_env is None:
+        monkeypatch.delenv("GROQ_REASONING_EFFORT", raising=False)
+    else:
+        monkeypatch.setenv("GROQ_REASONING_EFFORT", effort_env)
+    with patch("groq.Groq") as mock_groq_cls:
+        mock_client = MagicMock()
+        mock_groq_cls.return_value = mock_client
+        mock_response = MagicMock()
+        mock_response.choices = [MagicMock(message=MagicMock(content="ok"))]
+        mock_client.chat.completions.create.return_value = mock_response
+        client = GroqClient(model=model) if model else GroqClient()
+        client.complete("s", "u")
+        return mock_client.chat.completions.create.call_args.kwargs
+
+
+def test_groq_requests_low_reasoning_effort_by_default_for_gpt_oss(monkeypatch):
+    """Live finding: default effort let gpt-oss-20b spend its whole
+    2,048-token output budget thinking and return an empty answer."""
+    assert _groq_call_kwargs(monkeypatch)["reasoning_effort"] == "low"
+
+
+def test_groq_reasoning_effort_can_be_overridden_or_turned_off(monkeypatch):
+    assert _groq_call_kwargs(monkeypatch, effort_env="medium")["reasoning_effort"] == "medium"
+    assert "reasoning_effort" not in _groq_call_kwargs(monkeypatch, effort_env="default")
+
+
+def test_groq_reasoning_effort_is_not_sent_to_other_model_families(monkeypatch):
+    assert "reasoning_effort" not in _groq_call_kwargs(monkeypatch, model="llama-3.3-70b-versatile")
+
+
+def test_groq_rejects_an_invalid_reasoning_effort_value(monkeypatch):
+    from app.config import ConfigError
+
+    with pytest.raises(ConfigError):
+        _groq_call_kwargs(monkeypatch, effort_env="turbo")
+
+
+def test_groq_empty_reply_logs_why_without_row_content(monkeypatch, caplog):
+    monkeypatch.setenv("GROQ_API_KEY", "test-key")
+    with patch("groq.Groq") as mock_groq_cls:
+        mock_client = MagicMock()
+        mock_groq_cls.return_value = mock_client
+        choice = MagicMock(finish_reason="length", message=MagicMock(content="", reasoning="x" * 50))
+        mock_client.chat.completions.create.return_value = MagicMock(
+            choices=[choice], usage=MagicMock(prompt_tokens=5000, completion_tokens=2048, total_tokens=7048)
+        )
+        client = GroqClient()
+        with caplog.at_level("WARNING"):
+            with pytest.raises(LLMRequestTooLargeError):
+                client.complete("s", "SECRET-ROW-VALUE")
+    text = " ".join(r.getMessage() for r in caplog.records)
+    assert "finish_reason=length" in text and "completion_tokens=2048" in text
+    assert "SECRET-ROW-VALUE" not in text
+
+
+def test_output_budget_exhaustion_is_not_retried_and_lets_the_caller_shrink(monkeypatch):
+    """Live finding: even at low effort one 45-row batch spent all 2,048
+    output tokens reasoning (finish_reason=length). Retrying the same
+    prompt repeats it, so it must surface at once as a too-large request."""
+    monkeypatch.setenv("GROQ_API_KEY", "test-key")
+    with patch("groq.Groq") as mock_groq_cls:
+        mock_client = MagicMock()
+        mock_groq_cls.return_value = mock_client
+        choice = MagicMock(finish_reason="length", message=MagicMock(content="", reasoning="x"))
+        mock_client.chat.completions.create.return_value = MagicMock(choices=[choice], usage=None)
+        client = GroqClient()
+        with pytest.raises(LLMRequestTooLargeError):
+            client.complete_with_retry("s", "u")
+        assert mock_client.chat.completions.create.call_count == 1
+
+
+def test_semantic_reasoner_halves_the_batch_when_the_model_runs_out_of_output_budget():
+    from app.agent.semantic_reasoning import SemanticReasoner
+
+    class _Budget(LLMClient):
+        def __init__(self):
+            self.sizes = []
+
+        def complete(self, system_prompt, user_prompt):
+            n = user_prompt.count("[UNTRUSTED DATA] row ")
+            self.sizes.append(n)
+            if n > 12:
+                raise LLMRequestTooLargeError("budget", RuntimeError("finish_reason=length"))
+            return '{"flags": []}'
+
+    from app.canonical.models import CanonicalTable, ColumnSchema, ColumnType
+
+    rows = [{"a": str(i)} for i in range(60)]
+    table = CanonicalTable(
+        tenant_id="t", source_id="s", table_name="t",
+        columns=[ColumnSchema(name="a", type=ColumnType.STRING)], rows=rows,
+    )
+    llm = _Budget()
+    result = SemanticReasoner(llm, sample_size=45).run(table)
+    assert llm.sizes[:3] == [45, 22, 11]
+    assert result.rows_sampled == 11

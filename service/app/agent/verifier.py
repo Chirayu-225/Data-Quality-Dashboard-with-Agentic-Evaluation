@@ -22,11 +22,15 @@ never silently hide a real issue or silently trust an unchecked one.
 
 from __future__ import annotations
 
+import logging
+
 import json
 from enum import Enum
 
 from pydantic import BaseModel
 
+from app.agent.prompt_rules import VALID_VALUE_RULE
+from app.agent.pii_masking import MASKING_NOTE
 from app.agent.llm_clients import LLMClient, LLMUnavailableError
 from app.agent.semantic_reasoning import SemanticFlag
 from app.canonical.models import CanonicalTable
@@ -60,7 +64,9 @@ For each claim, respond with exactly one label:
 - "rejected": the row's actual data does NOT support the claim
 
 Respond with ONLY valid JSON, nothing else — no markdown fences, no preamble:
-{"verifications": [{"row_index": <int>, "label": "confirmed"|"needs_review"|"rejected", "notes": "<short reason>"}]}"""
+{"verifications": [{"row_index": <int>, "label": "confirmed"|"needs_review"|"rejected", "notes": "<short reason>"}]}""" + VALID_VALUE_RULE + MASKING_NOTE
+
+_log = logging.getLogger(__name__)
 
 
 class VerificationLabel(str, Enum):
@@ -191,7 +197,15 @@ class Verifier:
             user_prompt = _build_user_prompt(table, chunk)
             try:
                 raw = self.llm.complete_with_retry(_VERIFIER_SYSTEM_PROMPT, user_prompt)
-                results.extend(_parse_response(raw, chunk))
+                parsed = _parse_response(raw, chunk)
+                results.extend(parsed)
+                _log.info(
+                    "verifier chunk %d: flags_in=%d verdicts=%s",
+                    start // _VERIFY_CHUNK_SIZE + 1, len(chunk),
+                    {v: sum(1 for r in parsed if getattr(r, "verdict", None) == v)
+                     for v in {getattr(r, "verdict", None) for r in parsed}},
+                )
             except LLMUnavailableError as exc:
+                _log.warning("verifier chunk %d unavailable: %s", start // _VERIFY_CHUNK_SIZE + 1, exc)
                 results.extend(_unavailable_fallback(chunk, exc))
         return results

@@ -1,11 +1,24 @@
 import { statusForScore } from "../lib/types";
+import { formatDuration } from "../lib/format";
+import { IconClock } from "./Icons";
 
 /** The one hero figure per view — the overall scorecard score, as a
  * circular progress gauge (score by arc length, status by color band —
  * never by hue alone: the label + dot beside it carry the same status
  * in words). Center number is proportional, not tabular — a big
  * standalone figure, not a column that needs to align. */
-export function ScoreHero({ score, tableName }: { score: number; tableName: string }) {
+export function ScoreHero({
+  score,
+  tableName,
+  scanSeconds,
+  rowsScanned,
+}: {
+  score: number;
+  tableName: string;
+  /** Wall-clock time the whole scan took, from the server. */
+  scanSeconds?: number;
+  rowsScanned?: number;
+}) {
   const status = statusForScore(score);
   const clamped = Math.max(0, Math.min(100, score));
   const radius = 52;
@@ -21,6 +34,9 @@ export function ScoreHero({ score, tableName }: { score: number; tableName: stri
         gap: "1.75rem",
         padding: "1.75rem 2rem",
         flexWrap: "wrap",
+        position: "relative",
+        overflow: "hidden",
+        background: `radial-gradient(420px 220px at 0% 0%, color-mix(in srgb, ${status.color} 16%, transparent), transparent 70%), var(--card-glass)`,
       }}
     >
       <div style={{ position: "relative", width: "124px", height: "124px", flexShrink: 0 }}>
@@ -36,7 +52,10 @@ export function ScoreHero({ score, tableName }: { score: number; tableName: stri
             strokeLinecap="round"
             strokeDasharray={circumference}
             strokeDashoffset={offset}
-            style={{ transition: "stroke-dashoffset 800ms var(--ease)" }}
+            style={{
+              transition: "stroke-dashoffset 800ms var(--ease)",
+              filter: `drop-shadow(0 0 6px color-mix(in srgb, ${status.color} 55%, transparent))`,
+            }}
           />
         </svg>
         <div
@@ -83,6 +102,15 @@ export function ScoreHero({ score, tableName }: { score: number; tableName: stri
           </svg>
           <span style={{ fontSize: "0.8125rem", fontWeight: 500, color: "var(--text-secondary)" }}>{status.label}</span>
         </span>
+        {scanSeconds !== undefined && scanSeconds > 0 && (
+          <div className="scan-time tabular">
+            <IconClock size={15} />
+            <span>
+              {rowsScanned !== undefined ? `Scanned ${rowsScanned.toLocaleString()} rows in ` : "Scan completed in "}
+              <strong style={{ color: "var(--text-primary)" }}>{formatDuration(scanSeconds)}</strong>
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

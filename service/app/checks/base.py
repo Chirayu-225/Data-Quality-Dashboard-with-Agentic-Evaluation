@@ -52,6 +52,20 @@ class CheckResult(BaseModel):
     # dict is treated as "high" by convention (the conservative
     # default for any check that doesn't populate it at all).
     row_severity: dict[int, str] = {}
+    # Optional per-row reason: row_index -> a specific, human-readable
+    # explanation for why THIS row was flagged — as opposed to `detail`
+    # above, which is one aggregate string for the WHOLE check (e.g.
+    # "email: 1 row(s) share a business key...; name+company: 3 row(s)
+    # share a business key..."), reused identically for every flagged
+    # row regardless of which specific match caused that particular
+    # row's flag. A code review surfaced this as confusing on
+    # DuplicateCheck, whose aggregate detail could mention a
+    # name+company match on a row that was actually only caught by the
+    # email signal. Backward compatible — defaults to empty; a
+    # consumer falls back to the aggregate `detail` string for any row
+    # not present here, which is every row for a check that doesn't
+    # populate this at all.
+    row_reasons: dict[int, str] = {}
 
 
 class Check(ABC):

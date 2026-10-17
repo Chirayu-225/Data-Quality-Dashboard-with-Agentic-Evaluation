@@ -3,6 +3,7 @@ from __future__ import annotations
 import statistics
 
 from app.canonical.models import CanonicalTable, ColumnType, ScanContext
+from app.canonical.type_conformity import parse_numeric
 from app.checks.base import Check, CheckResult, MetricCategory, register
 
 # Below this many valid numeric values, quartiles are noise, not signal.
@@ -45,10 +46,19 @@ class OutlierCheck(Check):
                 v = row.get(col)
                 if v in (None, ""):
                     continue
-                try:
-                    indexed_values.append((i, float(v)))
-                except (TypeError, ValueError):
+                # Shared with type inference and TypeConsistencyCheck
+                # (app/canonical/type_conformity.py) — recognizes
+                # currency ("$1,200"), thousands separators, and
+                # percentages as numeric values instead of silently
+                # skipping them the way a bare float(v) would. A value
+                # that doesn't parse even with that is left out of the
+                # outlier computation entirely (same as before), not
+                # treated as 0 or flagged on its own — that's
+                # TypeConsistencyCheck's job, not this one's.
+                parsed = parse_numeric(str(v))
+                if parsed is None:
                     continue
+                indexed_values.append((i, parsed))
 
             if len(indexed_values) < _MIN_VALUES:
                 continue

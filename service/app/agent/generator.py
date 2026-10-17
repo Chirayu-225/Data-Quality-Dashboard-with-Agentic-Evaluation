@@ -18,9 +18,16 @@ stays the same, which is the point of separating these steps.
 
 from __future__ import annotations
 
+import logging
+
+from typing import Callable
+
 from pydantic import BaseModel
 
 from app.agent.llm_clients import LLMClient, LLMRequestTooLargeError, LLMUnavailableError
+from app.agent.pii_masking import mask_table_for_llm
+from app.agent.local_value_review import LocalReviewResult, review_table_locally
+from app.agent.value_ai_review import ValueAIResult, review_values_with_ai
 from app.agent.semantic_reasoning import SemanticFlag, SemanticReasoner
 from app.agent.verifier import VerificationLabel, VerifiedFlag, Verifier
 from app.canonical.models import CanonicalTable, ScanContext
@@ -64,6 +71,8 @@ from app.rules.executor import execute_rule
 # gracefully instead of failing outright.
 _DEFAULT_PRODUCTION_SAMPLE_SIZE = 45
 
+_log = logging.getLogger(__name__)
+
 
 class ScanResult(BaseModel):
     """The generator agent's output for one table: every deterministic
@@ -91,6 +100,10 @@ class ScanResult(BaseModel):
     source_id: str
     check_results: list[CheckResult]
     semantic_flags: list[SemanticFlag] = []
+    # Present only when the local (no-LLM) value review ran. Carries the
+    # column/value counts the egress ledger and UI report; never row data.
+    local_review: LocalReviewResult | None = None
+    value_ai_review: ValueAIResult | None = None
     verified_flags: list[VerifiedFlag] = []
     compilation: CompilationResult | None = None
     flagged_row_indices: list[int]
@@ -113,6 +126,17 @@ class ScanResult(BaseModel):
     # never be a free pass out of the one layer that catches what a
     # regex can't.
     quarantined_row_indices: list[int] = []
+    # The real count of rows the semantic layer reliably reasoned over
+    # this scan — see _run_semantic_with_iteration's own docstring for
+    # exactly what's excluded (quarantined rows never sampled; rows a
+    # budget cap or provider outage never got to; rows whose batch came
+    # back unparseable). This is the ONLY honest denominator for
+    # ACCURACY (see app/scoring/scorer.py) — `total_rows -
+    # quarantined_row_count` alone still overcounts whenever coverage
+    # stopped early or a batch failed to parse, silently crediting an
+    # unreasoned row as "evaluated and clean." Stays 0 when no LLM was
+    # configured at all (no semantic pass ever ran).
+    semantic_rows_considered: int = 0
 
     @property
     def total_flagged(self) -> int:
@@ -136,10 +160,20 @@ class GeneratorAgent:
         return [c for c in instances if c.applies_to(table, context)]
 
     def execute(
-        self, table: CanonicalTable, checks: list[Check], context: ScanContext | None = None
+        self,
+        table: CanonicalTable,
+        checks: list[Check],
+        context: ScanContext | None = None,
+        on_check_done: Callable[[int, int], None] | None = None,
     ) -> list[CheckResult]:
-        """Run each planned check as a 'tool' and collect its result."""
-        return [check.run(table, context) for check in checks]
+        """Run each planned check as a 'tool' and collect its result.
+        `on_check_done(done, total)`, when given, is called after each."""
+        results: list[CheckResult] = []
+        for check in checks:
+            results.append(check.run(table, context))
+            if on_check_done is not None:
+                on_check_done(len(results), len(checks))
+        return results
 
     def _run_semantic_with_iteration(
         self,
@@ -149,7 +183,8 @@ class GeneratorAgent:
         max_llm_calls: int | None = None,
         sample_size: int | None = None,
         quarantined_indices: set[int] | None = None,
-    ) -> tuple[list[SemanticFlag], int, str | None]:
+        progress_callback: Callable[..., None] | None = None,
+    ) -> tuple[list[SemanticFlag], int, str | None, int]:
         """Batches through the semantic reasoner until every row in the
         table has been sampled at least once — full coverage by
         default, not a bounded look. Each cycle explicitly excludes
@@ -205,10 +240,43 @@ class GeneratorAgent:
         deliberately left as the table's real row count — see `run()`
         below for how the gap this creates (fewer rows actually
         reasoned over than the file contains) is surfaced honestly to
-        the API caller rather than hidden by shrinking this number."""
+        the API caller rather than hidden by shrinking this number.
+
+        The 4th return value, `rows_reliably_considered`, is the count
+        `progress_callback`, when given, is called `(rows_sampled_so_far,
+        total_rows)` after EVERY batch — including a batch whose model
+        response failed to parse, since that batch still consumed real
+        wall-clock time the caller's progress bar should reflect, even
+        though it didn't yield reliable flags. This is this project's
+        only hook for a long scan's progress — see app/jobs.py, which is
+        the actual reason this exists: a 5,000-row semantic scan can be
+        a hundred-plus paced LLM calls (many minutes), and a caller
+        polling a job needs SOMETHING better than silence the whole
+        time. Never raises on its own account; a callback that itself
+        raises is a caller bug, not something this method guards against
+        today.
+
+        this method actually knows to be true: rows that came back
+        from a real, successfully-parsed batch. It deliberately
+        EXCLUDES the pre-seeded quarantined rows (never actually
+        sampled — see above), any row a batch never got to before an
+        opt-in `max_llm_calls` cap or a provider outage stopped the
+        loop early, and any row whose batch came back unparseable
+        (`parse_failed` — see SemanticReasoningResult). A prior version
+        of this code let the caller derive ACCURACY's denominator as
+        `total_rows - quarantined_row_count` alone, which is what this
+        return value replaces: that formula still credited a
+        budget-capped, outage-interrupted, or unparseable row as
+        "reasoned over and clean," which is exactly Bug 1's failure
+        mode reproduced one level down. Use THIS number, not a
+        re-derived one, as the real semantic denominator."""
         reasoner = SemanticReasoner(llm, **({"sample_size": sample_size} if sample_size else {}))
         all_flags: list[SemanticFlag] = []
         sampled_indices: set[int] = set(quarantined_indices or ())
+        # Rows that came back from a genuinely successful, parsed batch
+        # — the only rows this method can honestly call "reasoned over
+        # and clean (or flagged)". See rows_reliably_considered below.
+        reliably_reasoned_indices: set[int] = set()
         # Rows a batch attempted but whose model output didn't parse —
         # tracked SEPARATELY from sampled_indices below. These rows
         # still count toward "attempted" so the loop terminates rather
@@ -262,10 +330,19 @@ class GeneratorAgent:
                 # for it, and never loop forever if it somehow does.
                 break
 
+            _log.info(
+                "semantic batch %d: rows=%d flags=%d parse_failed=%s",
+                calls_made, result.rows_sampled, len(result.flags), result.parse_failed,
+            )
             all_flags.extend(result.flags)
             sampled_indices.update(result.sampled_indices)
             if result.parse_failed:
                 unparsed_indices.update(result.sampled_indices)
+            else:
+                reliably_reasoned_indices.update(result.sampled_indices)
+
+            if progress_callback is not None:
+                progress_callback(len(reliably_reasoned_indices), total_rows, len(unparsed_indices))
 
         if unparsed_indices:
             unparsed_note = (
@@ -278,7 +355,7 @@ class GeneratorAgent:
                 f"{coverage_warning} {unparsed_note}" if coverage_warning else unparsed_note
             )
 
-        return all_flags, calls_made, coverage_warning
+        return all_flags, calls_made, coverage_warning, len(reliably_reasoned_indices)
 
     def run(
         self,
@@ -289,6 +366,13 @@ class GeneratorAgent:
         verifier_llm: LLMClient | None = None,
         max_semantic_llm_calls: int | None = None,
         semantic_sample_size: int | None = None,
+        exclude_columns: set[str] | None = None,
+        mask_salt: str = "",
+        progress_callback: Callable[..., None] | None = None,
+        stage_callback: Callable[..., None] | None = None,
+        local_review: bool = False,
+        ai_mode: str = "rows",
+        shareable_columns: set[str] | None = None,
     ) -> ScanResult:
         """Plan then execute the deterministic checks. If `llm` is
         given:
@@ -313,9 +397,46 @@ class GeneratorAgent:
 
         If `verifier_llm` is ALSO given, semantic flags (autonomous or
         guided — never the deterministic custom-rule path, which needs
-        no verification) get checked before counting."""
+        no verification) get checked before counting.
+
+        `exclude_columns`, when given, names additional columns (on top
+        of the automatic email/phone masking every LLM-facing call
+        already gets — see pii_masking.py) to mask out of every row
+        before it reaches a semantic-reasoning or verification prompt.
+        This governs ONLY what the LLM sees: the deterministic checks
+        above and the real `table` this method returns are completely
+        unaffected — a caller-excluded column still scores and still
+        shows its real value in the final report, it just never leaves
+        the server in a prompt.
+
+        `mask_salt`, when given, is passed straight through to
+        `mask_table_for_llm` — see that function's docstring for why
+        this needs to be the SAME value across every table and every
+        pass of one scan request (main.py generates it once per
+        request): a value-keyed placeholder only preserves the
+        duplicate/fraud correlation signal masking exists to protect
+        when the same real value always hashes to the same token,
+        which requires the same salt throughout.
+
+        `progress_callback`, when given, is passed straight through to
+        `_run_semantic_with_iteration` — see that method's docstring.
+        Never called at all when semantic reasoning doesn't run (no
+        `llm`, or the custom instruction compiled to a fully
+        deterministic rule)."""
+        def emit(stage: str, state: str, counts: dict[str, int] | None = None, reason: str | None = None) -> None:
+            # Counts and short reasons only, never row content. The
+            # callback may raise JobCancelled; let it propagate.
+            if stage_callback is not None:
+                stage_callback(stage, state, counts, reason)
+
         checks = self.plan(table, context)
-        results = self.execute(table, checks, context)
+        emit("checks", "running", {"checks_total": len(checks), "checks_done": 0, "rows": len(table.rows)})
+        results = self.execute(
+            table,
+            checks,
+            context,
+            on_check_done=lambda done, total: emit("checks", "progress", {"checks_done": done, "checks_total": total}),
+        )
 
         # The prompt-injection backstop is a security check, not a
         # data-quality one — scorer.py independently skips this
@@ -354,12 +475,67 @@ class GeneratorAgent:
         compilation: CompilationResult | None = None
         semantic_iterations = 0
         semantic_coverage_warning: str | None = None
+        semantic_rows_considered = 0
 
-        if llm is not None:
+        emit(
+            "checks",
+            "done",
+            {
+                "checks_run": len(results),
+                "rows_flagged": len(flagged),
+                "rows_quarantined": len(quarantined),
+            },
+        )
+
+        local_result: LocalReviewResult | None = None
+        value_ai_result: ValueAIResult | None = None
+        if llm is None:
+            reason = "AI review not enabled for this scan"
+            emit("instruction", "skipped", reason=reason if custom_instruction else "no custom instruction")
+            if local_review:
+                # Default semantic tier: judged value-by-value in this
+                # process. No LLM, no network, nothing leaves the server.
+                emit("semantic", "running", {"rows_total": len(table.rows), "rows_considered": 0})
+                local_result = review_table_locally(table, exclude_indices=quarantined)
+                semantic_flags = list(local_result.flags)
+                semantic_iterations = 1
+                semantic_rows_considered = local_result.rows_considered if local_result.columns_reviewed else 0
+                flagged.update(f.row_index for f in semantic_flags)
+                emit(
+                    "semantic",
+                    "done",
+                    {
+                        "rows_considered": semantic_rows_considered,
+                        "flags_raised": len(semantic_flags),
+                        "iterations": 1,
+                        "distinct_values_scored": local_result.distinct_values_scored,
+                    },
+                    reason="local value review - no data left this machine",
+                )
+                emit("verify", "skipped", reason="local review has no external verifier")
+            else:
+                emit("semantic", "skipped", reason=reason)
+                emit("verify", "skipped", reason=reason)
+        else:
+            # Built once per scan, not per batch — every call that
+            # sends row content to an LLM (semantic reasoning,
+            # verification) reads from this masked copy; the
+            # compiler call just below and the deterministic
+            # custom-rule execution it can trigger both keep using the
+            # REAL `table`, since the compiler never sees row data at
+            # all (only schema + the instruction text — see
+            # RuleCompiler.compile) and a deterministic rule must
+            # never evaluate a placeholder in place of a real value.
+            masked_table = mask_table_for_llm(table, exclude_columns, salt=mask_salt)
             effective_instruction = custom_instruction
 
-            if custom_instruction is not None:
+            if custom_instruction is None:
+                emit("instruction", "skipped", reason="no custom instruction")
+            else:
+                emit("instruction", "running")
                 compilation = RuleCompiler(llm).compile(table, custom_instruction)
+                emit("instruction", "done", {"rule_compiled": 1 if compilation.kind != "failed" else 0},
+                     reason=f"compiled as {compilation.kind}")
                 if compilation.kind == "structured":
                     rule_result = execute_rule(table, compilation.compiled_rule)
                     results.append(rule_result)
@@ -388,29 +564,116 @@ class GeneratorAgent:
                     if semantic_sample_size is not None
                     else _DEFAULT_PRODUCTION_SAMPLE_SIZE
                 )
-                semantic_flags, semantic_iterations, semantic_coverage_warning = (
-                    self._run_semantic_with_iteration(
+                emit("semantic", "running", {"rows_total": len(table.rows), "rows_considered": 0})
+
+                def _semantic_progress(considered: int, total: int, unreadable: int = 0) -> None:
+                    emit(
+                        "semantic",
+                        "progress",
+                        {"rows_considered": considered, "rows_total": total, "rows_unreadable": unreadable},
+                    )
+                    if progress_callback is not None:
+                        progress_callback(considered, total, unreadable)
+
+                if ai_mode == "values":
+                    # Value-level AI review: only distinct values from columns the
+                    # caller explicitly allowed leave the server. No rows, no
+                    # neighbouring columns. Reads the REAL table, because it sends
+                    # no row content; personal-data columns are refused inside.
+                    value_ai_result = review_values_with_ai(
                         table,
                         llm,
-                        effective_instruction,
-                        max_llm_calls=max_semantic_llm_calls,
-                        sample_size=effective_sample_size,
-                        quarantined_indices=quarantined,
+                        shareable_columns=set(shareable_columns or set()),
+                        exclude_indices=quarantined,
+                        guidance=effective_instruction,
                     )
+                    semantic_flags = list(value_ai_result.flags)
+                    semantic_iterations = max(1, value_ai_result.calls_made)
+                    semantic_rows_considered = value_ai_result.rows_considered
+                    semantic_coverage_warning = None
+                    if value_ai_result.unparseable_calls or value_ai_result.unavailable_calls:
+                        semantic_coverage_warning = (
+                            f"Value-level AI review: {value_ai_result.unparseable_calls} unparseable and "
+                            f"{value_ai_result.unavailable_calls} failed call(s); those values were not judged."
+                        )
+                    if not value_ai_result.columns_shared:
+                        semantic_coverage_warning = (
+                            "Value-level AI review sent nothing: no shareable column was allowed or eligible. "
+                            "Name columns in shareable_columns to include them."
+                        )
+                else:
+                    semantic_flags, semantic_iterations, semantic_coverage_warning, semantic_rows_considered = (
+                        self._run_semantic_with_iteration(
+                            masked_table,
+                            llm,
+                            effective_instruction,
+                            max_llm_calls=max_semantic_llm_calls,
+                            sample_size=effective_sample_size,
+                            quarantined_indices=quarantined,
+                            progress_callback=_semantic_progress,
+                        )
+                    )
+                emit(
+                    "semantic",
+                    "done",
+                    {
+                        "rows_considered": semantic_rows_considered,
+                        "flags_raised": len(semantic_flags),
+                        "iterations": semantic_iterations,
+                    },
                 )
 
-                if verifier_llm is not None and semantic_flags:
+                if local_review:
+                    # Local value review runs alongside the LLM pass; its
+                    # findings are added for rows the LLM did not already
+                    # flag, so enabling AI never loses a local finding.
+                    local_result = review_table_locally(table, exclude_indices=quarantined)
+                    already = {f.row_index for f in semantic_flags}
+                    semantic_flags = semantic_flags + [f for f in local_result.flags if f.row_index not in already]
+                    semantic_iterations = max(semantic_iterations, 1)
+
+                if ai_mode == "values":
+                    # The row-level verifier would need row content, which this
+                    # mode exists to avoid sending. Flags stay unverified (they
+                    # score at the unverified weight) until a value-level
+                    # verifier exists.
+                    emit("verify", "skipped", reason="value-level mode sends no row context, so no row verifier")
+                    flagged.update(f.row_index for f in semantic_flags)
+                elif verifier_llm is not None and semantic_flags:
                     # Verifier.verify already fails safe internally
                     # per-chunk (NEEDS_REVIEW on an unavailable chunk,
-                    # not a crash) — nothing more to catch here.
-                    verified_flags = Verifier(verifier_llm).verify(table, semantic_flags)
+                    # not a crash) — nothing more to catch here. Uses
+                    # masked_table too — the verifier's own prompt
+                    # carries each flagged row's "actual values" (see
+                    # verifier.py's _build_user_prompt), which is
+                    # exactly the row content pii_masking.py exists to
+                    # protect; it needs no real values to do its job,
+                    # only to check a claim against whatever it's shown.
+                    emit("verify", "running", {"flags_to_verify": len(semantic_flags)})
+                    verified_flags = Verifier(verifier_llm).verify(masked_table, semantic_flags)
+                    emit(
+                        "verify",
+                        "done",
+                        {
+                            label.value: sum(1 for v in verified_flags if v.label == label)
+                            for label in VerificationLabel
+                        },
+                    )
                     flagged.update(
                         v.row_index
                         for v in verified_flags
                         if v.label != VerificationLabel.REJECTED
                     )
                 else:
+                    emit(
+                        "verify",
+                        "skipped",
+                        reason="no independent verifier configured" if verifier_llm is None else "no flags to verify",
+                    )
                     flagged.update(f.row_index for f in semantic_flags)
+            else:
+                emit("semantic", "skipped", reason="instruction handled by a deterministic rule")
+                emit("verify", "skipped", reason="nothing from the AI layer to verify")
 
         return ScanResult(
             table_name=table.table_name,
@@ -423,4 +686,7 @@ class GeneratorAgent:
             semantic_iterations=semantic_iterations,
             semantic_coverage_warning=semantic_coverage_warning,
             quarantined_row_indices=sorted(quarantined),
+            semantic_rows_considered=semantic_rows_considered,
+            local_review=local_result,
+            value_ai_review=value_ai_result,
         )

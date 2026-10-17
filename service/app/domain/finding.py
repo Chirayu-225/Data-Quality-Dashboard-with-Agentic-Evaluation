@@ -165,10 +165,11 @@ def findings_from_check_result(
 ) -> list[Finding]:
     """One Finding per flagged row (not one per check overall) —
     matches the row-level granularity CheckResult.flagged_row_indices
-    already implies. `explanation` reuses the check's own aggregate
-    `detail` string, since CheckResult doesn't carry a per-row reason
-    today — a known limitation inherited from the existing shape, not
-    something this converter can invent data for."""
+    already implies. `explanation` prefers the check's row-specific
+    reason (CheckResult.row_reasons) when populated, falling back to
+    the check's aggregate `detail` string otherwise — a check that
+    doesn't populate row_reasons (most of them, today) behaves exactly
+    as before."""
     findings: list[Finding] = []
     for row_idx in check_result.flagged_row_indices:
         fields = check_result.flagged_fields.get(row_idx, [])
@@ -189,7 +190,7 @@ def findings_from_check_result(
                 severity=_deterministic_severity(fields, nullable_by_field),
                 confidence=1.0,
                 derived_confidence=derive_confidence(CheckType.DETERMINISTIC.value, None),
-                explanation=check_result.detail,
+                explanation=check_result.row_reasons.get(row_idx, check_result.detail),
                 verification_status=None,
                 source=check_result.check_name,
                 metadata={},

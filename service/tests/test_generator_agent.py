@@ -45,6 +45,7 @@ def test_plan_includes_all_applicable_checks():
         "outlier_check",
         "referential_integrity_check",
         "prompt_injection_check",
+        "type_consistency_check",  # amount/account_id are INTEGER columns
     }
 
 
@@ -58,10 +59,12 @@ def test_run_matches_union_of_individual_check_results():
 
     result = GeneratorAgent().run(table, context)
 
-    # known from prior manual verification: null=[1], dup=[0,3],
-    # format=[4], outlier includes amount+account_id outliers, ref=[2]
+    # known from prior manual verification: null=[1], dup=[3] (row 0 is
+    # "the original" in that duplicate group, not flagged — see
+    # uniqueness.py's all-but-one fix), format=[4], outlier includes
+    # amount+account_id outliers, ref=[2]
     assert 1 in result.flagged_row_indices  # null check
-    assert 0 in result.flagged_row_indices and 3 in result.flagged_row_indices  # dup
+    assert 3 in result.flagged_row_indices  # dup
     assert 4 in result.flagged_row_indices  # format
     assert 2 in result.flagged_row_indices  # referential integrity
     assert result.table_name == "leads"
@@ -355,6 +358,48 @@ def test_semantic_iterations_is_zero_without_an_llm():
     assert result.semantic_iterations == 0
 
 
+def test_semantic_rows_considered_reflects_the_llm_call_budget_not_the_full_table():
+    """Accuracy-denominator regression (see scorer.py's module docstring,
+    Bug 3's deeper fix): a 100-row table with max_semantic_llm_calls=1 at
+    batch size 20 only ever samples one batch of 20 rows. Before this
+    fix, ScanResult.semantic_rows_considered was derived downstream as
+    total_rows - quarantined_row_count — 100 here, since nothing is
+    quarantined — which would let compute_scorecard silently treat 80
+    never-reasoned rows as "evaluated and clean". The honest value is
+    the actual count of rows a genuinely parsed batch covered: 20."""
+    from app.agent.llm_clients import LLMClient
+
+    class _FakeLLM(LLMClient):
+        def complete(self, system_prompt: str, user_prompt: str) -> str:
+            return '{"flags": []}'
+
+    table = _many_rows_table(100)
+    result = GeneratorAgent().run(
+        table, llm=_FakeLLM(), max_semantic_llm_calls=1, semantic_sample_size=20,
+    )
+
+    assert result.semantic_iterations == 1
+    assert result.semantic_rows_considered == 20  # not 100
+
+
+def test_semantic_rows_considered_excludes_unparseable_batches():
+    """A batch whose response fails to parse must not count its sampled
+    rows as reliably considered — the earlier quarantine-only fix
+    would still credit these rows as "evaluated and clean" since they
+    were never quarantined; they just never produced a usable
+    judgment."""
+    from app.agent.llm_clients import LLMClient
+
+    class _GarbageLLM(LLMClient):
+        def complete(self, system_prompt: str, user_prompt: str) -> str:
+            return "not json at all"
+
+    table = _many_rows_table(20)
+    result = GeneratorAgent().run(table, llm=_GarbageLLM(), semantic_sample_size=20)
+
+    assert result.semantic_rows_considered == 0
+
+
 def test_iteration_flags_from_every_batch_are_all_retained():
     """Flags from batch 1 shouldn't be discarded once batch 2 runs —
     the union should include every batch's findings, across the whole
@@ -521,8 +566,10 @@ def test_deterministic_checks_are_unaffected_by_semantic_layer_outage(monkeypatc
 
     # Same deterministic flags as the no-LLM-at-all case — the outage
     # cost the scan its semantic coverage, not its deterministic one.
+    # Row 0 is "the original" in its duplicate group (see
+    # uniqueness.py's all-but-one fix), so only row 3 is flagged.
     assert 1 in result.flagged_row_indices  # null check
-    assert 0 in result.flagged_row_indices and 3 in result.flagged_row_indices  # dup
+    assert 3 in result.flagged_row_indices  # dup
     assert result.semantic_coverage_warning is not None
     assert result.semantic_iterations == 0  # not even the first batch got through
 

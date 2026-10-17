@@ -31,7 +31,7 @@ from typing import Literal
 
 from pydantic import BaseModel
 
-from app.agent.llm_clients import LLMClient, LLMUnavailableError
+from app.agent.llm_clients import LLMClient, LLMRequestTooLargeError, LLMUnavailableError
 from app.canonical.models import CanonicalTable
 from app.rules.dsl import CompiledRule, Conjunction, Operator, RuleCondition, RuleSource
 
@@ -109,6 +109,12 @@ class RuleCompiler:
             # one call per instruction counts against the same
             # per-provider token budget instead of bypassing it.
             raw = self.llm.complete_with_retry(_COMPILER_SYSTEM_PROMPT, user_prompt)
+        except LLMRequestTooLargeError as exc:
+            return CompilationResult(
+                kind="failed",
+                description="The compiler could not finish within its output budget.",
+                error=f"LLM output budget exhausted: {exc}",
+            )
         except LLMUnavailableError as exc:
             # Falls into the existing "failed" outcome — GeneratorAgent
             # already knows how to handle a failed compilation (falls

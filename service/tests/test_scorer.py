@@ -42,6 +42,7 @@ def _scan_result(
     verified_flags=None,
     semantic_iterations=None,
     quarantined_row_indices=None,
+    semantic_rows_considered=None,
 ) -> ScanResult:
     all_flagged = set()
     for r in check_results or []:
@@ -60,6 +61,19 @@ def _scan_result(
     if semantic_iterations is None:
         semantic_iterations = 1 if semantic_flags else 0
 
+    quarantined = sorted(quarantined_row_indices or [])
+
+    # semantic_rows_considered is the real denominator ACCURACY uses
+    # (see scorer.py's Bug 3 fix). Tests in this file all build tables
+    # via _table(10), so — absent an explicit value — assume the
+    # semantic layer reliably reasoned over every non-quarantined row,
+    # matching what a real, uninterrupted scan of that table would
+    # report. A test exercising an interrupted/capped/partial semantic
+    # pass (budget cap, provider outage, unparseable batch) must pass
+    # semantic_rows_considered explicitly.
+    if semantic_rows_considered is None:
+        semantic_rows_considered = 10 - len(quarantined) if semantic_iterations else 0
+
     return ScanResult(
         table_name="test_table",
         source_id="s",
@@ -68,7 +82,8 @@ def _scan_result(
         verified_flags=verified_flags or [],
         flagged_row_indices=sorted(all_flagged),
         semantic_iterations=semantic_iterations,
-        quarantined_row_indices=sorted(quarantined_row_indices or []),
+        quarantined_row_indices=quarantined,
+        semantic_rows_considered=semantic_rows_considered,
     )
 
 
@@ -184,6 +199,18 @@ def test_quarantined_rows_are_excluded_from_the_accuracy_denominator_not_counted
 
 
 def test_deterministic_flag_reduces_its_metric_score():
+    """COMPLETENESS is computed directly from the table's own blank
+    cells (see Bug 4 in scorer.py's module docstring), not from a
+    check's flagged_row_indices — so, unlike every other metric here,
+    the table itself must actually contain the blanks the test is
+    about. The CheckResult below only serves to mark COMPLETENESS as
+    "evaluated" (mirroring what a real NullCheck run would report for
+    the same table), same convention _clean_check exists for."""
+    table = CanonicalTable(
+        tenant_id="t", source_id="s", table_name="test_table",
+        columns=[ColumnSchema(name="dummy", type=ColumnType.STRING)],
+        rows=[{"dummy": "" if i < 2 else "x"} for i in range(10)],
+    )
     check = CheckResult(
         check_name="null_check",
         metric=MetricCategory.COMPLETENESS,
@@ -192,10 +219,10 @@ def test_deterministic_flag_reduces_its_metric_score():
         detail="2 missing",
     )
     scan = _scan_result(check_results=[check, _clean_check(MetricCategory.VALIDITY)])
-    card = compute_scorecard(scan, _table(10))
+    card = compute_scorecard(scan, table)
 
     completeness = next(m for m in card.metric_scores if m.metric == MetricCategory.COMPLETENESS)
-    assert completeness.score == 80.0  # 1 - 2/10 = 0.8 -> 80
+    assert completeness.score == 80.0  # unweighted fallback: 1 - 2/10 blank cells = 0.8 -> 80
 
     validity = next(m for m in card.metric_scores if m.metric == MetricCategory.VALIDITY)
     assert validity.evaluated is True
@@ -274,8 +301,15 @@ def test_custom_metric_weights_change_overall_score():
     # Every OTHER metric evaluated-and-clean (100.0) so the custom
     # weight on completeness has other evaluated metrics to outweigh —
     # with only one metric evaluated at all, a weight on it can't
-    # change anything relative to itself.
+    # change anything relative to itself. As in
+    # test_deterministic_flag_reduces_its_metric_score above, the table
+    # itself must contain the blanks — COMPLETENESS reads them directly.
     other_metrics = [m for m in MetricCategory if m != MetricCategory.COMPLETENESS]
+    table = CanonicalTable(
+        tenant_id="t", source_id="s", table_name="test_table",
+        columns=[ColumnSchema(name="dummy", type=ColumnType.STRING)],
+        rows=[{"dummy": "" if i < 5 else "x"} for i in range(10)],
+    )
     check = CheckResult(
         check_name="null_check", metric=MetricCategory.COMPLETENESS,
         flagged_row_indices=[0, 1, 2, 3, 4], total_rows_evaluated=10, detail="",
@@ -285,9 +319,9 @@ def test_custom_metric_weights_change_overall_score():
         semantic_iterations=1,
     )
 
-    equal_weights = compute_scorecard(scan, _table(10))
+    equal_weights = compute_scorecard(scan, table)
     heavy_completeness = compute_scorecard(
-        scan, _table(10), metric_weights={MetricCategory.COMPLETENESS: 10.0}
+        scan, table, metric_weights={MetricCategory.COMPLETENESS: 10.0}
     )
     assert heavy_completeness.overall_score < equal_weights.overall_score
 
@@ -322,26 +356,33 @@ def _completeness_table() -> CanonicalTable:
     )
 
 
-def test_flag_on_required_field_weighs_double_an_optional_one():
-    """Core criticality claim: the SAME single flagged row should cost
-    the score twice as much when the cause is a required field vs an
-    optional one — verified as two independent scenarios, not just
-    inferred from the weighting constants."""
-    table = _completeness_table()
+def test_required_column_blank_costs_score_but_non_required_blank_does_not():
+    """Bug 4's replacement for the old "2x vs 1x weight" distinction:
+    requiredness is now config-driven (`required_columns`), and a blank
+    in a column NOT named there costs the score NOTHING at all — it's
+    reported informationally (non_required_fill_rates) instead of at a
+    reduced weight. The old version of this test fabricated a
+    CheckResult's flagged_fields without the table actually containing
+    a blank; that no longer has any effect, since COMPLETENESS reads
+    the table's real cells directly (see Bug 4 in scorer.py)."""
+    columns = _completeness_table().columns
 
-    required_flag_check = CheckResult(
-        check_name="null_check", metric=MetricCategory.COMPLETENESS,
-        flagged_row_indices=[0], total_rows_evaluated=10, detail="",
-        flagged_fields={0: ["email"]},
+    required_blank_table = CanonicalTable(
+        tenant_id="t", source_id="s", table_name="leads", columns=columns,
+        rows=[{"email": "" if i == 0 else "a@x.com", "notes": "x"} for i in range(10)],
     )
-    optional_flag_check = CheckResult(
-        check_name="null_check", metric=MetricCategory.COMPLETENESS,
-        flagged_row_indices=[0], total_rows_evaluated=10, detail="",
-        flagged_fields={0: ["notes"]},
+    optional_blank_table = CanonicalTable(
+        tenant_id="t", source_id="s", table_name="leads", columns=columns,
+        rows=[{"email": "a@x.com", "notes": "" if i == 0 else "x"} for i in range(10)],
     )
+    check = _clean_check(MetricCategory.COMPLETENESS, total_rows=10)
 
-    required_card = compute_scorecard(_scan_result(check_results=[required_flag_check]), table)
-    optional_card = compute_scorecard(_scan_result(check_results=[optional_flag_check]), table)
+    required_card = compute_scorecard(
+        _scan_result(check_results=[check]), required_blank_table, required_columns=["email"]
+    )
+    optional_card = compute_scorecard(
+        _scan_result(check_results=[check]), optional_blank_table, required_columns=["email"]
+    )
 
     required_completeness = next(
         m for m in required_card.metric_scores if m.metric == MetricCategory.COMPLETENESS
@@ -350,23 +391,40 @@ def test_flag_on_required_field_weighs_double_an_optional_one():
         m for m in optional_card.metric_scores if m.metric == MetricCategory.COMPLETENESS
     )
 
-    assert required_completeness.flagged_weight == 2.0
-    assert optional_completeness.flagged_weight == 1.0
-    assert required_completeness.score < optional_completeness.score
-    assert required_completeness.score == 80.0  # 1 - 2/10
-    assert optional_completeness.score == 90.0  # 1 - 1/10
+    assert required_completeness.flagged_weight == 1.0  # 1 blank required cell
+    assert required_completeness.score == 90.0  # 1 - 1/10
+
+    assert optional_completeness.flagged_weight == 0.0  # the blank was in "notes" — not required
+    assert optional_completeness.score == 100.0
+    assert optional_card.non_required_fill_rates == {"notes": 90.0}  # 9 of 10 rows filled
 
 
-def test_row_flagged_on_both_required_and_optional_field_takes_the_higher_weight():
-    table = _completeness_table()
-    check = CheckResult(
-        check_name="null_check", metric=MetricCategory.COMPLETENESS,
-        flagged_row_indices=[0], total_rows_evaluated=10, detail="",
-        flagged_fields={0: ["notes", "email"]},
+def test_multiple_blank_required_cells_in_one_row_all_count_not_capped_at_one():
+    """Cell-level scoring has no row-level max() cap the way the old
+    Finding-weight machinery did — every blank required cell counts
+    toward the fraction on its own, since the denominator is CELLS, not
+    rows. A row missing both of 2 required columns costs twice what a
+    row missing only 1 does."""
+    table = CanonicalTable(
+        tenant_id="t", source_id="s", table_name="leads",
+        columns=[
+            ColumnSchema(name="email", type=ColumnType.STRING),
+            ColumnSchema(name="phone", type=ColumnType.STRING),
+        ],
+        rows=[
+            {"email": "a@x.com", "phone": "555"},  # clean
+            {"email": "", "phone": ""},              # both required cells blank
+        ],
     )
-    card = compute_scorecard(_scan_result(check_results=[check]), table)
+    check = _clean_check(MetricCategory.COMPLETENESS, total_rows=2)
+    card = compute_scorecard(
+        _scan_result(check_results=[check]), table, required_columns=["email", "phone"]
+    )
     completeness = next(m for m in card.metric_scores if m.metric == MetricCategory.COMPLETENESS)
-    assert completeness.flagged_weight == 2.0  # required field's weight wins, not 3.0
+
+    assert completeness.total_rows == 4  # 2 rows * 2 required columns — the real denominator, in cells
+    assert completeness.flagged_weight == 2.0  # both of row 1's required cells, not capped at 1
+    assert completeness.score == 50.0  # 1 - 2/4
 
 
 def test_check_without_field_attribution_falls_back_to_flat_weight():
@@ -402,14 +460,13 @@ def test_criticality_weighting_end_to_end_with_real_null_check():
     CheckResult) through the real scorer, confirming the two layers
     actually connect correctly.
 
-    NullCheck now flags a blank in ANY column, required or not (see
-    NullCheck's docstring for the reproduced nullable-from-data
-    circularity bug this fixes) — row 1 (blank required "email") AND
-    row 2 (blank optional "notes") both get flagged here, distinguished
-    only by weight: 2.0 for the required-field violation, 1.0 for the
-    optional one. An earlier version of this test asserted the OLD
-    behavior (only required-field blanks flagged, row 2 invisible);
-    that assumption is exactly what the fix removed."""
+    NullCheck itself is unaffected by Bug 4 — it still flags a blank in
+    ANY column (see its own docstring for the earlier nullable-from-
+    data circularity this already fixed): row 1 (blank "email") AND
+    row 2 (blank "notes") are both flagged here. What Bug 4 changed is
+    how the SCORER weighs those two flags — no longer via
+    ColumnSchema.nullable (itself circular for the CSV connector), but
+    via the caller's own `required_columns` config, at the cell level."""
     from app.checks.completeness import NullCheck
 
     table = CanonicalTable(
@@ -420,29 +477,49 @@ def test_criticality_weighting_end_to_end_with_real_null_check():
         ],
         rows=[
             {"email": "a@x.com", "notes": "ok"},   # clean
-            {"email": "", "notes": "ok"},            # required field missing -> flagged, weight 2.0
-            {"email": "b@x.com", "notes": ""},       # optional field blank -> flagged, weight 1.0
+            {"email": "", "notes": "ok"},            # email blank
+            {"email": "b@x.com", "notes": ""},       # notes blank
         ],
     )
     result = NullCheck().run(table)
     assert result.flagged_row_indices == [1, 2]
 
     scan = _scan_result(check_results=[result])
-    card = compute_scorecard(scan, table)
 
-    completeness = next(m for m in card.metric_scores if m.metric == MetricCategory.COMPLETENESS)
-    assert completeness.flagged_weight == 3.0  # row 1's 2.0 + row 2's 1.0
-    assert completeness.score == round(100 * (1 - 3 / 3), 1)  # 0.0
+    # With "email" configured as the required column: only its 1 blank
+    # cell (out of 3 required cells) counts toward the score.
+    configured = compute_scorecard(scan, table, required_columns=["email"])
+    completeness = next(m for m in configured.metric_scores if m.metric == MetricCategory.COMPLETENESS)
+    assert completeness.flagged_weight == 1.0  # 1 blank required cell, not the old row-weight sum of 3.0
+    assert completeness.total_rows == 3  # 3 rows * 1 required column — the real denominator, in cells
+    assert completeness.score == 66.7  # 1 - 1/3
+    # "notes" isn't required — its fill rate is reported, never scored.
+    assert configured.non_required_fill_rates == {"notes": 66.7}  # 2 of 3 rows have a non-blank notes
+
+    # Without any required_columns configured, completeness falls back
+    # to an unweighted overall fill rate — every blank cell counts
+    # equally regardless of which column it's in.
+    unconfigured = compute_scorecard(scan, table)
+    fallback = next(m for m in unconfigured.metric_scores if m.metric == MetricCategory.COMPLETENESS)
+    assert unconfigured.completeness_mode == "no_required_fields_configured"
+    assert fallback.flagged_weight == 2.0  # both blank cells (row 1's email, row 2's notes)
+    assert fallback.total_rows == 6  # 3 rows * 2 columns
+    assert fallback.score == 66.7  # 1 - 2/6
 
 
 def test_overall_score_is_capped_near_the_worst_metric_not_diluted_by_clean_ones():
     """Reproduced bug: a table where 40% of a REQUIRED field is blank
-    scored completeness=20.0 in isolation (correctly alarming) but an
-    overall_score of 84.0 — a straight 5-way average let four
+    scored badly on completeness in isolation (correctly alarming) but
+    a much healthier overall_score — a straight 5-way average let four
     untouched, trivially-clean metrics absorb the one real problem.
     overall_score must now stay within _OVERALL_CRITICAL_CAP_ALLOWANCE
     (20.0) of the worst evaluated metric, so a severe single-dimension
-    problem can't be diluted away by unrelated clean dimensions."""
+    problem can't be diluted away by unrelated clean dimensions. Passes
+    `required_columns=["email"]` so completeness scores this the
+    units-correct way (see Bug 4) instead of falling back to the
+    unweighted-overall-fill-rate default, which would dilute the 40%
+    figure across the always-filled "name" column too and understate
+    how bad this specific configured requirement actually is."""
     n = 100
     columns = [
         ColumnSchema(name="email", type=ColumnType.STRING, nullable=False, semantic_hint="email"),
@@ -454,16 +531,15 @@ def test_overall_score_is_capped_near_the_worst_metric_not_diluted_by_clean_ones
     table = CanonicalTable(tenant_id="t", source_id="s", table_name="t", columns=columns, rows=rows)
 
     scan = GeneratorAgent().run(table)
-    card = compute_scorecard(scan, table)
+    card = compute_scorecard(scan, table, required_columns=["email"])
 
     completeness = next(m for m in card.metric_scores if m.metric == MetricCategory.COMPLETENESS)
-    assert completeness.score == 20.0  # unchanged — the per-metric formula itself isn't touched
+    assert completeness.score == 60.0  # 1 - 40/100 required "email" cells blank
 
-    # Old (buggy) behavior would have been 84.0 (a straight 5-way
-    # average of 20, 100, 100, 100, 100). It must now stay within the
+    # Old (buggy) behavior would have averaged this away across four
+    # untouched, trivially-clean metrics. It must now stay within the
     # cap allowance of the worst metric.
     assert card.overall_score <= completeness.score + 20.0
-    assert card.overall_score < 84.0
 
 
 def test_full_pipeline_frozen_baseline_catches_scoring_drift():
@@ -488,8 +564,18 @@ def test_full_pipeline_frozen_baseline_catches_scoring_drift():
     check, not a quality one; with no LLM configured here, ACCURACY has
     no evaluated signal at all and is correctly excluded (evaluated=False)
     rather than padded with a clean 100. That's WHY overall_score is
-    70.0 here, not the pre-quarantine-fix 76.0: the 100 ACCURACY used to
-    contribute is gone from the average entirely, not merely replaced.
+    80.0 here rather than a straight 5-way average: the 100 ACCURACY
+    used to contribute is gone from the average entirely, not merely
+    replaced; COMPLETENESS is 90.0 (as of Bug 4 — config-driven
+    requiredness with the units fix, see scorer.py's module docstring),
+    not the old nullable-weighted 60.0 — no `required_columns` is
+    configured in this test, so it falls back to an unweighted overall
+    fill rate (1 blank cell out of 5 rows * 2 columns = 10 cells),
+    rather than the old row-weighted formula that graded "email" as
+    2x-critical purely because ColumnSchema.nullable said so; and
+    UNIQUENESS is 80.0, not the old 60.0 — DuplicateCheck now flags all
+    but the earliest-seen row in a duplicate group (see uniqueness.py's
+    all-but-one fix), so only row 2 counts against it, not row 0 too.
     Then asserts the exact scorecard values that dataset produces
     today. If a future change to the Finding <-> scorer boundary alters
     any of these numbers, this test fails and says so explicitly — it
@@ -502,7 +588,7 @@ def test_full_pipeline_frozen_baseline_catches_scoring_drift():
     rows = [
         {"email": "a@example.com", "amount": 100},
         {"email": "", "amount": 200},                      # null check -> row 1
-        {"email": "a@example.com", "amount": 100},          # duplicate of row 0 -> rows 0,2
+        {"email": "a@example.com", "amount": 100},          # duplicate of row 0 -> row 2 only (0 is "the original")
         {"email": "not-an-email", "amount": 150},           # format validity -> row 3
         {"email": "d@example.com", "amount": 9999999},      # deliberately not flagged as outlier
     ]
@@ -511,17 +597,65 @@ def test_full_pipeline_frozen_baseline_catches_scoring_drift():
     )
 
     scan = GeneratorAgent().run(table)
-    assert scan.flagged_row_indices == [0, 1, 2, 3]
+    # Row 0 is "the original" of its duplicate group (see uniqueness.py's
+    # all-but-one fix) and is no longer flagged just for being duplicated.
+    assert scan.flagged_row_indices == [1, 2, 3]
 
     card = compute_scorecard(scan, table)
     accuracy_score = next(m for m in card.metric_scores if m.metric == MetricCategory.ACCURACY)
     assert accuracy_score.evaluated is False
     assert accuracy_score.score is None
-    assert card.overall_score == 70.0
+
+    completeness_score = next(m for m in card.metric_scores if m.metric == MetricCategory.COMPLETENESS)
+    assert completeness_score.score == 90.0  # unweighted fallback: 1 blank cell / 10 total cells
+
+    assert card.overall_score == 80.0
 
     by_metric = {m.metric.value: m for m in card.metric_scores}
-    assert by_metric["completeness"].score == 60.0
-    assert by_metric["uniqueness"].score == 60.0
+    assert by_metric["completeness"].score == 90.0
+    assert by_metric["uniqueness"].score == 80.0  # only row 2 flagged, not row 0 too
     assert by_metric["validity"].score == 60.0
     assert by_metric["consistency"].score == 100.0
     assert by_metric["accuracy"].score is None  # unevaluated, not a padded 100 — see docstring above
+
+
+def test_probe_worse_data_no_longer_scores_higher_with_required_columns_configured():
+    """The original probe this whole Bug 4 investigation traced back
+    to: two otherwise-identical tables, one with a column 40% blank,
+    one with the SAME column 60% blank. Under the old
+    ColumnSchema.nullable-derived weighting, the 40%-blank column was
+    inferred "required" (2x weight) while the 60%-blank column crossed
+    the CSV connector's 50%-blank threshold and was inferred "optional"
+    (1x weight) — so the WORSE (60%-blank) table scored completeness
+    40.0 while the better (40%-blank) table scored 20.0, an inversion.
+    With "email" explicitly configured as required, both tables are
+    graded by the same units-correct cell fraction regardless of their
+    own blank ratio, so the ordering is now correct: more blank ->
+    lower score, always."""
+    from app.checks.completeness import NullCheck
+
+    def _table_with_blank_ratio(blank_ratio: float) -> CanonicalTable:
+        n = 100
+        blank_count = int(n * blank_ratio)
+        columns = [ColumnSchema(name="email", type=ColumnType.STRING)]
+        rows = [{"email": "" if i < blank_count else f"user{i}@x.com"} for i in range(n)]
+        return CanonicalTable(tenant_id="t", source_id="s", table_name="t", columns=columns, rows=rows)
+
+    forty_pct_blank = _table_with_blank_ratio(0.40)
+    sixty_pct_blank = _table_with_blank_ratio(0.60)
+
+    forty_result = NullCheck().run(forty_pct_blank)
+    sixty_result = NullCheck().run(sixty_pct_blank)
+
+    forty_scan = _scan_result(check_results=[forty_result])
+    sixty_scan = _scan_result(check_results=[sixty_result])
+
+    forty_card = compute_scorecard(forty_scan, forty_pct_blank, required_columns=["email"])
+    sixty_card = compute_scorecard(sixty_scan, sixty_pct_blank, required_columns=["email"])
+
+    forty_completeness = next(m for m in forty_card.metric_scores if m.metric == MetricCategory.COMPLETENESS)
+    sixty_completeness = next(m for m in sixty_card.metric_scores if m.metric == MetricCategory.COMPLETENESS)
+
+    assert forty_completeness.score == 60.0  # 1 - 40/100
+    assert sixty_completeness.score == 40.0  # 1 - 60/100
+    assert sixty_completeness.score < forty_completeness.score  # worse data scores lower, not higher

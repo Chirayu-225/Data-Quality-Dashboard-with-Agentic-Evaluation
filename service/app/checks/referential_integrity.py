@@ -27,11 +27,18 @@ class ReferentialIntegrityCheck(Check):
       REAL check — does this account_id actually exist in the accounts
       table's id column.
     - If no related table is available (the common case for a single
-      CSV upload with no second file): degrades to a weaker signal —
-      flag only blank foreign-key values, since without the related
-      table there's nothing to verify existence against. This is a
-      known, deliberate limitation, not a silent gap: the detail
-      message says explicitly when it's operating in this mode.
+      CSV upload with no second file): there's nothing to verify
+      non-blank values against, and a blank FK value is ALREADY a
+      Finding under COMPLETENESS (NullCheck flags a blank in every
+      column, this one included — see completeness.py). Flagging it
+      again here, under CONSISTENCY, used to double-count the exact
+      same defect under two separate metrics for no added signal — a
+      code review reproduced this directly (a table with a blank FK
+      column showed the identical row set flagged under both metrics).
+      Fallback mode therefore reports the fact in `detail` (so a caller
+      still sees that this FK's non-blank values went unverified) but
+      contributes NO flagged rows of its own; the blank cell itself is
+      scored once, under COMPLETENESS, where it already belongs.
     """
 
     name = "referential_integrity_check"
@@ -78,18 +85,21 @@ class ReferentialIntegrityCheck(Check):
                         flagged_fields.setdefault(i, []).append(fk_col)
             else:
                 # Fallback mode — no related table to verify against.
-                bad = [
-                    i for i, row in enumerate(table.rows) if row.get(fk_col) in (None, "")
-                ]
-                if bad:
+                # Blank values are NOT flagged here: NullCheck already
+                # flags them under COMPLETENESS, and flagging them again
+                # under CONSISTENCY would double-count the same defect
+                # (see this check's own docstring). Non-blank values are
+                # simply unverifiable without the related table — noted,
+                # not flagged, since there is genuinely no evidence
+                # either way.
+                blank_count = sum(1 for row in table.rows if row.get(fk_col) in (None, ""))
+                if blank_count:
                     notes.append(
-                        f"{fk_col}: {len(bad)} rows have a blank reference "
+                        f"{fk_col}: {blank_count} row(s) have a blank reference "
                         f"(no '{related_name}' table available to verify "
-                        f"existence against — fallback mode)"
+                        f"existence against — fallback mode; already counted "
+                        f"under completeness, not flagged again here)"
                     )
-                    flagged.update(bad)
-                    for i in bad:
-                        flagged_fields.setdefault(i, []).append(fk_col)
 
         return CheckResult(
             check_name=self.name,

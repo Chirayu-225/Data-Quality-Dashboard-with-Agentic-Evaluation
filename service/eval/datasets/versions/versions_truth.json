@@ -1,0 +1,642 @@
+{
+  "disclosure": "Synthetic (forged) data with known, deliberately planted changes. Scans of these files are real; the data is not.",
+  "generator_seed": 20261004,
+  "key_column": "id (stable across all versions; prefer ids over row indices, since v2 and v3 are shuffled)",
+  "row_order": {
+    "v1": "sorted by id",
+    "v2": "shuffled",
+    "v3": "shuffled",
+    "purpose": "comparison must match rows by key, never by position"
+  },
+  "row_counts": {
+    "v1": 1000,
+    "v2": 1200,
+    "v3": 1190
+  },
+  "v1_quality_issues_by_id": {
+    "duplicate_email": [
+      292,
+      511,
+      582,
+      671,
+      783,
+      809,
+      846,
+      893,
+      902,
+      984
+    ],
+    "amount_sentinel": [
+      118,
+      153,
+      326,
+      351,
+      378,
+      379,
+      393,
+      410,
+      448,
+      496,
+      577,
+      678,
+      698,
+      737,
+      826,
+      836,
+      881,
+      886,
+      929,
+      953
+    ],
+    "amount_garbage": [
+      69,
+      299,
+      513,
+      694,
+      770,
+      855,
+      868,
+      942
+    ],
+    "blank_required": [
+      45,
+      195,
+      205,
+      210,
+      285,
+      439,
+      458,
+      509,
+      512,
+      523,
+      558,
+      587,
+      644,
+      773,
+      940
+    ],
+    "semantic_mismatch": [
+      117,
+      147,
+      171,
+      381,
+      565,
+      579,
+      755,
+      766
+    ],
+    "amount_outlier": [
+      54,
+      373,
+      684,
+      974
+    ]
+  },
+  "v1_note": "v1 quality issues carry forward unchanged into v2 (none of the issue rows were removed or modified)",
+  "v1_to_v2": {
+    "removed_ids": [
+      12,
+      37,
+      76,
+      85,
+      89,
+      95,
+      115,
+      124,
+      134,
+      158,
+      159,
+      183,
+      185,
+      197,
+      208,
+      244,
+      251,
+      275,
+      289,
+      302,
+      348,
+      354,
+      356,
+      395,
+      405,
+      454,
+      464,
+      507,
+      556,
+      612,
+      634,
+      669,
+      676,
+      696,
+      697,
+      708,
+      754,
+      782,
+      784,
+      788,
+      795,
+      808,
+      829,
+      831,
+      851,
+      857,
+      928,
+      936,
+      946,
+      1000
+    ],
+    "added_ids": [
+      1001,
+      1002,
+      1003,
+      1004,
+      1005,
+      1006,
+      1007,
+      1008,
+      1009,
+      1010,
+      1011,
+      1012,
+      1013,
+      1014,
+      1015,
+      1016,
+      1017,
+      1018,
+      1019,
+      1020,
+      1021,
+      1022,
+      1023,
+      1024,
+      1025,
+      1026,
+      1027,
+      1028,
+      1029,
+      1030,
+      1031,
+      1032,
+      1033,
+      1034,
+      1035,
+      1036,
+      1037,
+      1038,
+      1039,
+      1040,
+      1041,
+      1042,
+      1043,
+      1044,
+      1045,
+      1046,
+      1047,
+      1048,
+      1049,
+      1050,
+      1051,
+      1052,
+      1053,
+      1054,
+      1055,
+      1056,
+      1057,
+      1058,
+      1059,
+      1060,
+      1061,
+      1062,
+      1063,
+      1064,
+      1065,
+      1066,
+      1067,
+      1068,
+      1069,
+      1070,
+      1071,
+      1072,
+      1073,
+      1074,
+      1075,
+      1076,
+      1077,
+      1078,
+      1079,
+      1080,
+      1081,
+      1082,
+      1083,
+      1084,
+      1085,
+      1086,
+      1087,
+      1088,
+      1089,
+      1090,
+      1091,
+      1092,
+      1093,
+      1094,
+      1095,
+      1096,
+      1097,
+      1098,
+      1099,
+      1100,
+      1101,
+      1102,
+      1103,
+      1104,
+      1105,
+      1106,
+      1107,
+      1108,
+      1109,
+      1110,
+      1111,
+      1112,
+      1113,
+      1114,
+      1115,
+      1116,
+      1117,
+      1118,
+      1119,
+      1120,
+      1121,
+      1122,
+      1123,
+      1124,
+      1125,
+      1126,
+      1127,
+      1128,
+      1129,
+      1130,
+      1131,
+      1132,
+      1133,
+      1134,
+      1135,
+      1136,
+      1137,
+      1138,
+      1139,
+      1140,
+      1141,
+      1142,
+      1143,
+      1144,
+      1145,
+      1146,
+      1147,
+      1148,
+      1149,
+      1150,
+      1151,
+      1152,
+      1153,
+      1154,
+      1155,
+      1156,
+      1157,
+      1158,
+      1159,
+      1160,
+      1161,
+      1162,
+      1163,
+      1164,
+      1165,
+      1166,
+      1167,
+      1168,
+      1169,
+      1170,
+      1171,
+      1172,
+      1173,
+      1174,
+      1175,
+      1176,
+      1177,
+      1178,
+      1179,
+      1180,
+      1181,
+      1182,
+      1183,
+      1184,
+      1185,
+      1186,
+      1187,
+      1188,
+      1189,
+      1190,
+      1191,
+      1192,
+      1193,
+      1194,
+      1195,
+      1196,
+      1197,
+      1198,
+      1199,
+      1200,
+      1201,
+      1202,
+      1203,
+      1204,
+      1205,
+      1206,
+      1207,
+      1208,
+      1209,
+      1210,
+      1211,
+      1212,
+      1213,
+      1214,
+      1215,
+      1216,
+      1217,
+      1218,
+      1219,
+      1220,
+      1221,
+      1222,
+      1223,
+      1224,
+      1225,
+      1226,
+      1227,
+      1228,
+      1229,
+      1230,
+      1231,
+      1232,
+      1233,
+      1234,
+      1235,
+      1236,
+      1237,
+      1238,
+      1239,
+      1240,
+      1241,
+      1242,
+      1243,
+      1244,
+      1245,
+      1246,
+      1247,
+      1248,
+      1249,
+      1250
+    ],
+    "modified": {
+      "count": 60,
+      "changed_fields_by_id": {
+        "7": [
+          "amount"
+        ],
+        "15": [
+          "amount"
+        ],
+        "59": [
+          "amount"
+        ],
+        "60": [
+          "amount"
+        ],
+        "83": [
+          "company"
+        ],
+        "97": [
+          "amount"
+        ],
+        "125": [
+          "company"
+        ],
+        "128": [
+          "amount"
+        ],
+        "133": [
+          "company"
+        ],
+        "149": [
+          "amount"
+        ],
+        "156": [
+          "email"
+        ],
+        "177": [
+          "company"
+        ],
+        "187": [
+          "company"
+        ],
+        "199": [
+          "amount"
+        ],
+        "214": [
+          "amount"
+        ],
+        "215": [
+          "company"
+        ],
+        "245": [
+          "amount"
+        ],
+        "279": [
+          "amount"
+        ],
+        "290": [
+          "amount"
+        ],
+        "296": [
+          "amount"
+        ],
+        "312": [
+          "amount"
+        ],
+        "319": [
+          "company"
+        ],
+        "322": [
+          "amount"
+        ],
+        "340": [
+          "email"
+        ],
+        "344": [
+          "amount"
+        ],
+        "357": [
+          "amount"
+        ],
+        "367": [
+          "email"
+        ],
+        "396": [
+          "company"
+        ],
+        "436": [
+          "amount"
+        ],
+        "442": [
+          "email"
+        ],
+        "491": [
+          "amount"
+        ],
+        "544": [
+          "email"
+        ],
+        "554": [
+          "amount"
+        ],
+        "573": [
+          "amount"
+        ],
+        "578": [
+          "amount"
+        ],
+        "597": [
+          "email"
+        ],
+        "601": [
+          "amount"
+        ],
+        "603": [
+          "email"
+        ],
+        "636": [
+          "amount"
+        ],
+        "656": [
+          "amount"
+        ],
+        "682": [
+          "amount"
+        ],
+        "709": [
+          "amount"
+        ],
+        "712": [
+          "amount"
+        ],
+        "724": [
+          "email"
+        ],
+        "725": [
+          "amount"
+        ],
+        "745": [
+          "company"
+        ],
+        "760": [
+          "amount"
+        ],
+        "764": [
+          "company"
+        ],
+        "797": [
+          "amount"
+        ],
+        "817": [
+          "email"
+        ],
+        "840": [
+          "amount"
+        ],
+        "841": [
+          "amount"
+        ],
+        "843": [
+          "amount"
+        ],
+        "905": [
+          "amount"
+        ],
+        "920": [
+          "amount"
+        ],
+        "932": [
+          "amount"
+        ],
+        "956": [
+          "amount"
+        ],
+        "960": [
+          "amount"
+        ],
+        "983": [
+          "amount"
+        ],
+        "992": [
+          "email"
+        ]
+      }
+    },
+    "unchanged_count": 890,
+    "expected_summary": "890 unchanged, 60 modified, 250 added, 50 removed",
+    "planted_drift": {
+      "country_code": "added rows use a different mix (IN 75%, DE 20%, US 4%) vs v1 (US 70%)",
+      "amount": "added rows drawn from a higher distribution (median ~32k vs ~12k); 40 existing rows raised 10-50%",
+      "phone_null_rate": "30% of added rows have blank phone; existing rows unchanged"
+    },
+    "control_columns_expected_stable": [
+      "discount_type"
+    ],
+    "reference_metrics": {
+      "psi_method": "PSI = sum((new-old)*ln(new/old)); epsilon 1e-4 floor; numeric uses 10 quantile bins from v1, excludes non-numeric and 99999999 outliers",
+      "psi_country_code": 0.2206,
+      "psi_amount": 0.1465,
+      "psi_discount_type_control": 0.0021,
+      "phone_null_rate": {
+        "v1": 0.0,
+        "v2": 0.0667
+      },
+      "volume_change_pct": 20.0
+    },
+    "note": "reference PSI values depend on binning choices; compare direction and band (below 0.10 / 0.10-0.20 / above 0.20), not exact digits"
+  },
+  "v2_to_v3": {
+    "schema_changes": {
+      "renamed": {
+        "phone": "phone_number"
+      },
+      "added_columns": [
+        "industry"
+      ],
+      "removed_columns": [
+        "zip"
+      ],
+      "format_change": {
+        "amount": "plain integers became currency strings like $12,345.00; underlying values unchanged"
+      },
+      "column_order": "changed (company and industry moved next to id)"
+    },
+    "rename_detection_hint": "phone and phone_number share ~100% of their values across matched ids; a rename detector should propose this rather than report one removed and one added column",
+    "removed_ids": [
+      47,
+      96,
+      138,
+      166,
+      482,
+      498,
+      635,
+      723,
+      748,
+      911
+    ],
+    "added_ids": [],
+    "value_changes": "none intended beyond the amount formatting; after normalizing currency, amount values match v2 exactly",
+    "industry_note": "industry is derived from the company name suffix; semantic-mismatch rows with junk company names get a blank industry"
+  }
+}

@@ -85,6 +85,11 @@ def run() -> bool:
     from app.agent.generator import GeneratorAgent
     from app.agent.llm_clients import GroqClient
 
+    # Same note as run_adversarial_eval.py / run_eval.py: this is a
+    # direct GeneratorAgent call, so there's no ai_review_consent flag
+    # to pass (that gate is API-level, in main.py) — constructing
+    # GroqClient() here is this harness's own deliberate consent
+    # equivalent, not a bypass.
     llm = GroqClient()
     verifier_llm = None
     try:

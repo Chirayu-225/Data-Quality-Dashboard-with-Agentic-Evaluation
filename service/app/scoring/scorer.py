@@ -126,28 +126,101 @@ denominator: the per-metric formula divides flagged_weight by
 total_rows, and total_rows was unconditionally the WHOLE table's row
 count, even though quarantined rows are structurally never sampled by
 the semantic layer and therefore can never contribute flagged_weight
-either. A table with several rows quarantined would report a
-misleadingly high ACCURACY score — the numerator correctly excluded
-those rows' (nonexistent) semantic findings, but the denominator still
-credited them as if they'd been checked and found fine. Fixed by
-giving ACCURACY specifically a reduced denominator
-(`accuracy_total_rows = total_rows - quarantined_row_count`) — see
-`compute_scorecard`'s own comment. Every other metric keeps the
-unmodified `total_rows`, since their deterministic checks really did
-run over every row, quarantined or not.
+either. Fixed FIRST by giving ACCURACY a reduced denominator
+(`total_rows - quarantined_row_count`), then reproduced AGAIN one level
+deeper by a second code review: that formula still overcounted whenever
+semantic coverage stopped for a reason OTHER than quarantine — an
+opt-in `max_llm_calls` cap, a provider outage mid-scan, or a batch
+response that failed to parse all still left rows that were never
+reliably reasoned over, yet `total_rows - quarantined_row_count` kept
+crediting them as evaluated-and-clean. Worked example that reproduced
+it: a 100-row table with `max_semantic_llm_calls=1` at batch size 20 —
+only 20 of 100 rows are ever sampled, yet the quarantine-only formula
+reported ACCURACY as a clean 100.0. Fixed by using
+`ScanResult.semantic_rows_considered` — the count
+`_run_semantic_with_iteration` itself tracks as genuinely,
+reliably reasoned over (see its own docstring) — as ACCURACY's real
+denominator, rather than re-deriving an approximation of it here.
+`evaluated_metrics`' ACCURACY membership was changed to match:
+"the semantic layer reliably considered at least one row"
+(`accuracy_total_rows > 0`), not "a batch was attempted"
+(`semantic_iterations > 0`) — the latter can be true with zero rows
+reliably considered (every sampled row's batch failed to parse), which
+would have silently reported a clean ACCURACY score again. Every other
+metric keeps the unmodified `total_rows`, since their deterministic
+checks really did run over every row regardless of what the semantic
+layer did.
 
-Deliberately NOT touched by this pass: the per-metric formula itself
+Deliberately NOT touched by THAT pass: the per-metric formula itself
 (100 * (1 - flagged_weight / total_rows)) and the field-criticality
-weight constants. An initial instinct was to rescale the denominator
-so a weight above 1.0 (the 2.0 "required field" tier) could never
-mechanically approach total_rows — but every existing field-criticality
-test (test_flag_on_required_field_weighs_double_an_optional_one and
-neighbors) pins exact numbers under the CURRENT formula, and that
-feature is real, intentional, already-tested behavior, not the bug
-under investigation. Rescaling it would have silently changed
-already-correct behavior as a side effect of fixing a different,
-narrower problem. The two fixes above are the ones that were actually
-reproduced as wrong; nothing else in this module's arithmetic changed.
+weight constants — see Bug 4 below for where that changed, in a later
+pass, for COMPLETENESS specifically.
+
+Bug 4 (config-driven requiredness + the units fix, from a later code
+review) — COMPLETENESS's own weighting was STILL circular even after
+Bug 1-3 and NullCheck's "flag every column" fix: `_field_criticality_weight`
+keys off `ColumnSchema.nullable`, and for the CSV connector `nullable`
+is ITSELF inferred from the same column's own blank ratio (>=50% blank
+-> nullable=True, see csv_connector.py). So a column 40% blank was
+inferred required (weight 2.0) while a column 60% blank was inferred
+optional (weight 1.0) — worse data was graded with an easier answer
+key it wrote from its own defects. Reproduced directly: two
+otherwise-identical tables (40% vs 60% blank on the same column) scored
+completeness 20.0 and 40.0 respectively — worse data scoring higher,
+the same inversion NullCheck's fix addressed one layer up, just moved
+into the weights.
+
+This was also a genuine UNITS mismatch, independent of where the
+weight came from: `_CRITICAL_FIELD_WEIGHT` (2.0) is applied to a
+per-ROW numerator (flagged_weight, at most 1 contribution per row via
+max()) but divided by total_rows — a denominator that was never itself
+scaled by that same 2.0, so a table where every row is missing one
+required field could show flagged_weight/total_rows as low as 0.5
+(one required-field weight of 2.0, spread over an unrelated raw row
+count) instead of reading as the 100%-blank problem it actually is.
+
+The fix replaces COMPLETENESS's contribution to this module's row-level
+Finding/weight machinery entirely, computing it directly and separately
+as a CELL-level fraction — "the fraction of required cells that are
+filled" — from a caller-supplied `required_columns` list (there being
+no persisted schema/config layer yet to ask instead; see
+compute_scorecard's `required_columns` parameter):
+
+- With `required_columns` non-empty: for every row, each name in
+  `required_columns` that exists on the table is one "required cell";
+  a blank one is a defect. completeness = 100 * (filled required cells
+  / total required cells). Both sides of that fraction are now in the
+  same units (cell counts), so there is no weight-vs-row-count
+  mismatch left to produce a distorted number, and requiredness comes
+  from the caller's own configuration rather than a heuristic derived
+  from the data being graded — the circularity is gone by construction,
+  not by picking better constants for the old formula.
+- Non-required columns (present on the table but not named in
+  `required_columns`) get an INFORMATIONAL fill-rate report
+  (`ScoreCard.non_required_fill_rates`) instead of any score
+  contribution — a legitimately sparse optional field (fax number,
+  middle name) no longer drags completeness down just for existing,
+  addressing the separate "flagging every blank overcorrects" concern
+  from the same review, without reintroducing the requiredness-from-
+  blank-ratio circularity to fix it.
+- With `required_columns` omitted or empty (the common case, absent
+  any config UI yet): completeness falls back to an UNWEIGHTED overall
+  fill rate across every column — 100 * (filled cells / total cells)
+  — rather than reporting N/A, so the metric doesn't disappear for the
+  majority of scans that haven't configured anything yet.
+  `ScoreCard.completeness_mode` is set to "no_required_fields_configured"
+  in this case specifically, so a caller can label the number honestly
+  rather than presenting it as if requiredness were actually configured
+  (it's "configured" otherwise, once a non-empty list is supplied).
+
+Every OTHER metric (VALIDITY, CONSISTENCY, ACCURACY) is unchanged by
+this pass: their own field-criticality weighting still exists and
+still keys off ColumnSchema.nullable — a real, intentional, tested
+feature (test_flag_on_required_field_weighs_double_an_optional_one and
+neighbors) this pass leaves alone, since the reproduced circularity and
+the reproduced units mismatch were both specific to COMPLETENESS, where
+`nullable`'s own circular provenance and the row-vs-cell unit mismatch
+actually lived.
 """
 
 from __future__ import annotations
@@ -220,6 +293,26 @@ class ScoreCard(BaseModel):
     # capped per _OVERALL_CRITICAL_CAP_ALLOWANCE — see module docstring.
     # 100.0 in the degenerate case where nothing was evaluated at all.
 
+    # --- Bug 4 (config-driven requiredness) fields — see module
+    # docstring for the full explanation. Both are specific to
+    # COMPLETENESS; every other metric is unaffected. ---
+
+    # "configured" when compute_scorecard was given a non-empty
+    # `required_columns` list this scan; "no_required_fields_configured"
+    # when it fell back to the unweighted-overall-fill-rate default.
+    # Lets a caller label the completeness number honestly instead of
+    # implying requiredness was configured when it wasn't.
+    completeness_mode: str = "no_required_fields_configured"
+    # Informational only — fill rate (0-100) per column that exists on
+    # the table but was NOT named in `required_columns` (or, in the
+    # unweighted-fallback mode, empty — there's no required/non-required
+    # split to report since every column already counts toward the one
+    # unweighted score). Never contributes to completeness_score or
+    # overall_score; it's a visibility report so a legitimately-sparse
+    # optional field's fill rate isn't simply invisible just because it
+    # no longer drags the score down.
+    non_required_fill_rates: dict[str, float] = {}
+
 
 def _field_criticality_weight(column: ColumnSchema | None) -> float:
     if column is None:
@@ -249,24 +342,74 @@ def _finding_weight(finding: Finding, columns_by_name: dict[str, ColumnSchema]) 
     return 0.0  # REJECTED never reaches here (excluded by the converter), kept as a safe fallback
 
 
+def _compute_completeness(
+    table: CanonicalTable, required_columns: list[str] | None
+) -> tuple[float, float, int, dict[str, float], str]:
+    """Cell-level completeness — see the module docstring's "Bug 4" for
+    why this bypasses the generic row-level Finding/weight machinery
+    entirely. Returns (score, flagged_weight, denom, non_required_fill_rates, mode).
+
+    flagged_weight/denom here are CELL counts (blank required cells /
+    total required cells in "configured" mode, or blank/total cells
+    table-wide in the unweighted fallback) — not row counts — which is
+    the actual units fix: both sides of the fraction are always in the
+    same unit, so there's no weighted-numerator-over-unweighted-
+    denominator mismatch left to produce a distorted number."""
+    all_cols = [c.name for c in table.columns]
+    n_rows = len(table.rows)
+
+    required = [c for c in (required_columns or []) if c in all_cols]
+
+    if required:
+        non_required = [c for c in all_cols if c not in required]
+        total_cells = n_rows * len(required)
+        blank_cells = sum(1 for row in table.rows for col in required if row.get(col) in (None, ""))
+        non_required_fill_rates = {
+            col: (100.0 if n_rows == 0 else round(
+                100.0 * sum(1 for row in table.rows if row.get(col) not in (None, "")) / n_rows, 1
+            ))
+            for col in non_required
+        }
+        mode = "configured"
+    else:
+        # No required columns configured — the common case absent any
+        # config UI yet. Falls back to an unweighted overall fill rate
+        # across every column, rather than N/A, so the metric doesn't
+        # disappear for most scans (see module docstring). No
+        # required/non-required split exists in this mode, so there's
+        # nothing separate to report informationally.
+        total_cells = n_rows * len(all_cols)
+        blank_cells = sum(1 for row in table.rows for col in all_cols if row.get(col) in (None, ""))
+        non_required_fill_rates = {}
+        mode = "no_required_fields_configured"
+
+    score = 100.0 if total_cells == 0 else round(max(0.0, 100.0 * (1 - blank_cells / total_cells)), 1)
+    return score, float(blank_cells), total_cells, non_required_fill_rates, mode
+
+
 def compute_scorecard(
     scan_result: ScanResult,
     table: CanonicalTable,
     metric_weights: dict[MetricCategory, float] | None = None,
+    required_columns: list[str] | None = None,
 ) -> ScoreCard:
     total_rows = len(table.rows)
-    # ACCURACY's real denominator excludes quarantined rows (see
-    # app/agent/generator.py's ScanResult.quarantined_row_indices) —
-    # those rows are structurally never sampled by the semantic layer,
-    # so counting them in the "how many rows were evaluated" denominator
-    # would silently treat "never reasoned over" the same as
-    # "reasoned over and found clean," inflating the score exactly the
-    # way Bug 1 in this module's docstring already warned against for
-    # the metric-level case. Every OTHER metric still uses the full
-    # total_rows: their deterministic checks ran over every row,
-    # quarantined or not, so nothing needs adjusting there.
-    quarantined_count = len(getattr(scan_result, "quarantined_row_indices", None) or [])
-    accuracy_total_rows = max(0, total_rows - quarantined_count)
+    # ACCURACY's real denominator is the rows the semantic layer
+    # RELIABLY reasoned over — see ScanResult.semantic_rows_considered
+    # and _run_semantic_with_iteration's docstring for exactly what
+    # that excludes: quarantined rows (never sampled at all), rows a
+    # budget cap or provider outage never got to before coverage
+    # stopped early, and rows whose batch came back unparseable. An
+    # earlier version of this fix used `total_rows - quarantined_count`
+    # alone, which still silently credited a budget-capped or
+    # unparseable row as "reasoned over and clean" — the exact same
+    # failure mode as Bug 1 above, just one level down (see the
+    # code-review-reproduced case: a 100-row table capped after one
+    # 20-row batch reported ACCURACY as a clean 100.0, with 80 rows
+    # never actually looked at). Every OTHER metric still uses the full
+    # total_rows: their deterministic checks ran over every row
+    # regardless of what the semantic layer did.
+    accuracy_total_rows = max(0, getattr(scan_result, "semantic_rows_considered", 0) or 0)
     columns_by_name = {c.name: c for c in table.columns}
     nullable_by_field = {c.name: c.nullable for c in table.columns}
 
@@ -291,6 +434,13 @@ def compute_scorecard(
 
     row_weight_by_metric: dict[MetricCategory, dict[int, float]] = {m: {} for m in _ALL_METRICS}
     for finding in findings:
+        if finding.category == MetricCategory.COMPLETENESS:
+            # COMPLETENESS is computed separately below at the cell
+            # level (see _compute_completeness / Bug 4) — it no longer
+            # goes through the generic row-level max() weighting other
+            # metrics use, so it's deliberately excluded from this
+            # bucket rather than computed here and then discarded.
+            continue
         bucket = row_weight_by_metric[finding.category]
         row_idx = finding.affected_rows[0]
         w = _finding_weight(finding, columns_by_name)
@@ -300,26 +450,47 @@ def compute_scorecard(
     # never inferred from whether it produced any findings, since
     # "ran and found nothing" and "never ran" must not look identical.
     # Deterministic: at least one CheckResult under this category.
-    # ACCURACY additionally counts as evaluated when the semantic layer
-    # ran at least one batch this scan, even if PromptInjectionCheck
-    # (the only deterministic ACCURACY check) didn't apply.
+    # ACCURACY additionally counts as evaluated only when the semantic
+    # layer reliably reasoned over at least ONE row this scan
+    # (accuracy_total_rows > 0) — deliberately NOT "semantic_iterations
+    # > 0" (a batch was attempted), since a batch can be attempted and
+    # still leave zero rows reliably considered (every row in it was
+    # quarantined, or its response failed to parse). This is what makes
+    # the "every row excluded" case an explicit guard rather than the
+    # coincidence it used to be: previously this happened to come out
+    # right only because semantic_iterations stayed 0 whenever
+    # everything was pre-quarantined, which would NOT have been true in
+    # an all-batches-unparseable scenario.
     evaluated_metrics: set[MetricCategory] = {
         r.metric for r in scan_result.check_results if r.check_name != _INJECTION_CHECK_NAME
     }
-    if getattr(scan_result, "semantic_iterations", 0) > 0:
+    if accuracy_total_rows > 0:
         evaluated_metrics.add(_SEMANTIC_METRIC)
 
     metric_scores: list[MetricScore] = []
     weighted_sum = 0.0
     weight_total = 0.0
     evaluated_scores: list[float] = []
+    completeness_mode = "no_required_fields_configured"
+    non_required_fill_rates: dict[str, float] = {}
 
     for metric in _ALL_METRICS:
         is_evaluated = metric in evaluated_metrics
-        flagged_weight = sum(row_weight_by_metric[metric].values())
-        # See accuracy_total_rows' own comment above — ACCURACY is the
-        # one metric whose real denominator isn't the whole table.
-        denom = accuracy_total_rows if metric == _SEMANTIC_METRIC else total_rows
+
+        if metric == MetricCategory.COMPLETENESS:
+            # Bug 4 — cell-level, not the generic row-level max()
+            # weighting every other metric uses. See
+            # _compute_completeness and the module docstring.
+            score, flagged_weight, denom, non_required_fill_rates, completeness_mode = (
+                _compute_completeness(table, required_columns)
+            )
+        else:
+            flagged_weight = sum(row_weight_by_metric[metric].values())
+            # See accuracy_total_rows' own comment above — ACCURACY is
+            # the one metric whose real denominator isn't the whole
+            # table.
+            denom = accuracy_total_rows if metric == _SEMANTIC_METRIC else total_rows
+            score = None if denom == 0 else max(0.0, 100.0 * (1 - flagged_weight / denom))
 
         if not is_evaluated:
             metric_scores.append(
@@ -333,8 +504,7 @@ def compute_scorecard(
             )
             continue
 
-        score = 100.0 if denom == 0 else max(0.0, 100.0 * (1 - flagged_weight / denom))
-        score = round(score, 1)
+        score = 100.0 if score is None else round(score, 1)
 
         metric_scores.append(
             MetricScore(
@@ -368,4 +538,6 @@ def compute_scorecard(
         table_name=scan_result.table_name,
         metric_scores=metric_scores,
         overall_score=overall,
+        completeness_mode=completeness_mode,
+        non_required_fill_rates=non_required_fill_rates,
     )

@@ -157,30 +157,49 @@ function RowData({ rowData, expanded, onToggle }: { rowData: Record<string, unkn
   );
 }
 
-type FilterKey = "all" | "deterministic" | "semantic" | "confirmed";
+type FilterKey = "problems" | "all" | "deterministic" | "semantic" | "confirmed" | "security";
 
 const FILTERS: { key: FilterKey; label: string }[] = [
+  { key: "problems", label: "Needs attention" },
   { key: "all", label: "All" },
   { key: "deterministic", label: "Deterministic" },
   { key: "semantic", label: "Semantic" },
   { key: "confirmed", label: "Confirmed" },
+  { key: "security", label: "Security" },
 ];
+
+// A row the prompt-injection backstop flagged has its deterministic
+// reason prefixed "SECURITY (...)" (see service/app/main.py) — that
+// prefix is the only signal available here, since FlaggedRowOut
+// doesn't carry severity directly (see CoveragePanel/SecurityFinding
+// for the structured version of the same fact).
+function isSecurityRow(row: FlaggedRowOut): boolean {
+  return row.deterministic_reasons.some((r) => r.startsWith("SECURITY"));
+}
 
 function matchesFilter(row: FlaggedRowOut, filter: FilterKey): boolean {
   switch (filter) {
+    case "problems":
+      return row.counts_as_problem !== false;
     case "deterministic":
       return row.deterministic_reasons.length > 0;
     case "semantic":
       return row.semantic_reason !== null;
     case "confirmed":
       return row.verification_label === "confirmed";
+    case "security":
+      return isSecurityRow(row);
     default:
       return true;
   }
 }
 
 export function FlaggedRowsTable({ rows }: { rows: FlaggedRowOut[] }) {
-  const [filter, setFilter] = useState<FilterKey>("all");
+  // Open on "Needs attention" only when some rows are blank-only noise;
+  // otherwise the two views are identical and "All" is the plain default.
+  const [filter, setFilter] = useState<FilterKey>(() =>
+    rows.some((r) => r.counts_as_problem === false) ? "problems" : "all"
+  );
   const [page, setPage] = useState(0);
   const [expandedRows, setExpandedRows] = useState<Set<number>>(new Set());
   const [review, setReview] = useState<Map<number, ReviewLabel>>(new Map());
@@ -218,10 +237,12 @@ export function FlaggedRowsTable({ rows }: { rows: FlaggedRowOut[] }) {
 
   const counts = useMemo(
     () => ({
+      problems: rows.filter((r) => matchesFilter(r, "problems")).length,
       all: rows.length,
       deterministic: rows.filter((r) => matchesFilter(r, "deterministic")).length,
       semantic: rows.filter((r) => matchesFilter(r, "semantic")).length,
       confirmed: rows.filter((r) => matchesFilter(r, "confirmed")).length,
+      security: rows.filter((r) => matchesFilter(r, "security")).length,
     }),
     [rows]
   );

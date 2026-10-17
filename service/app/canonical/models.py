@@ -55,9 +55,34 @@ class CanonicalTable(BaseModel):
     table_name: str
     columns: list[ColumnSchema]
     rows: list[dict[str, Any]]
+    # row_index -> {column_name: original_raw_string}, populated ONLY for
+    # a cell a connector normalized away (today: a null-sentinel string
+    # like "N/A" blanked at ingest — see csv_connector.py's gated
+    # sentinel normalization). `rows` itself always holds the
+    # NORMALIZED value (blank, here), since that's what every check and
+    # the scorer must see for the normalization to mean anything; this
+    # field exists purely so a human-facing view (flagged_rows/
+    # security_findings row_data in main.py) can still show "N/A"
+    # instead of an unexplained empty cell. Absent for any cell that
+    # was never normalized — most cells, most tables.
+    raw_overrides: dict[int, dict[str, str]] = Field(default_factory=dict)
 
     def column_names(self) -> set[str]:
         return {c.name for c in self.columns}
+
+    def display_row(self, row_index: int) -> dict[str, Any]:
+        """The row at `row_index`, with any normalized-away cell shown
+        as its original raw string instead of the blank value checks
+        and scoring actually operate on. Use this (not `rows[idx]`
+        directly) anywhere a row is shown back to a human — a scan
+        response's flagged_rows/security_findings, in particular."""
+        if row_index < 0 or row_index >= len(self.rows):
+            return {}
+        row = dict(self.rows[row_index])
+        overrides = self.raw_overrides.get(row_index)
+        if overrides:
+            row.update(overrides)
+        return row
 
 
 class ScanContext(BaseModel):

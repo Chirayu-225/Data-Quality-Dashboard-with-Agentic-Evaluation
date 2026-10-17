@@ -1,0 +1,333 @@
+{
+  "file": "big_leads.csv",
+  "generator_seed": 20261009,
+  "row_count": 300,
+  "index_convention": "0-based data-row index = id - 1 (header excluded)",
+  "planted_issue_rows": {
+    "duplicate_email": [
+      31,
+      77,
+      141,
+      162,
+      211,
+      235,
+      276,
+      286,
+      288,
+      290
+    ],
+    "phone_format_duplicate": [
+      85,
+      92,
+      131,
+      146,
+      177
+    ],
+    "amount_sentinel": [
+      7,
+      8,
+      9,
+      24,
+      40,
+      53,
+      90,
+      106,
+      111,
+      170,
+      180,
+      196,
+      198,
+      262,
+      275
+    ],
+    "amount_garbage": [
+      4,
+      105,
+      157,
+      264
+    ],
+    "blank_required": [
+      25,
+      35,
+      210,
+      213,
+      214,
+      244
+    ],
+    "semantic_mismatch": [
+      54,
+      55,
+      89,
+      191,
+      216,
+      249,
+      279,
+      283,
+      295,
+      298
+    ],
+    "prompt_injection": [
+      145,
+      242,
+      254
+    ],
+    "amount_outlier": [
+      21,
+      80,
+      104
+    ]
+  },
+  "pairs": {
+    "duplicate_email": {
+      "description": "[original, duplicate]; only the later row is planted (DuplicateCheck flags all but earliest-seen)",
+      "pairs": [
+        [
+          2,
+          31
+        ],
+        [
+          41,
+          77
+        ],
+        [
+          128,
+          141
+        ],
+        [
+          82,
+          162
+        ],
+        [
+          168,
+          211
+        ],
+        [
+          117,
+          235
+        ],
+        [
+          98,
+          276
+        ],
+        [
+          139,
+          286
+        ],
+        [
+          10,
+          288
+        ],
+        [
+          102,
+          290
+        ]
+      ]
+    },
+    "phone_format_duplicate": {
+      "description": "[original, second]; same name+company+phone digits, different email and phone formatting",
+      "pairs": [
+        [
+          75,
+          85
+        ],
+        [
+          46,
+          92
+        ],
+        [
+          88,
+          131
+        ],
+        [
+          14,
+          146
+        ],
+        [
+          87,
+          177
+        ]
+      ]
+    }
+  },
+  "blank_required_field_by_row": {
+    "25": "email",
+    "35": "email",
+    "210": "email",
+    "213": "company",
+    "214": "company",
+    "244": "email"
+  },
+  "traps_must_not_be_flagged": {
+    "date_in_notes": [
+      36,
+      66,
+      69,
+      93,
+      134,
+      144,
+      152,
+      156,
+      173,
+      174,
+      193,
+      219,
+      237,
+      238,
+      252,
+      256,
+      266,
+      273,
+      274,
+      281
+    ],
+    "order_id_in_notes": [
+      5,
+      23,
+      39,
+      49,
+      73,
+      116,
+      133,
+      187,
+      202,
+      292
+    ],
+    "embedded_pii_in_notes": [
+      26,
+      50,
+      57,
+      138,
+      147,
+      167,
+      220,
+      229
+    ],
+    "country_code_NA": [
+      140,
+      154,
+      197,
+      243,
+      245
+    ],
+    "discount_type_None": [
+      12,
+      22,
+      27,
+      30,
+      42,
+      50,
+      51,
+      57,
+      58,
+      67,
+      69,
+      84,
+      99,
+      123,
+      129,
+      134,
+      140,
+      143,
+      147,
+      158,
+      169,
+      183,
+      193,
+      201,
+      207,
+      237,
+      251,
+      252,
+      272,
+      281
+    ],
+    "leading_zero_zip": [
+      1,
+      15,
+      22,
+      26,
+      30,
+      36,
+      37,
+      64,
+      81,
+      99,
+      103,
+      115,
+      116,
+      118,
+      122,
+      125,
+      134,
+      138,
+      147,
+      148,
+      150,
+      154,
+      171,
+      173,
+      176,
+      178,
+      195,
+      200,
+      201,
+      206,
+      207,
+      217,
+      224,
+      236,
+      237,
+      239,
+      246,
+      253,
+      258,
+      261,
+      270,
+      271,
+      278,
+      291,
+      292,
+      293
+    ]
+  },
+  "expected_masking": {
+    "embedded_pii_in_notes": "masked before leaving the server, shown unmasked in results",
+    "date_in_notes": "must NOT be masked as phone",
+    "order_id_in_notes": "must NOT be masked as phone"
+  },
+  "scan_settings": {
+    "required_columns": [
+      "email",
+      "company"
+    ],
+    "note": "blank_required is only penalized when required_columns is configured; semantic_mismatch and phone_format_duplicate need ai_review_consent=true"
+  },
+  "notes_on_expected_behavior": [
+    "phone_format_duplicate rows share name+company with their original, so the name+company duplicate path may also flag them; that is a correct catch",
+    "amount_sentinel should count under completeness (raw text shown), amount_garbage under validity",
+    "originals of both pair types are otherwise clean and are not planted rows",
+    "blank emails must not be grouped as duplicates of each other"
+  ],
+  "summary": {
+    "planted_rows_total": 56,
+    "clean_rows": 244,
+    "per_issue_counts": {
+      "duplicate_email": 10,
+      "phone_format_duplicate": 5,
+      "amount_sentinel": 15,
+      "amount_garbage": 4,
+      "blank_required": 6,
+      "semantic_mismatch": 10,
+      "prompt_injection": 3,
+      "amount_outlier": 3
+    },
+    "trap_counts": {
+      "date_in_notes": 20,
+      "order_id_in_notes": 10,
+      "embedded_pii_in_notes": 8,
+      "country_code_NA": 5,
+      "discount_type_None": 30,
+      "leading_zero_zip": 46
+    }
+  }
+}

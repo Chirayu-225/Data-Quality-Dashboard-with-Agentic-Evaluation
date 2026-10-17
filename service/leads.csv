@@ -1,0 +1,6 @@
+id,name,email,account_id,company
+1,Jane Doe,jane@acme.com,1,Acme Corp
+2,John Smith,john@globex.com,2,Globex Industries
+3,Alice Brown,alice@initech.com,3,Initech Holdings
+4,Bad Ref,bad@nowhere.com,99,Ghost Co
+5,No Ref,noref@x.com,,Unknown Co

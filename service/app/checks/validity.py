@@ -10,7 +10,10 @@ from app.checks.base import Check, CheckResult, MetricCategory, register
 # it's better to under-flag on format than to annoy users with garbage
 # flags on valid-but-unusual data (plus-addressing, new TLDs, etc.).
 _EMAIL_PATTERN = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
-_PHONE_PATTERN = re.compile(r"^[+\d][\d\s\-().]{6,18}\d$")
+# May start with "+" (country code) or "(" (US area code in parentheses,
+# "(555) 123-4567" — one of the most common formats there is; the original
+# pattern required a leading "+" or digit and flagged every one of them).
+_PHONE_PATTERN = re.compile(r"^(\+|\()?\d[\d\s\-().]{5,18}\d$")
 _DATE_FORMATS = ["%Y-%m-%d", "%m/%d/%Y", "%d/%m/%Y", "%Y/%m/%d", "%d-%m-%Y"]
 
 
