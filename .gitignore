@@ -1,35 +1,95 @@
-# Secrets — never commit real keys
+# ===================================================================
+# Secrets: never commit real keys or credentials
+# ===================================================================
 .env
-service/.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+client_secret*.json
+token*.json
 
+# ===================================================================
 # Python
+# ===================================================================
 __pycache__/
-*.pyc
-.pytest_cache/
+*.py[cod]
+*.so
 *.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.ipynb_checkpoints/
 
-# Python virtual environments — any of the common names, anywhere in
-# the repo (not just service/), so a venv created in a different spot
-# still gets caught.
+# Virtual environments, any name, anywhere
+# (service/rip/ was a committed Windows venv: 3,463 files, ~62 MB)
+rip/
 .venv/
 venv/
-rip/
 env/
+ENV/
 .venv*/
 venv*/
-ENV/
+pyvenv.cfg
 
-# Node / Next.js — node_modules and build output wherever they land,
-# not just under frontend/, so a nested package or a future workspace
-# doesn't need its own entry.
+# ===================================================================
+# Node / Next.js
+# ===================================================================
 node_modules/
-frontend/node_modules/
-frontend/.next/
-frontend/next-env.d.ts
 .next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+.turbo/
+.vercel/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+pnpm-debug.log*
 
-# OS
+# ===================================================================
+# Runtime caches and outputs produced by the app
+# ===================================================================
+# LLM replay cache: holds prompts and responses from real runs
+service/.replay_cache/
+.replay_cache/
+# Eval harness LLM result cache (rebuilt by running the eval)
+service/eval/eval_cache.json
+# Ad-hoc scan outputs saved from the API
+/scan*.json
+# Logs and local databases (demo.db is whitelisted below)
+*.log
+*.sqlite
+*.sqlite3
+*.db
+!service/demo_data/demo.db
+
+# ===================================================================
+# Scratch and duplicate files
+# ===================================================================
+# test2/ is an exact copy of service/eval/datasets/versions/
+/test2/
+# Hand-made test CSVs in the service root (tests build their own)
+/service/accounts.csv
+/service/contacts.csv
+/service/leads.csv
+/service/leads2.csv
+/service/notes_test.csv
+
+# ===================================================================
+# Editors and OS
+# ===================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
 .DS_Store
+Thumbs.db
+desktop.ini
